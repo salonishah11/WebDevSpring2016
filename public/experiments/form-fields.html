@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../assignment/css/dashboard.css" rel="stylesheet">
+    <link href="../assignment/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -91,9 +93,7 @@
                     <tr>
                         <td>
                             Date of Birth:<br>
-                            <select>
-                                <option selected>Select Date</option>
-                            </select>
+                            <input type="date" placeholder="Select Date"/>
                         </td>
                         <td>
                             <br>
@@ -192,9 +192,134 @@
             </div>
             -->
 
-            <form>
+            <div class="container">
+                <br/>
+                <form>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            First Name:<br/>
+                            <input type="text" id="inputFirstName" placeholder="First Name">
+                        </div>
+                        <div class="col-md-6">
+                            <br/>
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            Last Name:<br/>
+                            <input type="text" id="inputLastName" placeholder="Last Name">
+                        </div>
+                        <div class="col-md-6">
+                            <br/>
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            Date of Birth:<br/>
+                            <input type="date" id="inputDate" value="Select Date">
+                        </div>
+                        <div class="col-md-6">
+                            <br/>
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            Gender:<br>
+                            <select>
+                                <option selected>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <br/>
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            Roles:<br>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="admin" value="Admin">Admin
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="student" value="student">Student
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="student" value="student">User
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            License Agreement:<br>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radioLicenseAgreement" value="yes">Yes
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="radioLicenseAgreement" value="no">No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            Add New Field:<br>
+                            <select>
+                                <option selected>Single Line Text</option>
+                                <option>Date</option>
+                                <option>Dropdown</option>
+                                <option>Checkboxes</option>
+                                <option>Radio buttons</option>
+                                <option>Paragraph TextField</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <br/>
+                            <span class="glyphicon glyphicon-pencil align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-plus align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove align-bottom" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-menu-hamburger align-bottom" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-            </form>
         </div>
     </div>
 </div>

@@ -1,24 +1,9 @@
-.align-bottom {
-    vertical-align: bottom;
-    margin: 0;
-}
-
-.customHr {
-    width: 85%;
-    font-size: 1px;
-    color: rgba(0, 0, 0, 0);
-    line-height: 1px;
-
-    background-color: grey;
-    margin-top: -6px;
-    margin-bottom: 10px;
-}
-
+/*
 .hr {
     display: block;
     position: relative;
     padding: 0;
-    margin: 8px auto;
+    margin: auto;
     height: 0;
     max-height: 0;
     font-size: 1px;
@@ -27,4 +12,51 @@
     border: none;
     border-top: 1px solid #aaaaaa;
     border-bottom: 1px solid #ffffff;
+}
+*/
+
+.row {
+    clear: both;
+}
+.col-6 {
+    float: left;
+    width: 400px;
+}
+
+.col-3 {
+    margin: 30px;
+    float: left;
+    width: 100px;
+}
+
+.container {
+    margin: auto;
+    width: 900px;
+}
+
+.box {
+    width: 900px;
+    height: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    padding: 30px;
+}
+
+.box-forms {
+    width: auto;
+    height: auto;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    padding: 10px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.form-horizontal .control-label{
+    text-align:left;
+
 }

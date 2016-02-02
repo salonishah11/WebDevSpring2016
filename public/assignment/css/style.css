@@ -1,19 +1,7 @@
-/*
-.hr {
-    display: block;
-    position: relative;
-    padding: 0;
-    margin: auto;
-    height: 0;
-    max-height: 0;
-    font-size: 1px;
-    line-height: 0;
-    clear: both;
-    border: none;
-    border-top: 1px solid #aaaaaa;
-    border-bottom: 1px solid #ffffff;
+.empty {
+    display: inline-block;
+    width: 30px;
 }
-*/
 
 .row {
     clear: both;
@@ -24,39 +12,34 @@
 }
 
 .col-3 {
-    margin: 30px;
+    margin-left: 50px;
     float: left;
     width: 100px;
 }
 
 .container {
     margin: auto;
-    width: 900px;
+    width: auto;
 }
 
 .box {
-    width: 900px;
-    height: auto;
-    border-width: 1px;
-    border-style: solid;
-    border-color: black;
-    padding: 30px;
-}
-
-.box-forms {
     width: auto;
     height: auto;
     border-width: 1px;
     border-style: solid;
     border-color: black;
-    padding: 10px;
-}
-
-.text-align-left {
-    text-align: left;
+    padding: 15px;
 }
 
 .form-horizontal .control-label{
     text-align:left;
+}
 
+.whitespace-no-wrap {
+    white-space: nowrap;
+}
+
+.form-element-decoration {
+    text-decoration: none;
+    color: black;
 }

@@ -1,6 +1,6 @@
 .empty {
     display: inline-block;
-    width: 30px;
+    width: 45px;
 }
 
 .row {
@@ -42,4 +42,11 @@
 .form-element-decoration {
     text-decoration: none;
     color: black;
+}
+
+.button-appearance {
+    background-color: #cacaca;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
 }

@@ -7,24 +7,13 @@
     text-align: justify;
 }
 
-.row {
-    clear: both;
-}
-.col-6 {
-    float: left;
-    width: 400px;
-}
-
-.col-3 {
-    margin-left: 50px;
-    float: left;
-    width: 100px;
-}
-
+/*
 .container {
     margin: auto;
     width: auto;
 }
+*/
+
 
 .box {
     width: auto;

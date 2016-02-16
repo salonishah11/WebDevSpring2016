@@ -42,6 +42,8 @@
         function selectMovie (movie) {
             console.log(movie);
             //$scope.movie = movie;
+
+            selectedMovieIndex = $scope.movies.indexOf(movie);
             $scope.movie = {
                 id: movie.id,
                 title: movie.title,
@@ -50,7 +52,11 @@
         };
 
         function updateMovie (movie) {
-            $scope.movie
+            $scope.movies[selectedMovieIndex] = {
+                id: movie.id,
+                title: movie.title,
+                director: movie.director
+            }
         };
     }
 })();

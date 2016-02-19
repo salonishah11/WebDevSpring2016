@@ -1,0 +1,28 @@
+<h2>Search</h2>
+
+<input ng-model="title" placeholder="Avatar" class="form-control"/>
+<button ng-click="search(title)" class="btn btn-primary btn-block">Search</button>
+
+<!-- ng-show="data" will show the table only when the data is not null or empty or false-->
+<section ng-show="data">
+    <h3>Search Results</h3>
+    <table class="table table-stripped">
+        <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>IMDB ID</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- movie is a local avaraiable
+                 Search is one of the response in JSON object displayed on console
+            -->
+            <tr ng-repeat="movie in data.Search">
+                <td><img height="75px" ng-src="{{movie.Poster}}"/></td>
+                <td><a href="#/details/{{movie.imdbID}}">{{movie.Title}}</a></td>
+                <td>{{movie.imdbID}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

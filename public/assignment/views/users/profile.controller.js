@@ -16,11 +16,11 @@
 
         //console.log($rootScope+" "+(new Date).getTime());
 
-        function update(username, password, firstName, lastName){
+        function update(password, firstName, lastName,email){
             var updatedUser = { "_id":user._id,
                 "firstName": firstName,
                 "lastName": lastName,
-                "username": username,
+                "username": user.username,
                 "password": password,
                 "roles": user.roles};
 

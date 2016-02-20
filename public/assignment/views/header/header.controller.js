@@ -4,7 +4,7 @@
         .controller("HeaderController", HeaderController);
 
     $rootScope = null;
-    function HeaderController($scope) {
+    function HeaderController($scope, $location) {
         $scope.displayLink = displayLink;
         $scope.checkUserAdmin = checkUserAdmin;
         $scope.logout = logout;
@@ -23,10 +23,12 @@
             if($rootScope != null){
                 for(var i = 0; i < $rootScope.roles.length; i++){
                     if($rootScope.roles[i] == "admin"){
-                        return true;
+                        //return true;
+                        $location.path('/admin');
                     }
                 }
             }
+            //return false;
         }
 
         function logout(){

@@ -25,7 +25,8 @@
                 templateUrl: "../assignment/views/admin/admin.view.html"
             })
             .when("/forms",{
-                templateUrl: "../assignment/views/forms/forms.view.html"
+                templateUrl: "../assignment/views/forms/forms.view.html",
+                controller: "FormController"
             })
             .when("/fields",{
                 templateUrl: "../assignment/views/forms/fields.view.html"

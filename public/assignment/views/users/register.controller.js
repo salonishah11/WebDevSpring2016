@@ -7,19 +7,20 @@
         $scope.register = register;
 
         function register(username, password, verifyPassword, email){
-            //console.log("Inside login");
             if(password == verifyPassword){
-                var newUser = { "_id":(new Date).getTime(), "firstName":null, "lastName": null,
-                                 "username":username, "password":password, "roles": []};
+                var newUser = { "_id":(new Date).getTime(),
+                                "firstName":null,
+                                "lastName": null,
+                                "username":username,
+                                "password":password,
+                                "roles": []};
 
                 UserService.createUser(newUser, renderRegistration);
             }
         }
 
-        function renderRegistration(response){
-            //console.log(response);
-            $rootScope = response;
-            //console.log($rootScope);
+        function renderRegistration(user){
+            $rootScope = user;
             $location.path('/profile');
         }
     }

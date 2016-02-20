@@ -20,22 +20,25 @@
         var api = {
             findUserByUsernameAndPassword: findUserByUsernameAndPassword,
             findAllUsers: findAllUsers,
-            createUser: createUser
-            //deleteUserById: deleteUserById,
-            //updateUser: updateUser
+            createUser: createUser,
+            deleteUserById: deleteUserById,
+            updateUser: updateUser
         };
 
         return api;
 
         function findUserByUsernameAndPassword(username, password, callback){
-            for(i = 0; i < users.length; i++){
-                //console.log(users[i].firstName);
-                if((username == users[i].username) && (password == users[i].password)){
-                    console.log("true");
+            var flag = 0;
+            for(var i = 0; i < users.length; i++){
+                if(username == users[i].username && password == users[i].password){
                     callback(users[i]);
+                    flag = 1;
+                    break;
                 }
             }
-            callback(null);
+            if(flag == 0){
+                callback(null);
+            }
         }
 
         function findAllUsers(callback){
@@ -44,8 +47,26 @@
 
         function createUser(user, callback){
             users.push(user);
-            //console.log(users);
             callback(users[users.length - 1]);
+        }
+
+        function deleteUserById(userId, callback){
+            for(i = 0; i < users.length; i++){
+                if(userId == users[i]._id){
+                    users.splice(i, 1);
+                    callback(users);
+                }
+            }
+        }
+
+        function updateUser(userId, user, callback){
+            for(i = 0; i < users.length; i++){
+                if(userId == users[i]._id){
+                    users[i] = user;
+                    console.log(users);
+                    callback(user);
+                }
+            }
         }
     }
 })();

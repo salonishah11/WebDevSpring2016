@@ -49,7 +49,8 @@
                     break;
                 }
             }
-            findAllFormsForUser($rootScope._id, callback);
+            //findAllFormsForUser($rootScope._id, callback);
+            callback(newForm);
         }
 
         function deleteFormById(formId, callback){
@@ -59,7 +60,8 @@
                     break;
                 }
             }
-            findAllFormsForUser($rootScope._id, callback);
+            //findAllFormsForUser($rootScope._id, callback);
+            callback(forms);
         }
     }
 })();

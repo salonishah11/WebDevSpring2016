@@ -91,6 +91,11 @@ img{
  border:none;
 }
 
+.p-color{
+	color: #ffffff;
+	font-weight: 200;
+}
+
 /* Preloader */
 
 #preloader {

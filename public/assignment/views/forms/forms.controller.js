@@ -9,6 +9,8 @@
         $scope.deleteForm = deleteForm;
         $scope.selectForm = selectForm;
 
+        var selectedIndex = null;
+
         FormService.findAllFormsForUser($rootScope._id, renderUserForms);
 
         function renderUserForms(response){
@@ -17,14 +19,16 @@
 
 
         function addForm(formName){
-            var newForm = {"title": formName};
-            FormService.createFormForUser($rootScope._id, newForm, renderNewForm);
+            if(formName != null){
+                var newForm = {"title": formName};
+                FormService.createFormForUser($rootScope._id, newForm, renderNewForm);
+            }
         }
 
         function renderNewForm(response){
             //console.log(response);
             $scope.data.push(response);
-            $scope.formName = "";
+            $scope.formName = null;
         }
 
 
@@ -39,25 +43,28 @@
         }
 
         function renderUpdatedForm(response){
-            $scope.data = response;
-            $scope.formName = "";
+            //$scope.data = response;
+            $scope.data[selectedIndex] = response;
+            $scope.formName = null;
+            selectedIndex = null;
         }
 
 
-        function deleteForm($index){
+        function deleteForm(index){
             //console.log($scope.data[$index]);
-            var selectedForm = $scope.data[$index];
+            var selectedForm = $scope.data[index];
             FormService.deleteFormById(selectedForm._id, renderRemainingForms);
         }
 
         function renderRemainingForms(response){
-            $scope.data = response;
+            //$scope.data = response;
+            FormService.findAllFormsForUser($rootScope._id, renderUserForms);
         }
 
-        var selectedIndex = null;
-        function selectForm($index){
-            selectedIndex = $index;
-            var selectedForm = $scope.data[$index];
+
+        function selectForm(index){
+            selectedIndex = index;
+            var selectedForm = $scope.data[index];
             $scope.formName = selectedForm.title;
         }
     }

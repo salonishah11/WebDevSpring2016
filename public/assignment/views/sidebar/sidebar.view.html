@@ -9,7 +9,8 @@
         <li ng-show="checkUserAdmin()" ng-class="{'active' : $location.url() == '/admin'}">
             <a href="#/admin">Admin</a>
         </li>
-        <li ng-show="displayLink()" ng-class="{'active' : ($location.url() == '/forms' || $location.url() == '/fields')}">
+        <li ng-show="displayLink()"
+            ng-class="{'active' : ($location.url() == '/forms' || $location.url() == '/fields')}">
             <a href="#/forms">Forms</a>
         </li>
     </ul>

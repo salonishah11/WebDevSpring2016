@@ -1,30 +1,41 @@
 (function() {
+    "use strict";
     angular
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController(FormService, $location, $scope) {
+    function FormController(FormService, $scope, UserService) {
+        // Function Declarations
         $scope.addForm = addForm;
         $scope.updateForm = updateForm;
         $scope.deleteForm = deleteForm;
         $scope.selectForm = selectForm;
 
-        var selectedIndex = null;
+        // variable to store the index value of selected row
+        $scope.selectedIndex = -1;
 
-        FormService.findAllFormsForUser($rootScope._id, renderUserForms);
 
+        // Function Implementations
+        // gets all the forms of current user
+        FormService.findAllFormsForUser(UserService.getCurrentUser()._id, renderUserForms);
+
+        // callback function of FormService.findAllFormsForUser
+        // function to render the forms of current user
         function renderUserForms(response){
             $scope.data = response;
         }
 
 
+        // adds a new form to the database of current user
         function addForm(formName){
             if(formName != null){
                 var newForm = {"title": formName};
-                FormService.createFormForUser($rootScope._id, newForm, renderNewForm);
+                FormService.createFormForUser(UserService.getCurrentUser()._id, newForm, renderNewForm);
             }
         }
 
+        // callback function of addForm()
+        // pushes the data to $scope.data to render the new form
         function renderNewForm(response){
             //console.log(response);
             $scope.data.push(response);
@@ -32,38 +43,45 @@
         }
 
 
+        // updates the formName of selected form
         function updateForm(formName){
-            var selectedForm = $scope.data[selectedIndex];
-            var updatedForm = {
-                "_id": selectedForm._id,
-                "title": formName,
-                "userId": $rootScope._id};
+            if(($scope.selectedIndex != -1) && (formName != null)){
+                var selectedForm = $scope.data[$scope.selectedIndex];
+                var updatedForm = {
+                    "_id": selectedForm._id,
+                    "title": formName,
+                    "userId": UserService.getCurrentUser()._id};
 
-            FormService.updateFormById(selectedForm._id, updatedForm, renderUpdatedForm);
+                FormService.updateFormById(selectedForm._id, updatedForm, renderUpdatedForm);
+            }
         }
 
+        // callback function of updateForm()
+        // renders the updated form on the page
         function renderUpdatedForm(response){
-            //$scope.data = response;
-            $scope.data[selectedIndex] = response;
+            $scope.data[$scope.selectedIndex] = response;
             $scope.formName = null;
-            selectedIndex = null;
+            $scope.selectedIndex = -1;
         }
 
 
+        // deletes a selected form
         function deleteForm(index){
-            //console.log($scope.data[$index]);
             var selectedForm = $scope.data[index];
             FormService.deleteFormById(selectedForm._id, renderRemainingForms);
         }
 
+        // callback function of deleteForm()
+        // renders the remaining forms of the user
         function renderRemainingForms(response){
             //$scope.data = response;
-            FormService.findAllFormsForUser($rootScope._id, renderUserForms);
+            FormService.findAllFormsForUser(UserService.getCurrentUser()._id, renderUserForms);
         }
 
 
+        // selects a form
         function selectForm(index){
-            selectedIndex = index;
+            $scope.selectedIndex = index;
             var selectedForm = $scope.data[index];
             $scope.formName = selectedForm.title;
         }

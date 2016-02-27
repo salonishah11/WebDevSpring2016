@@ -1,4 +1,5 @@
 (function(){
+    "use strict";
     angular
         .module("FormBuilderApp")
         .config(Configure);
@@ -7,7 +8,6 @@
         $routeProvider
             .when("/home",{
                 templateUrl: "../assignment/views/home/home.view.html"
-                //controller
             })
             .when("/register",{
                 templateUrl: "../assignment/views/users/register.view.html",

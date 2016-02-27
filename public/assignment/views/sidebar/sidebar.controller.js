@@ -1,15 +1,22 @@
 (function(){
+    "use strict";
     angular
         .module("FormBuilderApp")
         .controller("SidebarController", SidebarController);
 
-    $rootScope = null;
-    function SidebarController($scope) {
+    function SidebarController($scope, UserService) {
+        UserService.setCurrentUser(null);
+
+        // Function Declarations
         $scope.displayLink = displayLink;
         $scope.checkUserAdmin = checkUserAdmin;
 
+
+        // Function Implementations
+        // decides whether link associated with the model calling
+        // this function is to be displayed on sidebar or not
         function displayLink(){
-            if($rootScope != null){
+            if(UserService.getCurrentUser() != null){
                 return true;
             }
             else{
@@ -17,14 +24,18 @@
             }
         }
 
+
+        // checks whether current user is Admin or not
         function checkUserAdmin(){
-            if($rootScope != null){
-                for(var i = 0; i < $rootScope.roles.length; i++){
-                    if($rootScope.roles[i] == "admin"){
-                        return true;
-                    }
+            if(UserService.getCurrentUser() != null){
+                if(UserService.getCurrentUser().roles.indexOf('admin') >= 0){
+                    return true;
+                }
+                else {
+                    return false;
                 }
             }
+            return false;
         }
     }
 })();

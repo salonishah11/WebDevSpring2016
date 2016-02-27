@@ -1,35 +1,41 @@
 (function(){
+    "use strict";
     angular
         .module("FormBuilderApp")
         .controller("ProfileController", ProfileController);
 
     function ProfileController(UserService, $location, $scope) {
+        var currentUser = UserService.getCurrentUser();
 
+        // updating the scope with current user's information
+        $scope.username = currentUser.username;
+        $scope.password = currentUser.password;
+        $scope.firstName = currentUser.firstName;
+        $scope.lastName = currentUser.lastName;
+
+        // Function Declarations
         $scope.update = update;
 
-        var user = $rootScope;
 
-        $scope.username = user.username;
-        $scope.password = user.password;
-        $scope.firstName = user.firstName;
-        $scope.lastName = user.lastName;
-
-        //console.log($rootScope+" "+(new Date).getTime());
-
+        // Function Implementations
+        // updates the data of current user
         function update(password, firstName, lastName,email){
-            var updatedUser = { "_id":user._id,
+            var updatedUser = {
+                "_id":UserService.getCurrentUser()._id,
                 "firstName": firstName,
                 "lastName": lastName,
-                "username": user.username,
+                "username": UserService.getCurrentUser().username,
                 "password": password,
-                "roles": user.roles};
+                "roles": UserService.getCurrentUser().roles
+            };
 
-            UserService.updateUser(user._id, updatedUser, renderUpdateUser);
+            UserService.updateUser(UserService.getCurrentUser()._id, updatedUser, renderUpdateUser);
         }
 
+        // callback function for update()
+        // renders the updated data of user
         function renderUpdateUser(response){
-            //console.log(response);
-            $rootScope = response;
+            UserService.setCurrentUser(response);
         }
     }
 })();

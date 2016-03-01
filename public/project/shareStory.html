@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Share Your Story</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -71,7 +71,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="adoptPet.html">Find a Pet to Adopt</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="animalOrg.html">Animal Welfare Organizations</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
@@ -86,77 +86,47 @@
         <div class="box">
             <div class="col-lg-12">
                 <hr>
-                <h2 class="intro-text text-center"><strong>Register</strong>
+                <h2 class="intro-text text-center">Share <strong>Your Story</strong>
                 </h2>
                 <hr>
             </div>
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label for="inputName" class="col-sm-3 control-label">Name</label>
+                    <label for="inputPicture" class="col-sm-3 control-label">Picture</label>
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputName" placeholder="Name">
+                        <input type="file" class="form-control" id="inputPicture" placeholder="Upload Image">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputEmail" class="col-sm-3 control-label">Email</label>
+                    <label for="inputTitle" class="col-sm-3 control-label">Title</label>
                     <div class="col-sm-7">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <input type="email" class="form-control" id="inputTitle" placeholder="Title of Your Story">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                    <label for="inputStory" class="col-sm-3 control-label">Story</label>
                     <div class="col-sm-7">
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                        <textarea id="inputStory" class="form-control" rows="3" placeholder="Enter you Story Here"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputVerifyPassword" class="col-sm-3 control-label">Verify Password</label>
-                    <div class="col-sm-7">
-                        <input type="password" class="form-control" id="inputVerifyPassword" placeholder="Verify Password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress" class="col-sm-3 control-label">Street Address</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="Street Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputCity" class="col-sm-3 control-label">City</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputCity" placeholder="City">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputState" class="col-sm-3 control-label">State</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputState" placeholder="State">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputCountry" class="col-sm-3 control-label">Country</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputCountry" placeholder="Country">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputZipcode" class="col-sm-3 control-label">Zipcode</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="inputZipcode" placeholder="Zipcode">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAccountType" class="col-sm-3 control-label">Account Type</label>
-                    <div class="col-sm-7">
-                        <select class="form-control" id="inputAccountType">
-                            <option>Individual</option>
-                            <option>Organization</option>
-                        </select>
+                    <label for="inputShareType" class="col-sm-3 control-label">Share Anonymously</label>
+                    <div id="inputShareType" class="col-sm-7">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="share" id="optionsRadios1" value="Yes" checked>Yes
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="share" id="optionsRadios2" value="No">No
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-5 col-sm-2">
-                        <a href="#" class="btn btn-primary form-control">Register</a>
+                        <a href="#" class="btn btn-primary form-control">Share</a>
                     </div>
                 </div>
             </form>
@@ -170,7 +140,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <p>Copyright &copy; Saloni Shah 2016</p>
+                <p>Copyright &copy; Adopt a Pet 2016</p>
             </div>
         </div>
     </div>

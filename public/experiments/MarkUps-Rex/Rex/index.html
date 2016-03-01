@@ -52,7 +52,7 @@
     <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
   <!-- END SCROLL TOP BUTTON -->
 
-  <!-- Start header section -->  
+  <!-- Start header section -->
   <header id="header">
     <div class="header-inner">
       <!-- Header image -->
@@ -62,12 +62,14 @@
                 <!-- Start header content slider -->
                 <h2>Saloni Shah</h2>
                 <h3>Graduate Student at Northeastern University</h3> <!--style="color: #ededed;font-size: xx-large"-->
-                <h3 class="header-slide"> <!--style="color: #00d999;font-size: xx-large"-->
-                    Software Developer
+                <h3 style="color: #00d999;">Software Developer</h3>
+                <!--
+                <h3 class="header-slide">
                     <span class="header-slider-span">Front End</span>
                     <span class="header-slider-span">Back End</span>
                     <span class="header-slider-span">Java Developer</span>
                 </h3>
+                -->
                 <!-- End header content slider -->
                 <!-- Header btn area -->
                 <div class="header-btn-area">
@@ -92,26 +94,26 @@
             <span class="icon-bar"></span>
           </button>
           <!-- LOGO -->                                               
-           <a class="navbar-brand logo" href="index.html"><img src="assets/images/logo-1.png" alt="logo"></a>
+           <a class="navbar-brand logo" href="index.html"><img src="assets/images/logo_header.png" alt="logo"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul id="top-menu" class="nav navbar-nav main-nav menu-scroll">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="#about">ABOUT</a></li>
-            <li><a href="#service">SERVICE</a></li> 
-            <li><a href="#portfolio">PORTFOLIO</a></li>
-            <li><a href="#pricing-table">PRICE </a></li>             
-            <li><a href="#from-blog">BLOG </a></li>      
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#interests">INTERESTS</a></li>
             <li><a href="#contact">CONTACT</a></li>
           </ul>                            
         </div><!--/.nav-collapse -->
+        <!--
        <div class="search-area">
           <form action="">
             <input id="search" name="search" type="text" placeholder="What're you looking for ?">
             <input id="search_submit" value="Rechercher" type="submit">
           </form>
-        </div>         
-      </div>          
+        </div>    -->
+      </div>
     </nav> 
   </section>
   <!-- End menu section -->
@@ -198,8 +200,10 @@
                       <div class="title-area">
                           <p>
                               I am currently pursuing my Masters in Computer Science from Northeastern University.
-                              I am passionate about working with new and different web technologies. I am also interested in working
-                              in field of Database and Image Processing. I have done quite a few projects in domain of Image Processing.
+                              I am passionate about Web Development and Image Processing. I have done quite a few projects
+                              in the field of Image Processing during my undergraduate study. Currently, I am learning about
+                              new and amazing web technologies, which I shall be using to design my website for Animal
+                              Shelter and Rescue Centers.
                           </p>
                       </div>
                   </div>
@@ -209,46 +213,62 @@
   </section>
   <!-- End Team action -->
 
+  <!-- Start call to action -->
+  <section id="call-to-action">
+    <img src="assets/images/call-to-action-bg.png" alt="img">
+    <div class="call-to-overlay">
+      <div class="container">
+        <div class="call-to-content wow fadeInUp">
+          <h2>To view my RESUME</h2>
+          <a href="ShahSaloni.pdf" class="button button-default" data-text="Click Here!"><span>Click Here!</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End call to action -->
+
   <!-- Start about section -->
-  <section id="about1">
+  <section id="skills">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <!-- Start welcome area -->
           <div class="welcome-area">
             <div class="title-area">
-              <h2 class="tittle">Welcome to <span>Nex</span></h2>
+              <br/>
+              <h2 class="tittle">My <span>Skills</span></h2>
               <span class="tittle-line"></span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniamo laboris nis</p>
+              <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniamo laboris nis</p>-->
             </div>
             <div class="welcome-content">
               <ul class="wc-table">
                 <li>
-                  <div class="single-wc-content wow fadeInUp">
-                    <span class="fa fa-users wc-icon"></span>
-                    <h4 class="wc-tittle">Creative concept</h4>
-                    <p>At vero eos et accusamus et iusto odio in dignissimos ducimus voluptatum in delenatque </p>
+                  <div class="single-wc-content wow fadeInLeft">
+                    <span class="fa fa-code wc-icon"></span>
+                    <h4 class="wc-tittle">Languages</h4>
+                    <p>C/C++, Assembly, PHP, Java, Android, Racket
+                    </p>
                   </div>
                 </li>
                 <li>
                   <div class="single-wc-content wow fadeInUp">
-                    <span class="fa fa-sellsy wc-icon"></span>
-                    <h4 class="wc-tittle">interface design</h4>
-                    <p>At vero eos et accusamus et iusto odio in dignissimos ducimus voluptatum in delenatque </p>
+                    <span class="fa fa-server wc-icon"></span>
+                    <h4 class="wc-tittle">Software</h4>
+                    <p>MATLAB, SciLab, Eclipse, Visual Studio, LaTex, Borland C, SQL Workbench</p>
                   </div>
                 </li>
                 <li>
                   <div class="single-wc-content wow fadeInUp">
-                    <span class="fa fa-line-chart wc-icon"></span>
-                    <h4 class="wc-tittle">strategy</h4>
-                    <p>At vero eos et accusamus et iusto odio in dignissimos ducimus voluptatum in delenatque </p>
+                    <span class="fa fa-database wc-icon"></span>
+                    <h4 class="wc-tittle">Database</h4>
+                    <p>MySQL</p>
                   </div>
                 </li>
                 <li>
-                  <div class="single-wc-content wow fadeInUp">
-                    <span class="fa fa-bus wc-icon"></span>
-                    <h4 class="wc-tittle">business solution</h4>
-                    <p>At vero eos et accusamus et iusto odio in dignissimos ducimus voluptatum in delenatque </p>
+                  <div class="single-wc-content wow fadeInRight">
+                    <span class="fa fa-html5 wc-icon"></span>
+                    <h4 class="wc-tittle">Web Technologies</h4>
+                    <p>HTML5, CSS3, JavaScript, Bootstrap, NodeJS, JQuery, AngularJS </p>
                   </div>
                 </li>
               </ul>
@@ -263,21 +283,31 @@
             <div class="row">
               <div class="col-md-5 col-sm-6 col-xs-12">
                 <div class="about-left wow fadeInLeft">
-                  <img src="assets/images/about-img.jpg" alt="img">
-                  <a class="introduction-btn" href="#">Introduction</a>
+                  <img src="assets/images/csi_logo.jpg" alt="img">
+                  <!--<a class="introduction-btn" href="#">Introduction</a>-->
                 </div>
               </div>
               <div class="col-md-7 col-sm-6 col-xs-12">
                 <div class="about-right wow fadeInRight">
                   <div class="title-area">
-                    <h2 class="tittle">About <span>Nex</span> design</h2>
+                    <h2 class="tittle">Volunteering <span>Experience</span></h2>
                     <span class="tittle-line"></span>
-                    <p>ed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illotore itatis et quasi architecto beatae vitae dicta sunt explicabo.</p> 
-
-                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores e</p>
+                    <h3 style="color: #00d999;">Computer Society of India, Student Chapter, Nirma University</h3>
+                    <p>
+                      As the Executive Head at Computer Society of India(CSI),Student Branch ,Nirma University, me and my team led a group of 50 juniors to organize:<br/>
+                      <ul>
+                        <li>1. Techno-Cultural event Blitzkrieg'14 where students from the entire state participated</li>
+                        <li>2. Workshops & Technical Quizzes to keep the students updated with the latest technology and trends in the field of Computer Engineering and Information Technology.</li>
+                        <li>3. Launched Finestra'14, 3rd Edition of CSI Magazine</li>
+                        <li>4. Also organized and coordinated Colosseum’13 and Cubix’14 under CSI</li>
+                        <li>5. Worked as a club coordinator and volunteer in Regional Student Convention'12 by Computer Society of India,Student Branch ,Nirma University in which more than 800 students from over 50 Universities, from all over West Zone of India, participated in 25 different events.</li>
+                      </ul>
+                    </p>
+                    <!--
                     <div class="about-btn-area">
                       <a href="#" class="button button-default" data-text="KNOW MORE"><span>KNOW MORE</span></a>
-                    </div>                    
+                    </div>
+                    -->
                   </div>
                 </div>
               </div>
@@ -289,88 +319,207 @@
   </section> 
   <!-- End about section -->
 
-  <!-- Start call to action -->
-  <section id="call-to-action">
-    <img src="assets/images/call-to-action-bg.png" alt="img">
-    <div class="call-to-overlay">
-      <div class="container">
-        <div class="call-to-content wow fadeInUp">
-          <h2>The most impressive templete you will find</h2>
-          <a href="#" class="button button-default" data-text="GET IT NOW"><span>GET IT NOW</span></a>
+  <br/>
+
+  <!-- Start Portfolio section -->
+  <section id="projects">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="portfolio-area">
+            <div class="title-area">
+              <br/>
+              <h2 class="tittle">My <span>Projects</span></h2>
+              <span class="tittle-line"></span>
+              <!--<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</p>-->
+            </div>
+            <!-- Portfolio content -->
+            <div class="portfolio-content">
+              <!-- portfolio menu -->
+              <div class="portfolio-menu">
+                <ul>
+                  <li class="filter" data-filter="all">All</li>
+                  <li class="filter" data-filter=".webDev">Web Development</li>
+                  <li class="filter" data-filter=".database">Database</li>
+                  <li class="filter" data-filter=".imageProcessing">Image Processing</li>
+                  <li class="filter" data-filter=".mobAppDev">Mobile App Development</li>
+                </ul>
+              </div>
+              <!-- Portfolio container -->
+              <div id="mixit-container" class="portfolio-container">
+                <div class="single-portfolio mix webDev">
+                  <div class="single-item">
+                    <img src="assets/images/form_maker.png" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <a class="fancybox" data-fancybox-group="gallery" href="assets/images/about_form_maker.jpg"><i class="fa fa-info"></i></a>
+                        <a class="link-btn" href="http://webdev2016-shahsaloni.rhcloud.com/assignment"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Form Maker</h4>
+                        <span>Web Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix webDev">
+                  <div class="single-item">
+                    <img src="assets/images/animal_rescue.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="https://docs.google.com/a/husky.neu.edu/document/d/1brACZiB3wld4XM29uaJxXIk8l8cVbMshzTkV5pDKM-4/edit?usp=sharing"><i class="fa fa-info"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Animal Adoption Website</h4>
+                        <span>Web Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix database">
+                  <div class="single-item">
+                    <img src="assets/images/ofm.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big3.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="OFM_Project_Report.pdf"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Online Finance Management</h4>
+                        <span>Back-End Development</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix imageProcessing">
+                  <div class="single-item">
+                    <img src="assets/images/anpr.png" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <a class="fancybox" data-fancybox-group="gallery" href="assets/images/eagle_eye_poster.jpg"><i class="fa fa-file-image-o"></i></a>
+                        <a class="link-btn" href="Eagle_Eye_Report.pdf"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Automatic Number Plate Recognition</h4>
+                        <span>Image Processing</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix mobAppDev">
+                  <div class="single-item">
+                    <img src="assets/images/locShare_1.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big5.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="LocShare.pdf"><i class="fa fa-file-powerpoint-o"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>LocShare: Address Sharing</h4>
+                        <span>Android Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small6.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big6.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small7.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big7.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small2.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div> 
+    </div>
   </section>
-  <!-- End call to action -->
+  <!-- End Portfolio section -->
 
-    <!-- Start service section -->
-  <section id="service">
+
+  <!-- Start service section -->
+  <section id="interests">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
           <div class="service-area">
             <div class="title-area">
-              <h2 class="tittle">Service we offer</h2>
+              <br/>
+              <h2 class="tittle">My <span>Interests</span></h2>
               <span class="tittle-line"></span>
-              <p>perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+              <!--<p>perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore</p>-->
             </div>
             <!-- service content -->
             <div class="service-content">
               <ul class="service-table">
                 <li class="col-md-3 col-sm-6">
                   <div class="single-service wow slideInUp">
-                    <span class="fa fa-edit service-icon"></span>
-                    <h4 class="service-title">UX Design</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
+                    <span class="fa fa-book service-icon"></span>
+                    <h4 class="service-title">Reading</h4>
+                    <p>I like reading romance, fictional and thriller novels</p>
                   </div>
                 </li>
                 <li class="col-md-3 col-sm-6">
                   <div class="single-service wow slideInUp">
-                    <span class="fa fa-sort-amount-asc service-icon"></span>
-                    <h4 class="service-title">Strategy</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
+                    <span class="fa fa-music service-icon"></span>
+                    <h4 class="service-title">Music</h4>
+                    <p>I am passionate about music and playing keyboard</p>
                   </div>
                 </li>
                 <li class="col-md-3 col-sm-6">
                  <div class="single-service wow slideInUp">
-                    <span class="fa fa-map-o service-icon"></span>
-                    <h4 class="service-title">UI Design</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
+                    <span class="fa fa-code service-icon"></span>
+                    <h4 class="service-title">Coding</h4>
+                    <p>I like coding and learning new languages</p>
                   </div>
                 </li>
                 <li class="col-md-3 col-sm-6">
                   <div class="single-service wow slideInUp">
-                    <span class="fa fa-rocket service-icon"></span>
-                    <h4 class="service-title">Analystic</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
-                  </div>
-                </li>
-                <li class="col-md-3 col-sm-6">
-                  <div class="single-service wow slideInUp">
-                    <span class="fa fa-car service-icon"></span>
-                    <h4 class="service-title">Usibility</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
-                  </div>
-                </li>
-                <li class="col-md-3 col-sm-6">
-                  <div class="single-service wow slideInUp">
-                    <span class="fa fa-bank service-icon"></span>
-                    <h4 class="service-title">Business solution</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
-                  </div>
-                </li>
-                <li class="col-md-3 col-sm-6">
-                  <div class="single-service wow slideInUp">
-                    <span class="fa fa-user-secret service-icon"></span>
-                    <h4 class="service-title">Creative concept</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
-                  </div>
-                </li>
-                <li class="col-md-3 col-sm-6">
-                  <div class="single-service wow slideInUp">
-                    <span class="fa fa-support service-icon"></span>
-                    <h4 class="service-title">Support</h4>
-                    <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
+                    <span class="fa fa-plane service-icon"></span>
+                    <h4 class="service-title">Travelling</h4>
+                    <p>I love to travel and explore new places</p>
                   </div>
                 </li>
               </ul>
@@ -382,280 +531,13 @@
   </section>
   <!-- End service section -->
 
-  <!-- Start Portfolio section -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="portfolio-area">
-            <div class="title-area">
-              <h2 class="tittle">Recent portfolio</h2>
-              <span class="tittle-line"></span>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</p>
-            </div>
-            <!-- Portfolio content -->
-            <div class="portfolio-content">
-                <!-- portfolio menu -->
-               <div class="portfolio-menu">
-                 <ul>
-                   <li class="filter" data-filter="all">All</li>
-                   <li class="filter" data-filter=".branding">Branding</li>
-                   <li class="filter" data-filter=".design">Design</li>
-                   <li class="filter" data-filter=".development">Development</li>
-                   <li class="filter" data-filter=".photography">Photography</li>
-                 </ul>
-               </div>
-               <!-- Portfolio container -->
-               <div id="mixit-container" class="portfolio-container">
-                 <div class="single-portfolio mix branding">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small1.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big1.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix design">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small2.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix development">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small3.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big3.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix photography">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small4.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big4.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix photography">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small5.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big5.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix photography">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small6.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big6.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix photography">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small7.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big7.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="single-portfolio mix photography">
-                   <div class="single-item">
-                     <img src="assets/images/portfolio-img-small2.jpg" alt="img">
-                     <div class="single-item-content">
-                        <div class="portfolio-social-icon">
-                          <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>
-                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
-                        </div>
-                        <div class="portfolio-title">
-                          <h4>Mobile application</h4>
-                          <span>UI Design</span>
-                        </div>
-                     </div>
-                   </div>
-                 </div>
-               </div>      
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Portfolio section -->
+
 
   <!-- Start counter section -->
   <!-- End counter section -->
 
 
-  <!-- Start Testimonial section -->
-  <section id="testimonial">
-    <img src="assets/images/testimonial-bg.jpg" alt="img">
-    <div class="counter-overlay">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <!-- Start Testimonial area -->
-            <div class="testimonial-area">
-              <div class="title-area">
-                <h2 class="tittle">What people say about us</h2>
-                <span class="tittle-line"></span>              
-              </div>
-              <div class="testimonial-conten">
-                <!-- Start testimonial slider -->
-                <div class="testimonial-slider">
-                  <!-- single slide -->
-                  <div class="single-slide">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoquat. Duis aute irure d olor in reprehenderit</p>
-                    <div class="single-testimonial">
-                      <img class="testimonial-thumb" src="assets/images/testimonial-image1.png" alt="img">
-                      <p>Jonna Hike</p>
-                      <span>CEO, Themeforest</span>
-                    </div>
-                  </div>
-                  <!-- single slide -->
-                  <div class="single-slide">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamcoquat. Duis aute irure d olor in reprehenderit</p>
-                    <div class="single-testimonial">
-                      <img class="testimonial-thumb" src="assets/images/team-member2.png" alt="img">
-                      <p>Jonna Hike</p>
-                      <span>CEO, Themeforest</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> 
-  </section>
-  <!-- End Testimonial section -->
-
-  <!-- Start from blog section -->
-  <section id="from-blog">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="from-blog-area">
-            <div class="title-area">
-              <h2 class="tittle">Our blog</h2>
-              <span class="tittle-line"></span>
-              <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est</p>
-            </div>
-            <!-- From Blog content -->
-            <div class="from-blog-content">
-              <div class="row">
-                <div class="col-md-4">
-                  <article class="single-from-blog">
-                    <figure>
-                      <a href="blog-single.html"><img src="assets/images/the-sky.jpg" alt="img"></a>
-                    </figure>
-                    <div class="blog-title">
-                      <h2><a href="blog-single.html">Here is the post title</a></h2>
-                      <p>Posted by <a class="blog-admin" href="#">admin</a> on <span class="blog-date">23rd july 2015</span></p>
-                    </div>
-                    <p>Sed ut perspiciatis unde mnis is te natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis </p>
-                    <div class="blog-footer">
-                      <a href="#"><span class="fa fa-comment"></span>18 Comments</a>
-                      <a href="#"><span class="fa fa-thumbs-o-up"></span>35 Likes</a>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-md-4">
-                  <article class="single-from-blog">
-                    <figure>
-                      <a href="blog-single.html"><img src="assets/images/photographer.jpg" alt="img"></a>
-                    </figure>
-                    <div class="blog-title">
-                      <h2><a href="blog-single.html">Here is the post title</a></h2>
-                      <p>Posted by <a class="blog-admin" href="#">admin</a> on <span class="blog-date">23rd july 2015</span></p>
-                    </div>
-                    <p>Sed ut perspiciatis unde mnis is te natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis </p>
-                    <div class="blog-footer">
-                      <a href="#"><span class="fa fa-comment"></span>18 Comments</a>
-                      <a href="#"><span class="fa fa-thumbs-o-up"></span>35 Likes</a>
-                    </div>
-                  </article>
-                </div>
-                <div class="col-md-4">
-                  <article class="single-from-blog">
-                    <figure>
-                      <a href="blog-single.html"><img src="assets/images/sealand.jpg" alt="img"></a>
-                    </figure>
-                    <div class="blog-title">
-                      <h2><a href="blog-single.html">Here is the post title</a></h2>
-                      <p>Posted by <a class="blog-admin" href="#">admin</a> on <span class="blog-date">23rd july 2015</span></p>
-                    </div>
-                    <p>Sed ut perspiciatis unde mnis is te natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis </p>
-                    <div class="blog-footer">
-                      <a href="#"><span class="fa fa-comment"></span>18 Comments</a>
-                      <a href="#"><span class="fa fa-thumbs-o-up"></span>35 Likes</a>
-                    </div>
-                  </article>
-                </div>
-              </div>    
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End from blog section -->
-
-  <!--
+ <!--
   <section id="client">
     <div class="container">
       <div class="row">
@@ -746,13 +628,19 @@
         <div class="row">
           <div class="col-md-12">
             <div class="footer-top-area">
-                <a class="footer-logo" href="#"><img src="assets/images/logo-1.png" alt="Logo"></a>
+                <a class="footer-logo" href="#"><img src="assets/images/logo_footer.jpg" alt="Logo"></a>
               <div class="footer-social">
                 <a class="facebook" href="https://www.facebook.com/saloni.shah.92754">
                     <span class="fa fa-facebook"></span>
                 </a>
-                <a class="linkedin" href="https://www.linkedin.com/in/salonishah11"><span class="fa fa-linkedin"></span></a>
+                <a class="linkedin" href="https://www.linkedin.com/in/salonishah11">
+                  <span class="fa fa-linkedin"></span>
+                </a>
+                <a class="github" href="https://github.com/salonishah11/WebDevSpring2016.git">
+                  <span class="fa fa-github"></span>
+                </a>
               </div>
+            </div>
             </div>
           </div>
         </div>

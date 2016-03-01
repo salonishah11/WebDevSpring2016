@@ -1,17 +1,676 @@
-<h1>Welcome to WebDev Spring 2016</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Saloni Shah</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/icon" href="assets/images/saloniShah.jpg"/>
+    <!-- Font Awesome -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Slick slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css"/> 
+    <!-- Fancybox slider -->
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="screen" /> 
+    <!-- Animate css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css"/>  
+     <!-- Theme color -->
+    <link id="switcher" href="assets/css/theme-color/default.css" rel="stylesheet">
 
-<h2><a href="assignment/">Assignments</a></h2>
+    <!-- Main Style -->
+    <link href="style.css" rel="stylesheet">
 
-<h2><a href="project/index.html">Project</a></h2>
+    <!-- Fonts -->
+    <!-- Open Sans for body font -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- Raleway for Title -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <!-- Pacifico for 404 page   -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
 
-<h2><a href="experiments/startbootstrap-creative-1.0.2/index.html">My home page(experiment)</a></h2>
+  <!-- BEGAIN PRELOADER -->
+  <!--
+  <div id="preloader">
+    <div class="loader">&nbsp;</div>
+  </div>
+  -->
+  <!-- END PRELOADER -->
 
-<h2><a href="https://github.com/salonishah11/WebDevSpring2016.git">Github URL</a></h2>
+  <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+  <!-- END SCROLL TOP BUTTON -->
 
-<h2><a href="http://webdev2016-shahsaloni.rhcloud.com/">OpenShift URL</a></h2>
+  <!-- Start header section -->
+  <header id="header">
+    <div class="header-inner">
+      <!-- Header image -->
+      <img src="assets/images/abstract_1.jpg" alt="Header Image">
+      <div class="header-overlay">
+            <div class="header-content">
+                <!-- Start header content slider -->
+                <h2>Saloni Shah</h2>
+                <h3>Graduate Student at Northeastern University</h3> <!--style="color: #ededed;font-size: xx-large"-->
+                <h3 style="color: #00d999;">Software Developer</h3>
+                <!--
+                <h3 class="header-slide">
+                    <span class="header-slider-span">Front End</span>
+                    <span class="header-slider-span">Back End</span>
+                    <span class="header-slider-span">Java Developer</span>
+                </h3>
+                -->
+                <!-- End header content slider -->
+                <!-- Header btn area -->
+                <div class="header-btn-area">
+                  <a class="knowmore-btn" href="#menu-area">KNOW MORE</a>
+                </div>
+            </div>
+      </div>      
+    </div>
+  </header>
+  <!-- End header section -->
 
-<h2>
-    <a href="https://docs.google.com/a/husky.neu.edu/document/d/1brACZiB3wld4XM29uaJxXIk8l8cVbMshzTkV5pDKM-4/edit?usp=sharing">
-        Project Proposal Link
-    </a>
-</h2>
+  <!-- Start menu section -->
+  <section id="menu-area">
+    <nav class="navbar navbar-default main-navbar" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- LOGO -->                                               
+           <a class="navbar-brand logo" href="index.html"><img src="assets/images/logo_header.png" alt="logo"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav main-nav menu-scroll">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#interests">INTERESTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>                            
+        </div><!--/.nav-collapse -->
+        <!--
+       <div class="search-area">
+          <form action="">
+            <input id="search" name="search" type="text" placeholder="What're you looking for ?">
+            <input id="search_submit" value="Rechercher" type="submit">
+          </form>
+        </div>    -->
+      </div>
+    </nav> 
+  </section>
+  <!-- End menu section -->
+
+  <!-- Start Team action -->
+  <section id="about">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="team-area">
+                      <div class="title-area">
+                          <h2 class="tittle">About Me</h2>
+                          <span class="tittle-line"></span>
+                      </div>
+                      <!-- Start team content -->
+                      <div class="team-content">
+                          <ul class="team-grid">
+                              <li>
+                                  <div class="team-item team-img-1 wow fadeInUp">
+                                      <div class="team-info">
+                                          <p>Around the Web</p>
+                                          <p></p>
+                                          <p></p>
+                                          <p></p>
+                                          <a href="https://www.facebook.com/saloni.shah.92754">
+                                              <span class="fa fa-facebook"></span>
+                                          </a>
+                                          <a href="https://www.linkedin.com/in/salonishah11">
+                                              <span class="fa fa-linkedin"></span>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </li>
+                              <!--
+                              <li>
+                                  <div class="team-item team-img-2 wow fadeInUp">
+                                      <div class="team-info">
+                                          <p> I must explain to you how all this mistaken idea of denouncing pleasure n</p>
+                                          <a href="#"><span class="fa fa-facebook"></span></a>
+                                          <a href="#"><span class="fa fa-twitter"></span></a>
+                                          <a href="#"><span class="fa fa-pinterest"></span></a>
+                                          <a href="#"><span class="fa fa-rss"></span></a>
+                                      </div>
+                                  </div>
+                                  <div class="team-address">
+                                      <p>MIKE BATTON</p>
+                                      <span>Co-founder</span>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="team-item team-img-3 wow fadeInUp">
+                                      <div class="team-info">
+                                          <p> I must explain to you how all this mistaken idea of denouncing pleasure n</p>
+                                          <a href="#"><span class="fa fa-facebook"></span></a>
+                                          <a href="#"><span class="fa fa-twitter"></span></a>
+                                          <a href="#"><span class="fa fa-pinterest"></span></a>
+                                          <a href="#"><span class="fa fa-rss"></span></a>
+                                      </div>
+                                  </div>
+                                  <div class="team-address">
+                                      <p>JOHN VICK</p>
+                                      <span>Developer</span>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="team-item team-img-4 wow fadeInUp">
+                                      <div class="team-info">
+                                          <p> I must explain to you how all this mistaken idea of denouncing pleasure n</p>
+                                          <a href="#"><span class="fa fa-facebook"></span></a>
+                                          <a href="#"><span class="fa fa-twitter"></span></a>
+                                          <a href="#"><span class="fa fa-pinterest"></span></a>
+                                          <a href="#"><span class="fa fa-rss"></span></a>
+                                      </div>
+                                  </div>
+                                  <div class="team-address">
+                                      <p>ROB HANSOM</p>
+                                      <span>Senior designer</span>
+                                  </div>
+                              </li>
+                              -->
+                          </ul>
+                      </div>
+                      <!-- End team content -->
+                      <div class="title-area">
+                          <p>
+                              I am currently pursuing my Masters in Computer Science from Northeastern University.
+                              I am passionate about Web Development and Image Processing. I have done quite a few projects
+                              in the field of Image Processing during my undergraduate study. Currently, I am learning about
+                              new and amazing web technologies, which I shall be using to design my website for Animal
+                              Shelter and Rescue Centers.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!-- End Team action -->
+
+  <!-- Start call to action -->
+  <section id="call-to-action">
+    <img src="assets/images/call-to-action-bg.png" alt="img">
+    <div class="call-to-overlay">
+      <div class="container">
+        <div class="call-to-content wow fadeInUp">
+          <h2>To view my RESUME</h2>
+          <a href="ShahSaloni.pdf" class="button button-default" data-text="Click Here!"><span>Click Here!</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End call to action -->
+
+  <!-- Start about section -->
+  <section id="skills">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- Start welcome area -->
+          <div class="welcome-area">
+            <div class="title-area">
+              <br/>
+              <h2 class="tittle">My <span>Skills</span></h2>
+              <span class="tittle-line"></span>
+              <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniamo laboris nis</p>-->
+            </div>
+            <div class="welcome-content">
+              <ul class="wc-table">
+                <li>
+                  <div class="single-wc-content wow fadeInLeft">
+                    <span class="fa fa-code wc-icon"></span>
+                    <h4 class="wc-tittle">Languages</h4>
+                    <p>C/C++, Assembly, PHP, Java, Android, Racket
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div class="single-wc-content wow fadeInUp">
+                    <span class="fa fa-server wc-icon"></span>
+                    <h4 class="wc-tittle">Software</h4>
+                    <p>MATLAB, SciLab, Eclipse, Visual Studio, LaTex, Borland C, SQL Workbench</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="single-wc-content wow fadeInUp">
+                    <span class="fa fa-database wc-icon"></span>
+                    <h4 class="wc-tittle">Database</h4>
+                    <p>MySQL</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="single-wc-content wow fadeInRight">
+                    <span class="fa fa-html5 wc-icon"></span>
+                    <h4 class="wc-tittle">Web Technologies</h4>
+                    <p>HTML5, CSS3, JavaScript, Bootstrap, NodeJS, JQuery, AngularJS </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- End welcome area -->
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="about-area">
+            <div class="row">
+              <div class="col-md-5 col-sm-6 col-xs-12">
+                <div class="about-left wow fadeInLeft">
+                  <img src="assets/images/csi_logo.jpg" alt="img">
+                  <!--<a class="introduction-btn" href="#">Introduction</a>-->
+                </div>
+              </div>
+              <div class="col-md-7 col-sm-6 col-xs-12">
+                <div class="about-right wow fadeInRight">
+                  <div class="title-area">
+                    <h2 class="tittle">Volunteering <span>Experience</span></h2>
+                    <span class="tittle-line"></span>
+                    <h3 style="color: #00d999;">Computer Society of India, Student Chapter, Nirma University</h3>
+                    <p>
+                      As the Executive Head at Computer Society of India(CSI),Student Branch ,Nirma University, me and my team led a group of 50 juniors to organize:<br/>
+                      <ul>
+                        <li>1. Techno-Cultural event Blitzkrieg'14 where students from the entire state participated</li>
+                        <li>2. Workshops & Technical Quizzes to keep the students updated with the latest technology and trends in the field of Computer Engineering and Information Technology.</li>
+                        <li>3. Launched Finestra'14, 3rd Edition of CSI Magazine</li>
+                        <li>4. Also organized and coordinated Colosseum’13 and Cubix’14 under CSI</li>
+                        <li>5. Worked as a club coordinator and volunteer in Regional Student Convention'12 by Computer Society of India,Student Branch ,Nirma University in which more than 800 students from over 50 Universities, from all over West Zone of India, participated in 25 different events.</li>
+                      </ul>
+                    </p>
+                    <!--
+                    <div class="about-btn-area">
+                      <a href="#" class="button button-default" data-text="KNOW MORE"><span>KNOW MORE</span></a>
+                    </div>
+                    -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> 
+  <!-- End about section -->
+
+  <br/>
+
+  <!-- Start Portfolio section -->
+  <section id="projects">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="portfolio-area">
+            <div class="title-area">
+              <br/>
+              <h2 class="tittle">My <span>Projects</span></h2>
+              <span class="tittle-line"></span>
+              <!--<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto</p>-->
+            </div>
+            <!-- Portfolio content -->
+            <div class="portfolio-content">
+              <!-- portfolio menu -->
+              <div class="portfolio-menu">
+                <ul>
+                  <li class="filter" data-filter="all">All</li>
+                  <li class="filter" data-filter=".webDev">Web Development</li>
+                  <li class="filter" data-filter=".database">Database</li>
+                  <li class="filter" data-filter=".imageProcessing">Image Processing</li>
+                  <li class="filter" data-filter=".mobAppDev">Mobile App Development</li>
+                </ul>
+              </div>
+              <!-- Portfolio container -->
+              <div id="mixit-container" class="portfolio-container">
+                <div class="single-portfolio mix webDev">
+                  <div class="single-item">
+                    <img src="assets/images/form_maker.png" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <a class="fancybox" data-fancybox-group="gallery" href="assets/images/about_form_maker.jpg"><i class="fa fa-info"></i></a>
+                        <a class="link-btn" href="http://webdev2016-shahsaloni.rhcloud.com/assignment"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Form Maker</h4>
+                        <span>Web Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix webDev">
+                  <div class="single-item">
+                    <img src="assets/images/animal_rescue.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="https://docs.google.com/a/husky.neu.edu/document/d/1brACZiB3wld4XM29uaJxXIk8l8cVbMshzTkV5pDKM-4/edit?usp=sharing"><i class="fa fa-info"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Animal Adoption Website</h4>
+                        <span>Web Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix database">
+                  <div class="single-item">
+                    <img src="assets/images/ofm.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big3.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="OFM_Project_Report.pdf"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Online Finance Management</h4>
+                        <span>Back-End Development</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix imageProcessing">
+                  <div class="single-item">
+                    <img src="assets/images/anpr.png" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <a class="fancybox" data-fancybox-group="gallery" href="assets/images/eagle_eye_poster.jpg"><i class="fa fa-file-image-o"></i></a>
+                        <a class="link-btn" href="Eagle_Eye_Report.pdf"><i class="fa fa-link"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>Automatic Number Plate Recognition</h4>
+                        <span>Image Processing</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix mobAppDev">
+                  <div class="single-item">
+                    <img src="assets/images/locShare_1.jpg" alt="img">
+                    <div class="single-item-content">
+                      <div class="portfolio-social-icon">
+                        <!--<a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big5.jpg"><i class="fa fa-eye"></i></a>-->
+                        <a class="link-btn" href="LocShare.pdf"><i class="fa fa-file-powerpoint-o"></i></a>
+                      </div>
+                      <div class="portfolio-title">
+                        <h4>LocShare: Address Sharing</h4>
+                        <span>Android Application</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small6.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big6.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small7.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big7.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="single-portfolio mix photography">
+                  <div class="single-item">
+                    <img src="assets/images/portfolio-img-small2.jpg" alt="img">
+                    <div class="single-item-content">
+                       <div class="portfolio-social-icon">
+                         <a class="fancybox" data-fancybox-group="gallery" href="assets/images/portfolio-img-big2.jpg"><i class="fa fa-eye"></i></a>
+                         <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+                       </div>
+                       <div class="portfolio-title">
+                         <h4>Mobile application</h4>
+                         <span>UI Design</span>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+                -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio section -->
+
+
+  <!-- Start service section -->
+  <section id="interests">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="service-area">
+            <div class="title-area">
+              <br/>
+              <h2 class="tittle">My <span>Interests</span></h2>
+              <span class="tittle-line"></span>
+              <!--<p>perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae ab illo inventore</p>-->
+            </div>
+            <!-- service content -->
+            <div class="service-content">
+              <ul class="service-table">
+                <li class="col-md-3 col-sm-6">
+                  <div class="single-service wow slideInUp">
+                    <span class="fa fa-book service-icon"></span>
+                    <h4 class="service-title">Reading</h4>
+                    <p>I like reading romance, fictional and thriller novels</p>
+                  </div>
+                </li>
+                <li class="col-md-3 col-sm-6">
+                  <div class="single-service wow slideInUp">
+                    <span class="fa fa-music service-icon"></span>
+                    <h4 class="service-title">Music</h4>
+                    <p>I am passionate about music and playing keyboard</p>
+                  </div>
+                </li>
+                <li class="col-md-3 col-sm-6">
+                 <div class="single-service wow slideInUp">
+                    <span class="fa fa-code service-icon"></span>
+                    <h4 class="service-title">Coding</h4>
+                    <p>I like coding and learning new languages</p>
+                  </div>
+                </li>
+                <li class="col-md-3 col-sm-6">
+                  <div class="single-service wow slideInUp">
+                    <span class="fa fa-plane service-icon"></span>
+                    <h4 class="service-title">Travelling</h4>
+                    <p>I love to travel and explore new places</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End service section -->
+
+
+
+  <!-- Start counter section -->
+  <!-- End counter section -->
+
+
+ <!--
+  <section id="client">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="client-area">
+            <ul class="client-table">
+              <li><img src="assets/images/envato.png" alt="client logo"></li>
+              <li><img src="assets/images/google.png" alt="client logo"></li>
+              <li><img src="assets/images/amazon.png" alt="client logo"></li>
+              <li><img src="assets/images/discovery.png" alt="client logo"></li>
+              <li><img src="assets/images/envato.png" alt="client logo"></li>
+              <li><img src="assets/images/tuenti.png" alt="client logo"></li>
+              <li><img src="assets/images/envato.png" alt="client logo"></li>
+              <li><img src="assets/images/google.png" alt="client logo"></li>
+              <li><img src="assets/images/amazon.png" alt="client logo"></li>
+              <li><img src="assets/images/discovery.png" alt="client logo"></li>
+              <li><img src="assets/images/envato.png" alt="client logo"></li>
+              <li><img src="assets/images/tuenti.png" alt="client logo"></li>                    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- Start Contact section -->
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="contact-left wow fadeInLeft">
+            <h2>Contact Me</h2>
+            <address class="single-address">
+              <h4>Postal address:</h4>
+              <p>75 St. Alphonsus Street, Boston, MA, 02120</p>
+            </address>
+             <address class="single-address">
+              <h4>Phone</h4>
+              <p>Phone Number: (123) 456 7890</p>
+            </address>
+             <address class="single-address">
+              <h4>E-Mail</h4>
+              <p>1. shah.salo@husky.neu.edu</p>
+              <p>2. salonipshah11@gmail.com</p>
+            </address>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-6 col-xs-12">
+          <div class="contact-right wow fadeInRight">
+            <h2><i>Something to say?</i></h2>
+              <p class="p-color">
+                  <i>I would love to hear what you think - good or bad! Fill the form and I would get back to you as soon
+                  as I can!</i>
+              </p>
+            <form action="" class="contact-form">
+              <div class="form-group">                
+                <input type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter Email">
+              </div>              
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Message"></textarea>
+              </div>
+              <button type="submit" data-text="SUBMIT" class="button button-default"><span>SUBMIT</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact section -->
+
+
+  <!-- Start Google Map -->
+  <!--
+  <section id="google-map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m8!1m3!1d6303.67022361714!2d144.955652!3d-37.817331!3m2!1i1024!2i768!4f13.1!4m6!3e6!4m0!4m3!3m2!1d-37.8173306!2d144.9556518!5e0!3m2!1sen!2sbd!4v1442411159706" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>  
+  </section>
+  -->
+  <!-- End Google Map -->
+
+  <!-- Start Footer -->    
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-top-area">
+                <a class="footer-logo" href="#"><img src="assets/images/logo_footer.jpg" alt="Logo"></a>
+              <div class="footer-social">
+                <a class="facebook" href="https://www.facebook.com/saloni.shah.92754">
+                    <span class="fa fa-facebook"></span>
+                </a>
+                <a class="linkedin" href="https://www.linkedin.com/in/salonishah11">
+                  <span class="fa fa-linkedin"></span>
+                </a>
+                <a class="github" href="https://github.com/salonishah11/WebDevSpring2016.git">
+                  <span class="fa fa-github"></span>
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyright &copy; Saloni Shah</p>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- initialize jQuery Library --> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Bootstrap -->
+  <script src="assets/js/bootstrap.js"></script>
+  <!-- Slick Slider -->
+  <script type="text/javascript" src="assets/js/slick.js"></script>
+  <!-- Counter -->
+  <script type="text/javascript" src="assets/js/waypoints.js"></script>
+  <script type="text/javascript" src="assets/js/jquery.counterup.js"></script>
+  <!-- mixit slider -->
+  <script type="text/javascript" src="assets/js/jquery.mixitup.js"></script>
+  <!-- Add fancyBox -->        
+  <script type="text/javascript" src="assets/js/jquery.fancybox.pack.js"></script>
+  <!-- Wow animation -->
+  <script type="text/javascript" src="assets/js/wow.js"></script> 
+
+  <!-- Custom js -->
+  <script type="text/javascript" src="assets/js/custom.js"></script>
+    
+  </body>
+</html>

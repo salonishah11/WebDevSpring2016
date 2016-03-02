@@ -4,7 +4,7 @@
         .module("AdoptAPet")
         .controller("AdoptPetSearchController", AdoptPetSearchController);
 
-    function AdoptPetSearchController($scope, $http){
+    function AdoptPetSearchController($scope){
         $scope.searchPets = searchPets;
 
         function searchPets(pet){

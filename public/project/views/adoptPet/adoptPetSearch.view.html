@@ -94,8 +94,9 @@
                     <strong>Pets</strong>
                 </h2>
                 <hr>
-                <table class="table table-stripped">
+                <table class="table table-stripped table-bordered">
                     <thead>
+                        <th>Picture</th>
                         <th>Name</th>
                         <th>Animal</th>
                         <th>Breed</th>
@@ -103,11 +104,9 @@
                         <th>Gender</th>
                     </thead>
                     <tbody>
-                    <!-- movie is a local avaraiable
-                         Search is one of the response in JSON object displayed on console
-                    -->
                     <tr ng-repeat="pet in data.petfinder.pets.pet">
-                        <td>{{pet.name.$t}}</td>
+                        <td><img ng-src="{{pet.media.photos.photo[0].$t}}"/></td>
+                        <td><a href="#/adoptPetDetails/{{pet.id.$t}}">{{pet.name.$t}}</a></td>
                         <td>{{pet.animal.$t}}</td>
                         <td>{{pet.breeds.breed.$t}}</td>
                         <td>{{pet.age.$t}}</td>

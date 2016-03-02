@@ -7,28 +7,34 @@
     function Configure($routeProvider) {
         $routeProvider
             .when("/home",{
-                templateUrl: "../project/views/home/home.view.html"
+                templateUrl: "views/home/home.view.html"
             })
-            .when("/adoptPet",{
-                templateUrl: "../project/views/adoptPet/adoptPet.view.html"
+            .when("/adoptPetSearch",{
+                templateUrl: "views/adoptPet/adoptPetSearch.view.html",
+                controller: "AdoptPetSearchController"
             })
-            .when("/animalOrg",{
-                templateUrl: "../project/views/animalOrg/animalOrg.view.html"
+            .when("/adoptPetDetails/:id",{
+                templateUrl: "views/adoptPet/adoptPetDetails.view.html",
+                controller: "AdoptPetDetailsController"
+            })
+            .when("/animalOrgSearch",{
+                templateUrl: "views/animalOrg/animalOrgSearch.view.html",
+                controller: "AnimalOrgSearchController"
             })
             .when("/contact",{
-                templateUrl: "../project/views/contact/contact.view.html"
+                templateUrl: "views/contact/contact.view.html"
             })
             .when("/login",{
-                templateUrl: "../project/views/users/login.view.html"
+                templateUrl: "views/users/login.view.html"
             })
             .when("/profile",{
-                templateUrl: "../project/views/users/profile.view.html"
+                templateUrl: "views/users/profile.view.html"
             })
             .when("/register",{
-                templateUrl: "../project/views/users/register.view.html"
+                templateUrl: "views/users/register.view.html"
             })
             .when("/shareStory",{
-                templateUrl: "../project/views/users/shareStory.view.html"
+                templateUrl: "views/users/shareStory.view.html"
             })
             .otherwise({
                 redirectTo: "/home"

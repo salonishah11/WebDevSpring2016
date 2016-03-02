@@ -1,85 +1,122 @@
-<div class="row">
-    <div class="box">
-        <div class="col-lg-12">
-            <hr>
-            <h2 class="intro-text text-center">Search for
-                <strong>Your Next Best Friend</strong>
-            </h2>
-            <hr>
+<div ng-controller="AdoptPetSearchController">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Search for
+                    <strong>Your Next Best Friend</strong>
+                </h2>
+                <hr>
+            </div>
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="type" class="col-sm-2 control-label">Type</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <select ng-model="pet.type" class="form-control" id="type">
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="bird">Bird</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="location" class="col-sm-2 control-label">Location</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <input type="text" ng-model="pet.location" class="form-control" id="location" placeholder="ex: 02120">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="breed" class="col-sm-2 control-label">Breed</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <select ng-model="pet.breed" class="form-control" id="breed">
+                            <option value="Labrador Retriever">Labrador Retriever</option>
+                            <option value="Golden Retriever">Golden Retriever</option>
+                            <option value="Terrier">Terrier</option>
+                            <option value="Beagle">Beagle</option>
+                            <option value="Chihuahua">Chihuahua</option>
+                            <option value="Birman">Birman</option>
+                            <option value="Domestic Short Hair">Domestic Short Hair</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="age" class="col-sm-2 control-label">Age</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <select ng-model="pet.age" class="form-control" id="age">
+                            <option value="Baby">Baby</option>
+                            <option value="Young">Young</option>
+                            <option value="Adult">Adult</option>
+                            <option value="Senior">Senior</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="size" class="col-sm-2 control-label">Size</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <select ng-model="pet.size" class="form-control" id="size">
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-2 control-label">Gender</label>
+                    <br/>
+                    <div class="col-sm-2">
+                        <select ng-model="pet.gender" class="form-control" id="gender">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <br/>
+                    <div class="col-sm-2">
+                        <a ng-click="searchPets(pet)" class="btn btn-primary btn-lg">Find Pets</a>
+                    </div>
+                </div>
+            </form>
+            <div class="clearfix"></div>
         </div>
-        <form class="form-inline">
-            <div class="form-group">
-                <label for="type" class="col-sm-2 control-label">Type</label>
-                <br/>
-                <div class="col-sm-2">
-                    <select class="form-control" id="type">
-                        <option>Dog</option>
-                        <option>Cat</option>
-                        <option>Bird</option>
-                    </select>
-                </div>
+    </div>
+
+    <div class="row" ng-show="data">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Adoptable
+                    <strong>Pets</strong>
+                </h2>
+                <hr>
+                <table class="table table-stripped">
+                    <thead>
+                        <th>Name</th>
+                        <th>Animal</th>
+                        <th>Breed</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                    </thead>
+                    <tbody>
+                    <!-- movie is a local avaraiable
+                         Search is one of the response in JSON object displayed on console
+                    -->
+                    <tr ng-repeat="pet in data.petfinder.pets.pet">
+                        <td>{{pet.name.$t}}</td>
+                        <td>{{pet.animal.$t}}</td>
+                        <td>{{pet.breeds.breed.$t}}</td>
+                        <td>{{pet.age.$t}}</td>
+                        <td>{{pet.sex.$t}}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="form-group">
-                <label for="location" class="col-sm-2 control-label">Location</label>
-                <br/>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" id="location" placeholder="ex: 02120">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="breed" class="col-sm-2 control-label">Breed</label>
-                <br/>
-                <div class="col-sm-2">
-                    <select class="form-control" id="breed">
-                        <option>Labrador</option>
-                        <option>Golden Retriever</option>
-                        <option>Terrier Mix</option>
-                        <option>Birman</option>
-                        <option>Canadian Hairless</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="age" class="col-sm-2 control-label">Age</label>
-                <br/>
-                <div class="col-sm-2">
-                    <select class="form-control" id="age">
-                        <option>0-1</option>
-                        <option>1-5</option>
-                        <option>5-8</option>
-                        <option>8+</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="size" class="col-sm-2 control-label">Size</label>
-                <br/>
-                <div class="col-sm-2">
-                    <select class="form-control" id="size">
-                        <option>Small</option>
-                        <option>Medium</option>
-                        <option>Large</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="gender" class="col-sm-2 control-label">Gender</label>
-                <br/>
-                <div class="col-sm-2">
-                    <select class="form-control" id="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <br/>
-                <div class="col-sm-2">
-                    <a href="#" class="btn btn-primary btn-lg">Find Pets</a>
-                </div>
-            </div>
-        </form>
-        <div class="clearfix"></div>
+        </div>
     </div>
 </div>
 

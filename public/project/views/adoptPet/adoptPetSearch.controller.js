@@ -8,6 +8,7 @@
         $scope.searchPets = searchPets;
 
         function searchPets(pet){
+            //$scope.tp="asdf";
             if(pet.location != null){
                 var param ="&location=" + pet.location;
                 if(pet.type != null)param +="&animal=" + pet.type;
@@ -18,7 +19,7 @@
 
                 $.getJSON('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=?'
                         + param)
-                    .success(render)
+                    .done(render)
                     .error(function(err) { alert('Error retrieving data!')});
 
                 //$scope.pet = null;
@@ -27,6 +28,7 @@
 
         function render(response){
             console.log(response);
+            //$scope.tp="abcd";
             $scope.data = response;
         }
     }

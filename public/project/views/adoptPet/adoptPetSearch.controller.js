@@ -4,7 +4,7 @@
         .module("AdoptAPet")
         .controller("AdoptPetSearchController", AdoptPetSearchController);
 
-    function AdoptPetSearchController($scope){
+    function AdoptPetSearchController($scope, $http){
         $scope.searchPets = searchPets;
 
         function searchPets(pet){
@@ -17,10 +17,14 @@
                 if(pet.size != null)param +="&size=" + pet.size;
                 if(pet.gender != null)param +="&sex=" + pet.gender;
 
-                $.getJSON('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=?'
-                        + param)
-                    .done(render)
-                    .error(function(err) { alert('Error retrieving data!')});
+                $http.jsonp('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=JSON_CALLBACK'
+                    + param)
+                    .success(render);
+
+                //$.getJSON('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=?'
+                //        + param)
+                //    .done(render)
+                //    .error(function(err) { alert('Error retrieving data!')});
 
                 //$scope.pet = null;
             }

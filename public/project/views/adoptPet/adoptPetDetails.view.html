@@ -7,6 +7,11 @@
                     <strong>{{petDet.petfinder.pet.name.$t}}</strong>
                 </h2>
                 <hr>
+                <img height="75px" class="img-responsive img-border img-left" ng-src={{petDet.petfinder.pet.media.photos.photo[0].$t}} />
+                <hr class="visible-xs">
+                <p>
+                    {{petDet.petfinder.pet.description.$t}}
+                </p>
             </div>
         </div>
     </div>

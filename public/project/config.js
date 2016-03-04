@@ -21,6 +21,10 @@
                 templateUrl: "views/animalOrg/animalOrgSearch.view.html",
                 controller: "AnimalOrgSearchController"
             })
+            .when("/animalOrgDetails/:id",{
+                templateUrl: "views/animalOrg/animalOrgDetails.view.html",
+                controller: "AnimalOrgDetailsController"
+            })
             .when("/contact",{
                 templateUrl: "views/contact/contact.view.html"
             })

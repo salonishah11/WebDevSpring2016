@@ -41,22 +41,28 @@
                     Organizations
                 </h2>
                 <hr>
+                <div class="table-responsive">
                 <table class="table table-stripped table-bordered">
                     <thead>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Email</th>
-                    <th>Phone</th>
+                    <tr>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>ID</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="shelter in data.petfinder.shelters.shelter">
-                        <td><a href="#">{{shelter.name.$t}}</a></td>
+                        <td><a href="#/animalOrgDetails/{{shelter.id.$t}}">{{shelter.name.$t}}</a></td>
                         <td>{{shelter.city.$t}}</td>
                         <td>{{shelter.email.$t}}</td>
                         <td>{{shelter.phone.$t}}</td>
+                        <td>{{shelter.id.$t}}</td>
                     </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>

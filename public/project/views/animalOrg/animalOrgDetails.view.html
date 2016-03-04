@@ -1,0 +1,39 @@
+<div ng-controller="AnimalOrgDetailsController">
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">About
+                    <strong>{{shelter.petfinder.shelter.name.$t}}</strong>
+                </h2>
+                <hr>
+                <p>
+                    <strong>Address: </strong>{{shelter.petfinder.shelter.address1.$t}},
+                    {{shelter.petfinder.shelter.address2.$t}}
+                    <br/><strong>City: </strong>{{shelter.petfinder.shelter.city.$t}}
+                    <br/><strong>Country: </strong>{{shelter.petfinder.shelter.country.$t}}
+                    <br/><strong>Email: </strong>{{shelter.petfinder.shelter.email.$t}}
+                    <br/><strong>Phone: </strong>{{shelter.petfinder.shelter.phone.$t}}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center"><strong>Contact</strong>
+                </h2>
+                <hr>
+                <p>
+                <h4>{{petDet.petfinder.pet.contact.name.$t}}</h4>
+                <h4>{{petDet.petfinder.pet.contact.phone.$t}}</h4>
+                <h4>{{petDet.petfinder.pet.contact.email.$t}}</h4>
+                </p>
+            </div>
+        </div>
+    </div>
+    -->
+</div>

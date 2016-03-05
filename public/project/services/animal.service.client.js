@@ -15,7 +15,6 @@
         ];
 
         var animalAPI = {
-            // Function Declarations
             //findUserByCredentials: findUserByCredentials,
             findAllAnimals: findAllAnimals,
             createAnimal: createAnimal,

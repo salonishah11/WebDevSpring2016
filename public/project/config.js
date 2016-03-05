@@ -40,6 +40,10 @@
             .when("/shareStory",{
                 templateUrl: "views/users/shareStory.view.html"
             })
+            .when("/users",{
+                templateUrl: "views/users/users.view.html",
+                controller: "UsersController"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

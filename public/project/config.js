@@ -48,6 +48,14 @@
                 templateUrl: "views/animal/animals.view.html",
                 controller: "AnimalsController"
             })
+            .when("/adoptionStories",{
+                templateUrl: "views/users/adoptionStories.view.html",
+                controller: "AdoptionStoriesController"
+            })
+            //.when("/adoptionRequests",{
+            //    templateUrl: "views/users/adoptionRequests.view.html",
+            //    controller: "AdoptionRequestsController"
+            //})
             .otherwise({
                 redirectTo: "/home"
             });

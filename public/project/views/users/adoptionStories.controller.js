@@ -25,7 +25,7 @@
                     var newStory = {
                         "_id": (new Date).getTime(),
                         "title": story.title,
-                        "description": story.username,
+                        "description": story.description,
                         "username": story.username
                     };
 

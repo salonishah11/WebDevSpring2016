@@ -28,7 +28,7 @@
                             <input ng-model="story.username" type="text" class="form-control" placeholder="Username">
                         </td>
                         <td>
-                            <span class="pull-right">
+                            <span class="pull-right whitespace-no-wrap">
                                 <a ng-click="addStory(story)" class="btn btn-default">
                                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                 </a>
@@ -43,7 +43,7 @@
                         <td><textarea rows="5" cols="40" disabled>{{stories.description}}</textarea></td>
                         <td>{{stories.username}}</td>
                         <td>
-                            <span class="pull-right">
+                            <span class="pull-right whitespace-no-wrap">
                                 <a ng-click="deleteStory($index)" class="btn btn-default">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                 </a>

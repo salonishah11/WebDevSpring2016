@@ -134,7 +134,7 @@
             </form>
             -->
 
-<form class="form-horizontal">
+<form class="form-horizontal" ng-controller="FieldController as model">
     <div class="container box">
         <div class="row form-group">
             <div class="col-sm-5">
@@ -246,19 +246,21 @@
         <div class="row form-group">
             <div class="col-sm-5">
                 Add New Field:
-                <select class="form-control">
-                    <option selected>Single Line Text</option>
-                    <option>Date</option>
-                    <option>Dropdown</option>
-                    <option>Checkboxes</option>
-                    <option>Radio buttons</option>
-                    <option>Paragraph Text Field</option>
+                <select ng-model="model.fieldType" class="form-control">
+                    <option selected value="Single Line Text Field">Single Line Text Field</option>
+                    <option value="Multi Line Text Field">Multi Line Text Field</option>
+                    <option value="Date Field">Date Field</option>
+                    <option value="Dropdown Field">Dropdown Field</option>
+                    <option value="Checkboxes Field">Checkboxes Field</option>
+                    <option value="Radio Buttons Field">Radio buttons Field</option>
                 </select>
             </div>
             <div class="col-sm-4 col-sm-offset-2 whitespace-no-wrap">
                 <br/>
                 <span class="empty"></span>
-                <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <a ng-click="addField(model.fieldType)" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </a>
             </div>
         </div>
 

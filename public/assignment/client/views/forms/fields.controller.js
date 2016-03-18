@@ -1,3 +1,10 @@
-/**
- * Created by Saloni Shah on 02/18/16.
- */
+(function() {
+    "use strict";
+    angular
+        .module("FormBuilderApp")
+        .controller("FieldController", FieldController);
+    
+    function FieldController() {
+        
+    }
+})();

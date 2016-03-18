@@ -11,14 +11,14 @@
 
         // Function Implementations
         // registers a new user
-        function register(username, password, verifyPassword, email){
-            if(password == verifyPassword){
+        function register(user){
+            if(user.password == user.verifyPassword){
                 var newUser = {
                     "_id":(new Date).getTime(),
                     "firstName":null,
                     "lastName": null,
-                    "username":username,
-                    "password":password,
+                    "username": user.username,
+                    "password": user.password,
                     "roles": []
                 };
 

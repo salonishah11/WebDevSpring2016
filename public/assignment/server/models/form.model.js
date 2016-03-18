@@ -33,19 +33,24 @@ module.exports = function() {
         return null;
     }
 
-    function updateForm(updatedForm, formID){
+    function updateForm(formId, updatedForm){
+        //console.log("inside model " + formId);
         for(var f in mock){
-            if(mock[f]._id == formID){
+            if(mock[f]._id == formId){
                 mock[f] = updatedForm;
+                //console.log(mock[f]);
+                return mock[f];
             }
         }
         return null;
     }
 
     function deleteForm(formID){
-        for(var i = 0; i < mock.length; i++){
-            if(formID == mock[i]._id){
-                mock.splice(i, 1);
+        //console.log("inside model " + formID);
+        for(var f in mock){
+            if(formID == mock[f]._id){
+                //console.log("inside if");
+                mock.splice(f, 1);
                 return mock;
             }
         }
@@ -62,7 +67,6 @@ module.exports = function() {
     }
     
     function findFormByUserId(userId) {
-        console.log(userId);
         var userForms = [];
         for(var f in mock){
             if(mock[f].userId == userId){
@@ -70,6 +74,7 @@ module.exports = function() {
                 userForms.push(mock[f]);
             }
         }
+        //console.log(userId);
         return userForms;
     }
 };

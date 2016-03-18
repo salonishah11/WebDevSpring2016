@@ -9,6 +9,7 @@ module.exports = function(app, model) {
     
     function findFormByUserId(req, res) {
         var userId = req.params.userId;
+        //console.log("inside server service " + userId);
         forms = model.findFormByUserId(userId);
         res.json(forms);
     }
@@ -20,22 +21,24 @@ module.exports = function(app, model) {
     }
 
     function deleteFormById(req, res){
-        var formId = req.params.id;
-        var forms = model.deleteUserById(formId);
+        //console.log("inside server service");
+        var formId = req.params.formId;
+        var forms = model.deleteForm(formId);
         res.json(forms);
     }
 
     function createForm(req, res) {
         var userId = req.params.userId;
         var form = req.body;
-
         forms = model.createForm(userId, form);
         res.json(forms);
     }
 
     function updateFormByID(req, res) {
-        var formId = req.params.id;
-        forms = model.updateUserByID(formId);
-        res.json(forms);
+        //console.log("inside server service");
+        var formId = req.params.formId;
+        var updatedForm = req.body;
+        form = model.updateForm(formId, updatedForm);
+        res.json(form);
     }
 };

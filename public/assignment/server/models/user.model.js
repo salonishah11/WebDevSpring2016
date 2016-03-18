@@ -15,14 +15,15 @@ module.exports = function() {
     function createUser(newUser){
         newUser._id = (new Date()).getTime();
         mock.push(newUser);
-        return mock;
+        return newUser;
     }
 
     function findAllUsers(){
+        console.log("inside model");
         return mock;
     }
 
-    function findUserByID(userID){
+    function findUserByID(userId){
         for(var u in mock){
             if(mock[u]._id == userId){
                 return mock[u];
@@ -31,7 +32,7 @@ module.exports = function() {
         return null;
     }
 
-    function updateUser(updatedUser, userID){
+    function updateUser(userId, updatedUser){
         for(var u in mock){
             if(mock[u]._id == userId){
                 mock[u] = updatedUser;

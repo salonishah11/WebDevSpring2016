@@ -12,14 +12,21 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
+                <!--
                 <li ng-show="displayLink()"><a href="#/register">Register</a></li>
                 <li ng-show="displayLink()"><a href="#/login">Login</a></li>
                 <li ng-hide="displayLink()" ng-click="logout()"><a href="#/home">Logout</a></li>
                 <li ng-hide="displayLink()"><a href="#/profile">{{username}}</a></li>
                 <li ng-show="checkUserAdmin()"><a href="#/admin">Admin</a></li>
+                -->
                 <!--
                 <li ng-hide="displayLink()" ng-click="checkUserAdmin()"><a>Admin</a></li>
                 -->
+                <li ng-hide="currentUser"><a href="#/register">Register</a></li>
+                <li ng-hide="currentUser"><a href="#/login">Login</a></li>
+                <li ng-show="currentUser" ng-click="logout()"><a href="#/home">Logout</a></li>
+                <li ng-show="currentUser"><a href="#/profile">{{currentUser.username}}</a></li>
+                <li ng-show="currentUser.roles.indexOf('admin') >= 0"><a href="#/admin">Admin</a></li>
             </ul>
         </div>
     </div>

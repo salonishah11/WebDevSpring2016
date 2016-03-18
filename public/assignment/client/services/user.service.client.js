@@ -37,18 +37,9 @@
 
         // finds a user given a username and password
         function findUserByCredentials(credentials){
-            // var flag = 0;
-            // for(var i = 0; i < users.length; i++){
-            //     if(username == users[i].username && password == users[i].password){
-            //         callback(users[i]);
-            //         flag = 1;
-            //         break;
-            //     }
-            // }
-            // if(flag == 0){
-            //     callback(null);
-            // }
-            return $http.get("/api/assignment/user", credentials);
+            //console.log("inside service" + credentials.username + credentials.password);
+            return $http.get("/api/assignment/user?username=" + credentials.username +
+                "&password=" + credentials.password);
         }
 
         // returns an array of all users
@@ -58,7 +49,8 @@
 
         // creates a new user
         function createUser(user){
-            return $http.get("api/assignment/user", user);
+            //console.log("inside client service");
+            return $http.post("/api/assignment/user", user);
         }
 
         // deletes a user given userId
@@ -68,7 +60,7 @@
 
         // updates the data of a user given a userId
         function updateUser(userId, updatedUser){
-            return $http.put("/api/assignment/user/:" + userId);
+            return $http.put("/api/assignment/user/" + userId, updatedUser);
         }
     }
 

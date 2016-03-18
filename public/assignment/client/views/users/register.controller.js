@@ -5,14 +5,17 @@
         .controller("RegisterController", RegisterController);
 
     function RegisterController(UserService, $location, $scope) {
+        
+        var vm = this;
         // Function Declarations
-        $scope.register = register;
+        vm.register = register;
 
 
         // Function Implementations
         // registers a new user
         function register(user){
             if(user.password == user.verifyPassword){
+                console.log("inside register");
                 var newUser = {
                     "_id":(new Date).getTime(),
                     "firstName":null,
@@ -22,16 +25,16 @@
                     "roles": []
                 };
 
-                UserService.createUser(newUser, renderRegistration);
+                UserService
+                    .createUser(newUser)
+                    .then(function(response){
+                    if(response.data){
+                        //console.log(response.data);
+                        UserService.setCurrentUser(response.data);
+                        $location.path('/profile');
+                    }
+                });
             }
-        }
-
-        // callback function for register()
-        // navigates the user to profile page after successful registration
-        // sets the value of $rootScope with current user
-        function renderRegistration(user){
-            UserService.setCurrentUser(user);
-            $location.path('/profile');
         }
     }
 })();

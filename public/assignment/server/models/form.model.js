@@ -12,8 +12,9 @@ module.exports = function() {
     };
     return api;
 
-    function createForm(newForm){
+    function createForm(userId, newForm){
         newForm._id = (new Date()).getTime();
+        newForm.userId = userId;
         mock.push(newForm);
         return mock;
     }
@@ -22,9 +23,10 @@ module.exports = function() {
         return mock;
     }
 
-    function findFormByID(formID){
+    function findFormByID(formId){
+        console.log(formId);
         for(var f in mock){
-            if(mock[f]._id == formID){
+            if(mock[f]._id == formId){
                 return mock[f];
             }
         }
@@ -60,9 +62,11 @@ module.exports = function() {
     }
     
     function findFormByUserId(userId) {
-        var userForms = {};
+        console.log(userId);
+        var userForms = [];
         for(var f in mock){
-            if(mock[f].userId === userId){
+            if(mock[f].userId == userId){
+                //console.log("inside if" + mock[f]);
                 userForms.push(mock[f]);
             }
         }

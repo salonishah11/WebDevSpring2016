@@ -23,28 +23,50 @@ module.exports = function() {
     }
 
     function findUserByID(userID){
-
-    }
-
-    function updateUser(updatedUser, userID){
-
-    }
-
-    function deleteUser(userID){
-
-    }
-
-    function findUserByUsername(username){
-
-    }
-
-    function findUserByCredentials(credentials){
-        console.log(credentials);
         for(var u in mock){
-            if(mock[u].username === credentials.username && mock[u].password === credentials.password){
+            if(mock[u]._id == userId){
                 return mock[u];
             }
         }
         return null;
     }
-}
+
+    function updateUser(updatedUser, userID){
+        for(var u in mock){
+            if(mock[u]._id == userId){
+                mock[u] = updatedUser;
+            }
+        }
+        return null;
+    }
+
+    function deleteUser(userID){
+        for(var i = 0; i < mock.length; i++){
+            if(userId == mock[i]._id){
+                mock.splice(i, 1);
+                return mock;
+            }
+        }
+        return null;
+    }
+
+    function findUserByUsername(username){
+        for(var u in mock){
+            if(mock[u].username === username){
+                return mock[u];
+            }
+        }
+        return null;
+    }
+
+    function findUserByCredentials(credentials){
+        console.log(credentials);
+        for(var u in mock){
+            if(mock[u].username === credentials.username &&
+                mock[u].password === credentials.password){
+                return mock[u];
+            }
+        }
+        return null;
+    }
+};

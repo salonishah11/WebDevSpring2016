@@ -8,7 +8,13 @@ module.exports = function() {
         updateForm: updateForm,
         deleteForm: deleteForm,
         findFormByTitle: findFormByTitle,
-        findFormByUserId: findFormByUserId
+        findFormByUserId: findFormByUserId,
+
+        getFieldsForForm: getFieldsForForm,
+        getFieldForForm: getFieldForForm,
+        deleteFieldFromForm: deleteFieldFromForm,
+        createFieldForForm: createFieldForForm,
+        updateField: updateField
     };
     return api;
 
@@ -76,5 +82,67 @@ module.exports = function() {
         }
         //console.log(userId);
         return userForms;
+    }
+
+
+    //Field Service
+    function getFieldsForForm(formId) {
+        for(var f in mock){
+            if(mock[f]._id === formId){
+                return mock[f].fields;
+            }
+        }
+        return null;
+    }
+
+    function getFieldForForm(formId, fieldId){
+        for(var f in mock){
+            if(mock[f]._id === formId){
+                for(var i in mock[f].fields){
+                    if(mock[f].fields[i]._id == fieldId){
+                        return mock[f].fields[i];
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    function deleteFieldFromForm(formId, fieldId) {
+        for(var f in mock){
+            if(mock[f]._id === formId){
+                for(var i in mock[f].fields){
+                    if(mock[f].fields[i]._id == fieldId){
+                        mock[f].fields.splice(i, 1);
+                        return;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    function createFieldForForm(formId, newField) {
+        for(var f in mock) {
+            if (mock[f]._id === formId) {
+                mock[f].fields.push(newField);
+                return newField;
+            }
+        }
+        return null;
+    }
+
+    function updateField(formId, fieldId, updatedField) {
+        for(var f in mock){
+            if(mock[f]._id === formId){
+                for(var i in mock[f].fields){
+                    if(mock[f].fields[i]._id == fieldId){
+                        mock[f].fields[i] = updatedField;
+                        return updatedField;
+                    }
+                }
+            }
+        }
+        return null;
     }
 };

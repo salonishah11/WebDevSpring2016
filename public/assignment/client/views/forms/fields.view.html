@@ -271,7 +271,7 @@
 <div ng-controller="FieldController as model">
 <form class="form-horizontal">
     <div class="container box">
-        <div ng-show="model.fields">
+        <div ng-show="model.fields" field-sortable field-axis="y">
             <div class="row form-group" ng-repeat="field in model.fields">
                 <div class="col-sm-5">
                     <label>{{field.label}}</label>
@@ -320,7 +320,7 @@
                     <a class="btn btn-default" ng-click="model.deleteField(field._id)">
                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                     </a>
-                    <a class="btn btn-default" href="#">
+                    <a class="btn btn-default">
                         <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                     </a>
                 </div>

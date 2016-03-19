@@ -41,9 +41,15 @@ module.exports = function() {
 
     function updateForm(formId, updatedForm){
         //console.log("inside model " + formId);
+        var form = {
+            "_id" : updatedForm._id,
+            "title": updatedForm.title,
+            "userId": updatedForm.userId,
+            "fields": findFormByID(formId).fields
+        }
         for(var f in mock){
             if(mock[f]._id == formId){
-                mock[f] = updatedForm;
+                mock[f] = form;
                 //console.log(mock[f]);
                 return mock[f];
             }
@@ -71,7 +77,7 @@ module.exports = function() {
         }
         return null;
     }
-    
+
     function findFormByUserId(userId) {
         var userForms = [];
         for(var f in mock){

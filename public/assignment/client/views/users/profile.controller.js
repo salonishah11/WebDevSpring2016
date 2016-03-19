@@ -9,7 +9,7 @@
 
         var vm = this;
         // updating the scope with current user's information
-        vm.user = UserService.getCurrentUser();
+        vm.user = currentUser;
 
         // Function Declarations
         vm.update = update;

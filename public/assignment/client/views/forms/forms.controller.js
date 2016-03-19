@@ -77,14 +77,6 @@
             }
         }
 
-        // callback function of updateForm()
-        // renders the updated form on the page
-        function renderUpdatedForm(response){
-            $scope.data[$scope.selectedIndex] = response;
-            $scope.formName = null;
-            $scope.selectedIndex = -1;
-        }
-
 
         // deletes a selected form
         function deleteForm(index){

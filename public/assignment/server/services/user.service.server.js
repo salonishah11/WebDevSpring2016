@@ -57,7 +57,7 @@ module.exports = function(app, model) {
         users = model.updateUser(userId, updatedUser);
         res.json(users);
     }
-    
+
     function deleteUserById(req, res){
         var userId = req.params.id;
         var users = model.deleteUserById(userId);

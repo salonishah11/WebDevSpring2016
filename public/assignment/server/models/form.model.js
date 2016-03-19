@@ -114,7 +114,7 @@ module.exports = function() {
                 for(var i in mock[f].fields){
                     if(mock[f].fields[i]._id == fieldId){
                         mock[f].fields.splice(i, 1);
-                        return;
+                        return mock;
                     }
                 }
             }

@@ -30,7 +30,7 @@
             </td>
         </tr>
         <tr ng-show="model.data" ng-repeat="form in model.data">
-            <td><a href="#/fields">{{form.title}}</a></td>
+            <td><a ng-click="model.displayFields(form._id)">{{form.title}}</a></td>
             <td>
                 <span class="pull-right">
                     <a ng-click="model.deleteForm($index)" class="btn btn-default">

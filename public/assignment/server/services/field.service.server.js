@@ -25,11 +25,12 @@ module.exports = function(app, model) {
         //console.log("inside server service");
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        model.deleteFieldFromForm(formId, fieldId);
+        fields = model.deleteFieldFromForm(formId, fieldId);
+        res.json(fields);
     }
 
     function createFieldForForm(req, res) {
-        var formId = req.params.userId;
+        var formId = req.params.formId;
         var newField = req.body;
         newField._id = (new Date()).getTime();
         field = model.createFieldForForm(formId, newField);

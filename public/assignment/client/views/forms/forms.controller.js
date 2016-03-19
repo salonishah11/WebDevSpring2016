@@ -4,13 +4,14 @@
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController(FormService, $scope, UserService) {
+    function FormController(FormService, $scope, UserService, $location) {
         var vm = this;
         // Function Declarations
         vm.addForm = addForm;
         vm.updateForm = updateForm;
         vm.deleteForm = deleteForm;
         vm.selectForm = selectForm;
+        vm.displayFields = displayFields;
 
         // variable to store the index value of selected row
         vm.selectedIndex = -1;
@@ -103,6 +104,11 @@
             var selectedForm = vm.data[index];
             vm.form = selectedForm;
             vm.form.formName = selectedForm.title;
+        }
+        
+        function displayFields(formId) {
+            FormService.setFormId(formId);
+            $location.path('/fields');
         }
     }
 })();

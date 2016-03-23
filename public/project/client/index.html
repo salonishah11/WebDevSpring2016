@@ -39,7 +39,7 @@
     <script src="config.js"></script>
 
     <!-- Controllers -->
-    <script src="../project/views/main/main.controller.js"></script>
+    <script src="views/main/main.controller.js"></script>
     <script src="views/adoptPet/adoptPetSearch.controller.js"></script>
     <script src="views/adoptPet/adoptPetDetails.controller.js"></script>
     <script src="views/animalOrg/animalOrgSearch.controller.js"></script>
@@ -64,13 +64,13 @@
 
 <body ng-controller="MainController">
 
-    <div ng-include="'../project/views/header/header.view.html'"></div>
+    <div ng-include="'views/header/header.view.html'"></div>
 
     <div class="container">
         <div ng-view></div>
     </div>
 
-    <div ng-include="'../project/views/footer/footer.view.html'"></div>
+    <div ng-include="'views/footer/footer.view.html'"></div>
 </body>
 
 <!-- jQuery -->

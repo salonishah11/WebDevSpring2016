@@ -24,21 +24,28 @@ module.exports = function() {
         return deferred.promise;
         //return newUser;
     }
-    //
-    // function findAllUsers(){
-    //     console.log("inside model");
-    //     return mock;
-    // }
-    //
-    // function findUserByID(userId){
-    //     for(var u in mock){
-    //         if(mock[u]._id == userId){
-    //             return mock[u];
-    //         }
-    //     }
-    //     return null;
-    // }
-    //
+
+    function findAllUsers(){
+        //console.log("inside model");
+        var deferred = q.defer();
+
+        deferred.resolve(userMock);
+        return deferred.promise;
+    }
+
+    function findUserByID(userId){
+        var deferred = q.defer();
+        var user = null;
+
+        for(var u in mock){
+            if(userMock[u]._id == userId){
+                user =  userMock[u];
+            }
+        }
+        deferred.resolve(user);
+        return deferred.promise;
+    }
+
     function updateUser(userId, updatedUser){
         var deferred = q.defer();
         var user = null;
@@ -55,24 +62,29 @@ module.exports = function() {
         return deferred.promise;
     }
 
-    // function deleteUser(userID){
-    //     for(var i = 0; i < mock.length; i++){
-    //         if(userId == mock[i]._id){
-    //             mock.splice(i, 1);
-    //             return mock;
-    //         }
-    //     }
-    //     return null;
-    // }
-    //
-    // function findUserByUsername(username){
-    //     for(var u in mock){
-    //         if(mock[u].username === username){
-    //             return mock[u];
-    //         }
-    //     }
-    //     return null;
-    // }
+    function deleteUser(userID){
+        var deferred = q.defer();
+        for(var i = 0; i < userMock.length; i++){
+            if(userId == userMock[i]._id){
+                userMock.splice(i, 1);
+                break;
+            }
+        }
+        deferred.resolve(userMock);
+        return deferred.promise;
+    }
+
+    function findUserByUsername(username){
+        var deferred = q.defer();
+        var user = null;
+        for(var u in userMock){
+            if(userMock[u].username === username){
+                user = userMock[u];
+            }
+        }
+        deferred.resolve(user);
+        return deferred.promise;
+    }
 
     function findUserByCredentials(credentials){
         //console.log("inside model");

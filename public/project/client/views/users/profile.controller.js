@@ -7,14 +7,11 @@
     function ProfileController(UserService, $scope, $location) {
         var currentUser = UserService.getCurrentUser();
 
-        // var vm = this;
-        // updating the scope with current user's information
-        // vm.user = currentUser;
-        $scope.user = currentUser;
+        var vm = this;
+        vm.user = currentUser;
 
         // Function Declarations
-        // vm.update = update;
-        $scope.update = update;
+        vm.update = update;
 
 
         // Function Implementations
@@ -36,16 +33,14 @@
 
             //console.log(updatedUserObj);
 
-            updatedUser = UserService.updateUser(UserService.getCurrentUser()._id, updatedUserObj);
-            if(updatedUser){
-                UserService.setCurrentUser(updatedUser);
-            }
-                // .then(function(response){
-                //     if(response.data){
-                //         //console.log(response.data);
-                //         UserService.setCurrentUser(response.data);
-                //     }
-                // });
+            UserService
+                .updateUser(UserService.getCurrentUser()._id, updatedUserObj)
+                .then(function(response){
+                    if(response.data){
+                        //console.log(response.data);
+                        UserService.setCurrentUser(response.data);
+                    }
+                });
         }
     }
 })();

@@ -29,13 +29,16 @@
                 templateUrl: "views/contact/contact.view.html"
             })
             .when("/login",{
-                templateUrl: "views/users/login.view.html"
+                templateUrl: "views/users/login.view.html",
+                controller: "LoginController"
             })
             .when("/profile",{
-                templateUrl: "views/users/profile.view.html"
+                templateUrl: "views/users/profile.view.html",
+                controller: "ProfileController"
             })
             .when("/register",{
-                templateUrl: "views/users/register.view.html"
+                templateUrl: "views/users/register.view.html",
+                controller: "RegisterController"
             })
             .when("/shareStory",{
                 templateUrl: "views/users/shareStory.view.html"

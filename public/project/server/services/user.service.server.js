@@ -21,7 +21,6 @@ module.exports = function(app, model) {
                     res.status(400).send(err);
                 }
             );
-        // res.json(user);
     }
 
     function findAllUsers(req, res){

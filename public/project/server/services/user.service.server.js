@@ -41,8 +41,18 @@ module.exports = function(app, model) {
 
     function findUserByID(req, res) {
         var userId = req.params.id;
-        user = model.findUserByID(userId);
-        res.json(user);
+        model
+            .findUserByID(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+        //res.json(user);
     }
 
     function findUserByUsername(req, res) {

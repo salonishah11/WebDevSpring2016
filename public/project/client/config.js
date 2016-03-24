@@ -47,7 +47,8 @@
             })
             .when("/users",{
                 templateUrl: "views/users/users.view.html",
-                controller: "UsersController"
+                controller: "UsersController",
+                controllerAs: "model"
             })
             .when("/animals",{
                 templateUrl: "views/animal/animals.view.html",

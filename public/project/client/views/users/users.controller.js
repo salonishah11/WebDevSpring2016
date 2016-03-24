@@ -3,89 +3,119 @@
         .module("AdoptAPet")
         .controller("UsersController", UsersController);
 
-    function UsersController($scope, UserService){
-        $scope.addUser = addUser;
-        $scope.updateUser = updateUser;
-        $scope.deleteUser = deleteUser;
-        $scope.selectUser = selectUser;
+    function UsersController(UserService){
+        var vm = this;
+        vm.addUser = addUser;
+        vm.updateUser = updateUser;
+        vm.deleteUser = deleteUser;
+        vm.selectUser = selectUser;
 
-        $scope.selectedIndex = -1;
+        vm.selectedIndex = -1;
 
-        UserService.findAllUsers(renderAllUsers);
-
-        function renderAllUsers(response){
-            $scope.data = response;
+        function init(){
+            UserService
+                .findAllUsers()
+                .then(function(response){
+                    if(response){
+                        vm.data = response.data;
+                    }
+                });
         }
+        init();
 
 
         function addUser(user){
-            if(user!= null){
+            if(user){
                 if((user.name != null) && (user.username != null)
                     && (user.email != null) && (user.accountType != null)){
                     //console.log("inside if");
                     var newUser = {
-                        "_id": (new Date).getTime(),
                         "name": user.name,
                         "username": user.username,
-                        "password": "",
+                        "password": null,
                         "email": user.email,
+                        "streetAddress": null,
+                        "city": null,
+                        "state": null,
+                        "country": null,
+                        "zipcode": null,
                         "accountType": user.accountType
                     };
 
-                    UserService.createUser(newUser, renderAddUser);
+                    UserService
+                        .createUser(newUser)
+                        .then(function(response){
+                            if(response){
+                                vm.user = null;
+                                init();
+                            }
+                        });
                 }
             }
         }
 
-        function renderAddUser(response){
-            //console.log(response);
-            UserService.findAllUsers(renderAllUsers);
-            $scope.user = null;
-        }
-
 
         function deleteUser(index){
-            var selectedUser = $scope.data[index];
-            UserService.deleteUserById(selectedUser._id, renderAllUsers);
+            var selectedUser = vm.data[index];
+            UserService
+                .deleteUserById(selectedUser._id)
+                .then(function(response){
+                   if(response){
+                       init();
+                   }
+                });
         }
 
 
         function selectUser(index){
-            $scope.selectedIndex = index;
-            var selectedUser = $scope.data[index];
-            $scope.user = {"_id": selectedUser._id,
+            vm.selectedIndex = index;
+            var selectedUser = vm.data[index];
+            vm.user = {
+                "_id": selectedUser._id,
                 "name": selectedUser.name,
                 "username": selectedUser.username,
                 "password": selectedUser.password,
                 "email": selectedUser.email,
-                "accountType": selectedUser.accountType};
+                "streetAddress": selectedUser.streetAddress,
+                "city": selectedUser.city,
+                "state": selectedUser.state,
+                "country": selectedUser.country,
+                "zipcode": selectedUser.zipcode,
+                "accountType": selectedUser.accountType
+            };
+            //vm.user = selectedUser;
         }
 
 
         function updateUser(updatedUser){
-            if(updatedUser != null){
-                if(($scope.selectedIndex != -1) && (updatedUser.name != null) &&
+            if(updatedUser){
+                if((vm.selectedIndex != -1) && (updatedUser.name != null) &&
                     (updatedUser.username != null) && (updatedUser.email != null) &&
                     (updatedUser.accountType != null)){
-                    var selectedUser = $scope.data[$scope.selectedIndex];
+                    var selectedUser = vm.data[vm.selectedIndex];
                     var updatedUserObj = {
                         "_id": selectedUser._id,
                         "name": updatedUser.name,
                         "username": updatedUser.username,
                         "password": selectedUser.password,
                         "email": updatedUser.email,
+                        "streetAddress": selectedUser.streetAddress,
+                        "city": selectedUser.city,
+                        "state": selectedUser.state,
+                        "country": selectedUser.country,
+                        "zipcode": selectedUser.zipcode,
                         "accountType": updatedUser.accountType
                     };
 
-                    UserService.updateUser(selectedUser._id, updatedUserObj, renderUpdatedUser);
+                    UserService
+                        .updateUser(selectedUser._id, updatedUserObj)
+                        .then(function(response){
+                            vm.data[vm.selectedIndex] = response.data;
+                            vm.user = null;
+                            vm.selectedIndex = -1;
+                        });
                 }
             }
-        }
-
-        function renderUpdatedUser(response){
-            $scope.data[$scope.selectedIndex] = response;
-            $scope.user = null;
-            $scope.selectedIndex = -1;
         }
     }
 })();

@@ -4,11 +4,11 @@ var q = require("q");
 module.exports = function() {
     var api = {
         createUser: createUser,
-        // findAllUsers: findAllUsers,
-        // findUserByID: findUserByID,
+        findAllUsers: findAllUsers,
+        findUserByID: findUserByID,
         updateUser: updateUser,
-        // deleteUser: deleteUser,
-        // findUserByUsername: findUserByUsername,
+        deleteUserById: deleteUserById,
+        findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials
     };
     return api;
@@ -62,11 +62,13 @@ module.exports = function() {
         return deferred.promise;
     }
 
-    function deleteUser(userID){
+    function deleteUserById(userId){
+        console.log("inside model " + userId);
         var deferred = q.defer();
-        for(var i = 0; i < userMock.length; i++){
-            if(userId == userMock[i]._id){
-                userMock.splice(i, 1);
+        for(var u in userMock){
+            if(userMock[u]._id == userId){
+                console.log("inside if");
+                userMock.splice(u, 1);
                 break;
             }
         }

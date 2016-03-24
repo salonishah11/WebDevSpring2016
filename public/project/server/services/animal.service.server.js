@@ -1,15 +1,12 @@
 module.exports = function(app, model) {
 
-    app.post("/api/project/user", createUser);
-    app.get("/api/project/user", findAllUsers);
-    app.get("/api/project/user/:id", findUserByID);
-    app.get("/api/project/user?username=username", findUserByUsername);
-    app.get("/api/project/user?username=username&password=password", findUserByCredentials);
-    app.put("/api/project/user/:id", updateUserByID);
-    app.delete("/api/project/user/:id", deleteUserById);
+    app.post("/api/project/animal", createAnimal);
+    app.get("/api/project/animal", findAllUsers);
+    app.put("/api/project/animal/:id", updateUserByID);
+    app.delete("/api/project/animal/:id", deleteUserById);
 
-    function createUser(req, res) {
-        var user = req.body;
+    function createAnimal(req, res) {
+        var animal = req.body;
         model
             .createUser(user)
             .then(

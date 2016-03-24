@@ -10,6 +10,7 @@
             // Function Declarations
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
+            findUserById: findUserById,
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
@@ -34,6 +35,10 @@
 
         function findAllUsers(){
             return $http.get("/api/project/user");
+        }
+
+        function findUserById(userId){
+            return $http.get("/api/project/user/" + userId);
         }
 
 

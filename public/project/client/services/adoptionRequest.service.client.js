@@ -4,7 +4,7 @@
         .module("AdoptAPet")
         .factory("AdoptionRequestService", AdoptionRequestService);
 
-    function AdoptionRequestService(){
+    function AdoptionRequestService($http){
         var requests = {};
         requests = [
             {"_id":123, "name":"Alice",   "username":"alice",  "animal":"Dog",
@@ -19,24 +19,23 @@
 
         var requestAPI = {
             // Function Declarations
-            //findUserByCredentials: findUserByCredentials,
-            findAllRequests: findAllRequests,
+            findAllRequestsByUserId: findAllRequestsByUserId,
             createRequest: createRequest,
-            deleteRequestById: deleteRequestById,
-            updateRequest: updateRequest
-            //setCurrentUser: setCurrentUser,
-            //getCurrentUser: getCurrentUser
+            // deleteRequestById: deleteRequestById,
+            // updateRequest: updateRequest
         };
         return requestAPI;
 
-        function findAllRequests(callback){
-            callback(requests);
+        function findAllRequestsByUserId(userId){
+            //callback(requests);
+            return $http.get("/api/project/adoptionRequest/user/" + userId);
         }
 
 
-        function createRequest(newRequest, callback){
-            requests.push(newRequest);
-            callback(newRequest);
+        function createRequest(newRequest){
+            // requests.push(newRequest);
+            // callback(newRequest);
+            return $http.post("/api/project/adoptionRequest", newRequest);
         }
 
 

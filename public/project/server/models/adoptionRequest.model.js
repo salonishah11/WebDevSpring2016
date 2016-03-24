@@ -1,26 +1,26 @@
-var userMock = require("./user.mock.json");
+var requestMock = require("./adoptionRequest.mock.json");
 var q = require("q");
 
 module.exports = function() {
     var api = {
-        createUser: createUser,
-        findAllUsers: findAllUsers,
-        findUserByID: findUserByID,
-        updateUser: updateUser,
-        deleteUserById: deleteUserById,
-        findUserByUsername: findUserByUsername,
-        findUserByCredentials: findUserByCredentials
+        createRequest: createRequest,
+        // findAllUsers: findAllUsers,
+        findAllRequestsByUserId: findAllRequestsByUserId,
+        // updateUser: updateUser,
+        // deleteUserById: deleteUserById,
+        // findUserByUsername: findUserByUsername,
+        // findUserByCredentials: findUserByCredentials
     };
     return api;
 
-    function createUser(newUser){
+    function createRequest(newRequest){
         var deferred = q.defer();
         //var user = null;
 
-        newUser._id = (new Date()).getTime();
-        userMock.push(newUser);
+        newRequest._id = (new Date()).getTime();
+        requestMock.push(newRequest);
 
-        deferred.resolve(newUser);
+        deferred.resolve(newRequest);
         return deferred.promise;
         //return newUser;
     }
@@ -33,16 +33,19 @@ module.exports = function() {
         return deferred.promise;
     }
 
-    function findUserByID(userId){
+    function findAllRequestsByUserId(userId){
         var deferred = q.defer();
-        var user = null;
+        var requests = [];
 
-        for(var u in userMock){
-            if(userMock[u]._id == userId){
-                user =  userMock[u];
+        for(var u in requestMock){
+            //console.log(requestMock[u].user);
+            if(requestMock[u].user._id == userId){
+                 requests.push(requestMock[u].pet);
             }
         }
-        deferred.resolve(user);
+        // console.log("all requests");
+        // console.log(requests);
+        deferred.resolve(requests);
         return deferred.promise;
     }
 

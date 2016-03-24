@@ -58,13 +58,18 @@
                 templateUrl: "views/users/adoptionStories.view.html",
                 controller: "AdoptionStoriesController"
             })
-            .when("/adoptionRequests",{
-                templateUrl: "views/users/adoptionRequests.view.html",
-                controller: "AdoptionRequestsController"
-            })
+            // .when("/adoptionRequests",{
+            //     templateUrl: "views/users/adoptionRequests.view.html",
+            //     controller: "AdoptionRequestsController"
+            // })
             .when("/adoptionRequest/user/:userId/pet/:petId",{
                 templateUrl: "views/users/adoptionRequestForm.view.html",
                 controller: "AdoptionRequestFormController",
+                controllerAs: "model"
+            })
+            .when("/viewAdoptionRequests",{
+                templateUrl: "views/users/adoptionRequests.view.html",
+                controller: "AdoptionRequestsController",
                 controllerAs: "model"
             })
             .otherwise({

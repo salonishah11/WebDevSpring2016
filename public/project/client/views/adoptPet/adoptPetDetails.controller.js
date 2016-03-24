@@ -14,16 +14,19 @@
             .findPetByID(id)
             .then(function(response){
                 if(response){
-                    console.log(response);
+                    //console.log(response);
                     vm.petDet = response.data;
                 }
             });
 
         function adopt(pet){
-            console.log(pet.petfinder.pet.id);
+            //console.log(pet);
             var currentUser = UserService.getCurrentUser();
             if(currentUser){
                 $location.path('/adoptionRequest/user/' + currentUser._id + '/pet/' + pet.petfinder.pet.id.$t);
+            }
+            else{
+                $location.path('/login');
             }
         }
     }

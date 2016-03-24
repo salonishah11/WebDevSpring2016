@@ -19,7 +19,7 @@
             }
         }
 
-        function findPetByID(id, callback){
+        function findPetByID(id){
             if(id != null){
                 return $http.jsonp('http://api.petfinder.com/pet.get?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=JSON_CALLBACK&id='
                         + id);

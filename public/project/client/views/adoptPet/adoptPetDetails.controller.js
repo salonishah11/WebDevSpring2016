@@ -3,15 +3,27 @@
         .module("AdoptAPet")
         .controller("AdoptPetDetailsController", AdoptPetDetailsController);
 
-    function AdoptPetDetailsController($routeParams, $scope, PetService){
+    function AdoptPetDetailsController($routeParams, $location, UserService, PetService){
+        var vm = this;
+        
         var id = $routeParams.id;
 
-        PetService.findPetByID(id, renderDetails);
+        vm.adopt = adopt;
 
-        function renderDetails(response){
-            if(response != null){
-                console.log(response);
-                $scope.petDet = response;
+        PetService
+            .findPetByID(id)
+            .then(function(response){
+                if(response){
+                    console.log(response);
+                    vm.petDet = response.data;
+                }
+            });
+
+        function adopt(pet){
+            console.log(pet.petfinder.pet.id);
+            var currentUser = UserService.getCurrentUser();
+            if(currentUser){
+                $location.path('/adoptionRequest/user/' + currentUser._id + '/pet/' + pet.petfinder.pet.id.$t);
             }
         }
     }

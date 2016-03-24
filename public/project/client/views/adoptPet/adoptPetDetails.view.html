@@ -1,17 +1,24 @@
-<div ng-controller="AdoptPetDetailsController">
+<div ng-controller="AdoptPetDetailsController as model">
     <div class="row">
         <div class="box">
             <div class="col-lg-12">
                 <hr>
                 <h2 class="intro-text text-center">About
-                    <strong>{{petDet.petfinder.pet.name.$t}}</strong>
+                    <strong>{{model.petDet.petfinder.pet.name.$t}}</strong>
                 </h2>
                 <hr>
-                <img class="img-responsive img-border img-left" ng-src={{petDet.petfinder.pet.media.photos.photo[0].$t}} />
+                <img class="img-responsive img-border img-left" ng-src={{model.petDet.petfinder.pet.media.photos.photo[0].$t}} />
                 <hr class="visible-xs">
                 <p>
-                    {{petDet.petfinder.pet.description.$t}}
+                    {{model.petDet.petfinder.pet.description.$t}}
                 </p>
+                <form>
+                    <div class="intro-text text-center form-group">
+                        <!--<div class="col-sm-4">-->
+                        <a ng-click="model.adopt(model.petDet)" class="btn btn-primary btn-lg">Adopt ME!</a>
+                        <!--</div>-->
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -20,12 +27,12 @@
         <div class="box">
             <div class="col-lg-12">
                 <hr>
-                <h2 class="intro-text text-center"><strong>Contact</strong>
+                <h2 class="intro-text text-center">Contact <strong>Person</strong>
                 </h2>
                 <hr>
-                <p>{{petDet.petfinder.pet.contact.name.$t}}</p>
-                <p>{{petDet.petfinder.pet.contact.phone.$t}}</p>
-                <p>{{petDet.petfinder.pet.contact.email.$t}}</p>
+                <p>{{model.petDet.petfinder.pet.contact.name.$t}}</p>
+                <p>{{model.petDet.petfinder.pet.contact.phone.$t}}</p>
+                <p>{{model.petDet.petfinder.pet.contact.email.$t}}</p>
             </div>
         </div>
     </div>

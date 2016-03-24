@@ -62,6 +62,11 @@
                 templateUrl: "views/users/adoptionRequests.view.html",
                 controller: "AdoptionRequestsController"
             })
+            .when("/adoptionRequest/user/:userId/pet/:petId",{
+                templateUrl: "views/users/adoptionRequestForm.view.html",
+                controller: "AdoptionRequestFormController",
+                controllerAs: "model"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

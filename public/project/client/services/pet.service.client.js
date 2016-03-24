@@ -13,9 +13,9 @@
 
         function findPetsByParam(param, callback) {
             if(param != null){
-                $http.jsonp('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=JSON_CALLBACK'
-                        + param)
-                    .success(callback);
+                return $http.jsonp('http://api.petfinder.com/pet.find?key=5d4055c8fe1e814cd62a596ed4558ffc&format=json&callback=JSON_CALLBACK'
+                        + param);
+                    //.success(callback);
             }
         }
 

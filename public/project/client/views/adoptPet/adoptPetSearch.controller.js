@@ -4,8 +4,9 @@
         .module("AdoptAPet")
         .controller("AdoptPetSearchController", AdoptPetSearchController);
 
-    function AdoptPetSearchController($scope, PetService){
-        $scope.searchPets = searchPets;
+    function AdoptPetSearchController(PetService){
+        var vm = this;
+        vm.searchPets = searchPets;
 
         function searchPets(pet){
             if(pet.location != null){
@@ -16,14 +17,13 @@
                 if(pet.size != null)param +="&size=" + pet.size;
                 if(pet.gender != null)param +="&sex=" + pet.gender;
 
-                PetService.findPetsByParam(param, renderPets);
-            }
-        }
-
-        function renderPets(response){
-            //console.log(response);
-            if(response != null){
-                $scope.data = response;
+                PetService
+                    .findPetsByParam(param)
+                    .then(function(response){
+                       if(response){
+                           vm.data = response.data;
+                       } 
+                    });
             }
         }
     }

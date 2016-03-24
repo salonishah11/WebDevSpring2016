@@ -51,11 +51,11 @@
                         <!--</td>-->
                     <!--</tr>-->
                     <tr ng-show="model.data" ng-repeat="requests in model.data">
-                        <td>{{requests.name.$t}}</td>
-                        <td>{{requests.animal.$t}}</td>
-                        <td>{{requests.sex.$t}}</td>
-                        <td>{{requests.age.$t}}</td>
-                        <td>{{requests.contact.phone.$t}}</td>
+                        <td>{{requests.pet.name.$t}}</td>
+                        <td>{{requests.pet.animal.$t}}</td>
+                        <td>{{requests.pet.sex.$t}}</td>
+                        <td>{{requests.pet.age.$t}}</td>
+                        <td>{{requests.pet.contact.phone.$t}}</td>
                         <td>
                             <span class="whitespace-no-wrap">
                                 <a ng-click="model.deleteRequest($index)" class="btn btn-default">

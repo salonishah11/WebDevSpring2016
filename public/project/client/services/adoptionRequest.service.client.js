@@ -21,7 +21,7 @@
             // Function Declarations
             findAllRequestsByUserId: findAllRequestsByUserId,
             createRequest: createRequest,
-            // deleteRequestById: deleteRequestById,
+            deleteRequestById: deleteRequestById,
             // updateRequest: updateRequest
         };
         return requestAPI;
@@ -39,13 +39,15 @@
         }
 
 
-        function deleteRequestById(requestId, callback){
-            for(var i = 0; i < requests.length; i++){
-                if(requestId == requests[i]._id){
-                    requests.splice(i, 1);
-                    callback(requests);
-                }
-            }
+        function deleteRequestById(requestId){
+            // for(var i = 0; i < requests.length; i++){
+            //     if(requestId == requests[i]._id){
+            //         requests.splice(i, 1);
+            //         callback(requests);
+            //     }
+            // }
+            //console.log(userId + " " + petId);
+            return $http.delete("/api/project/adoptionRequest/request/" + requestId);
         }
 
 

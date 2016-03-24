@@ -1,4 +1,4 @@
-<div ng-controller="AdoptPetSearchController">
+<div ng-controller="AdoptPetSearchController as model">
     <div class="row">
         <div class="box">
             <div class="col-lg-12">
@@ -13,7 +13,7 @@
                     <label for="type" class="col-sm-2 control-label">Type</label>
                     <br/>
                     <div class="col-sm-2">
-                        <select ng-model="pet.type" class="form-control" id="type">
+                        <select ng-model="model.pet.type" class="form-control" id="type">
                             <option value="dog">Dog</option>
                             <option value="cat">Cat</option>
                             <option value="bird">Bird</option>
@@ -24,14 +24,14 @@
                     <label for="location" class="col-sm-2 control-label">Location</label>
                     <br/>
                     <div class="col-sm-2">
-                        <input type="text" ng-model="pet.location" class="form-control" id="location" placeholder="ex: 02120">
+                        <input type="text" ng-model="model.pet.location" class="form-control" id="location" placeholder="ex: 02120">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="breed" class="col-sm-2 control-label">Breed</label>
                     <br/>
                     <div class="col-sm-2">
-                        <select ng-model="pet.breed" class="form-control" id="breed">
+                        <select ng-model="model.pet.breed" class="form-control" id="breed">
                             <option value="Labrador Retriever">Labrador Retriever</option>
                             <option value="Golden Retriever">Golden Retriever</option>
                             <option value="Terrier">Terrier</option>
@@ -46,7 +46,7 @@
                     <label for="age" class="col-sm-2 control-label">Age</label>
                     <br/>
                     <div class="col-sm-2">
-                        <select ng-model="pet.age" class="form-control" id="age">
+                        <select ng-model="model.pet.age" class="form-control" id="age">
                             <option value="Baby">Baby</option>
                             <option value="Young">Young</option>
                             <option value="Adult">Adult</option>
@@ -58,7 +58,7 @@
                     <label for="size" class="col-sm-2 control-label">Size</label>
                     <br/>
                     <div class="col-sm-2">
-                        <select ng-model="pet.size" class="form-control" id="size">
+                        <select ng-model="model.pet.size" class="form-control" id="size">
                             <option value="S">Small</option>
                             <option value="M">Medium</option>
                             <option value="L">Large</option>
@@ -69,7 +69,7 @@
                     <label for="gender" class="col-sm-2 control-label">Gender</label>
                     <br/>
                     <div class="col-sm-2">
-                        <select ng-model="pet.gender" class="form-control" id="gender">
+                        <select ng-model="model.pet.gender" class="form-control" id="gender">
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                         </select>
@@ -78,7 +78,7 @@
                 <div class="form-group">
                     <br/>
                     <div class="col-sm-2">
-                        <a ng-click="searchPets(pet)" class="btn btn-primary btn-lg">Find Pets</a>
+                        <a ng-click="model.searchPets(model.pet)" class="btn btn-primary btn-lg">Find Pets</a>
                     </div>
                 </div>
             </form>
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <div class="row" ng-show="data">
+    <div class="row" ng-show="model.data">
         <div class="box">
             <div class="col-lg-12">
                 <hr>
@@ -108,7 +108,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr ng-repeat="pet in data.petfinder.pets.pet">
+                    <tr ng-repeat="pet in model.data.petfinder.pets.pet">
                         <td><img ng-src="{{pet.media.photos.photo[0].$t}}"/></td>
                         <td><a href="#/adoptPetDetails/{{pet.id.$t}}">{{pet.name.$t}}</a></td>
                         <td>{{pet.animal.$t}}</td>

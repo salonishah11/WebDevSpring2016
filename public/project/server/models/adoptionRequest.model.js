@@ -4,12 +4,8 @@ var q = require("q");
 module.exports = function() {
     var api = {
         createRequest: createRequest,
-        // findAllUsers: findAllUsers,
         findAllRequestsByUserId: findAllRequestsByUserId,
-        // updateUser: updateUser,
-        // deleteUserById: deleteUserById,
-        // findUserByUsername: findUserByUsername,
-        // findUserByCredentials: findUserByCredentials
+        deleteRequestById: deleteRequestById
     };
     return api;
 
@@ -25,13 +21,6 @@ module.exports = function() {
         //return newUser;
     }
 
-    function findAllUsers(){
-        //console.log("inside model");
-        var deferred = q.defer();
-
-        deferred.resolve(userMock);
-        return deferred.promise;
-    }
 
     function findAllRequestsByUserId(userId){
         var deferred = q.defer();
@@ -40,7 +29,7 @@ module.exports = function() {
         for(var u in requestMock){
             //console.log(requestMock[u].user);
             if(requestMock[u].user._id == userId){
-                 requests.push(requestMock[u].pet);
+                 requests.push(requestMock[u]);
             }
         }
         // console.log("all requests");
@@ -48,62 +37,19 @@ module.exports = function() {
         deferred.resolve(requests);
         return deferred.promise;
     }
+    
 
-    function updateUser(userId, updatedUser){
+    function deleteRequestById(requestId){
+        //console.log("inside model " + userId);
         var deferred = q.defer();
-        var user = null;
-
-        for(var u in userMock){
-            if(userMock[u]._id == userId){
-                userMock[u] = updatedUser;
-                user = userMock[u];
-            }
-        }
-        //return null;
-
-        deferred.resolve(user);
-        return deferred.promise;
-    }
-
-    function deleteUserById(userId){
-        console.log("inside model " + userId);
-        var deferred = q.defer();
-        for(var u in userMock){
-            if(userMock[u]._id == userId){
-                console.log("inside if");
-                userMock.splice(u, 1);
+        for(var u in requestMock){
+            if(requestMock[u]._id == requestId){
+                //console.log("inside if");
+                requestMock.splice(u, 1);
                 break;
             }
         }
-        deferred.resolve(userMock);
-        return deferred.promise;
-    }
-
-    function findUserByUsername(username){
-        var deferred = q.defer();
-        var user = null;
-        for(var u in userMock){
-            if(userMock[u].username === username){
-                user = userMock[u];
-            }
-        }
-        deferred.resolve(user);
-        return deferred.promise;
-    }
-
-    function findUserByCredentials(credentials){
-        //console.log("inside model");
-        var deferred = q.defer();
-        //console.log(credentials);
-        var user = null;
-        for(var u in userMock){
-            if(userMock[u].username === credentials.username &&
-                userMock[u].password === credentials.password){
-                user = userMock[u];
-            }
-        }
-        //console.log(user);
-        deferred.resolve(user);
+        deferred.resolve(requestMock);
         return deferred.promise;
     }
 };

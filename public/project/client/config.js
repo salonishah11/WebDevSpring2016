@@ -11,7 +11,8 @@
             })
             .when("/adoptPetSearch",{
                 templateUrl: "views/adoptPet/adoptPetSearch.view.html",
-                controller: "AdoptPetSearchController"
+                controller: "AdoptPetSearchController",
+                controllerAs: "model"
             })
             .when("/adoptPetDetails/:id",{
                 templateUrl: "views/adoptPet/adoptPetDetails.view.html",
@@ -19,7 +20,8 @@
             })
             .when("/animalOrgSearch",{
                 templateUrl: "views/animalOrg/animalOrgSearch.view.html",
-                controller: "AnimalOrgSearchController"
+                controller: "AnimalOrgSearchController",
+                controllerAs: "model"
             })
             .when("/animalOrgDetails/:id",{
                 templateUrl: "views/animalOrg/animalOrgDetails.view.html",

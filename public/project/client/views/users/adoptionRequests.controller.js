@@ -18,7 +18,7 @@
                 AdoptionRequestService
                     .findAllRequestsByUserId(UserService.getCurrentUser()._id)
                     .then(function(response){
-                        //console.log(response.data);
+                        //console.log(response.data[0].pet);
                         vm.data = response.data;
                     });
             }
@@ -29,36 +29,17 @@
         init();
 
 
-
-        // function addRequest(request){
-        //     if(request!= null){
-        //         if((request.name != null) && (request.username != null) && (request.animal != null) &&
-        //             (request.animalName != null) && (request.status != null)){
-        //             //console.log("inside if");
-        //             var newRequest = {
-        //                 "_id": (new Date).getTime(),
-        //                 "name": request.name,
-        //                 "username": request.username,
-        //                 "animal": request.animal,
-        //                 "animalName": request.animalName,
-        //                 "status": request.status
-        //             };
-        //
-        //             AdoptionRequestService.createRequest(newRequest, renderAddRequest);
-        //         }
-        //     }
-        // }
-        //
-        // function renderAddRequest(response){
-        //     //console.log(response);
-        //     AdoptionRequestService.findAllRequests(renderAllRequests);
-        //     $scope.request = null;
-        // }
-
-
         function deleteRequest(index){
-            var selectedRequest = $scope.data[index];
-            AdoptionRequestService.deleteRequestById(selectedRequest._id, renderAllRequests);
+            var selectedRequest = vm.data[index];
+            //console.log(selectedRequest)
+            AdoptionRequestService
+                .deleteRequestById(selectedRequest._id)
+                .then(function(response){
+                    if(response){
+                        //console.log(response.data);
+                        init();
+                    }
+                });
         }
 
 

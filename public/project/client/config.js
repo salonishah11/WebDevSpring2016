@@ -45,8 +45,10 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
-            .when("/shareStory",{
-                templateUrl: "views/users/shareStoryForm.view.html"
+            .when("/shareStoryForm",{
+                templateUrl: "views/users/shareStoryForm.view.html",
+                controller: "AddStoryController",
+                controllerAs: "model"
             })
             .when("/viewStories",{
                 templateUrl: "views/users/stories.view.html",

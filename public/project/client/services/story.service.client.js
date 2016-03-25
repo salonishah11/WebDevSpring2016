@@ -9,7 +9,7 @@
         var storyAPI = {
             // Function Declarations
             findAllStoriesByUserId: findAllStoriesByUserId,
-            // createStory: createStory,
+            createStory: createStory,
             deleteStoryById: deleteStoryById,
             updateStoryById: updateStoryById
         };
@@ -21,10 +21,9 @@
         }
 
 
-        // function createStory(newStory, callback){
-        //     stories.push(newStory);
-        //     callback(newStory);
-        // }
+        function createStory(newStory){
+            return $http.post("/api/project/story", newStory);
+        }
         
         
         function deleteStoryById(storyId){

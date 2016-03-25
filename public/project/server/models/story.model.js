@@ -3,35 +3,25 @@ var q = require("q");
 
 module.exports = function() {
     var api = {
-        // createUser: createUser,
-        // findAllUsers: findAllUsers,
+        createStory: createStory,
         findAllStoriesByUserId: findAllStoriesByUserId,
         updateStoryById: updateStoryById,
-        deleteStoryById: deleteStoryById,
-        // findUserByUsername: findUserByUsername,
-        // findUserByCredentials: findUserByCredentials
+        deleteStoryById: deleteStoryById
     };
     return api;
 
-    // function createUser(newUser){
-    //     var deferred = q.defer();
-    //     //var user = null;
-    //
-    //     newUser._id = (new Date()).getTime();
-    //     userMock.push(newUser);
-    //
-    //     deferred.resolve(newUser);
-    //     return deferred.promise;
-    //     //return newUser;
-    // }
-    //
-    // function findAllUsers(){
-    //     //console.log("inside model");
-    //     var deferred = q.defer();
-    //
-    //     deferred.resolve(userMock);
-    //     return deferred.promise;
-    // }
+    function createStory(newStory){
+        var deferred = q.defer();
+        //var user = null;
+
+        newStory._id = (new Date()).getTime();
+        storyMock.push(newStory);
+
+        deferred.resolve(newStory);
+        return deferred.promise;
+        //return newUser;
+    }
+
 
     function findAllStoriesByUserId(userId){
         var deferred = q.defer();
@@ -77,32 +67,4 @@ module.exports = function() {
         deferred.resolve(storyMock);
         return deferred.promise;
     }
-
-    // function findUserByUsername(username){
-    //     var deferred = q.defer();
-    //     var user = null;
-    //     for(var u in userMock){
-    //         if(userMock[u].username === username){
-    //             user = userMock[u];
-    //         }
-    //     }
-    //     deferred.resolve(user);
-    //     return deferred.promise;
-    // }
-    //
-    // function findUserByCredentials(credentials){
-    //     //console.log("inside model");
-    //     var deferred = q.defer();
-    //     //console.log(credentials);
-    //     var user = null;
-    //     for(var u in userMock){
-    //         if(userMock[u].username === credentials.username &&
-    //             userMock[u].password === credentials.password){
-    //             user = userMock[u];
-    //         }
-    //     }
-    //     //console.log(user);
-    //     deferred.resolve(user);
-    //     return deferred.promise;
-    // }
 };

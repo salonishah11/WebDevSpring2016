@@ -82,11 +82,5 @@
                 }
             }
         }
-        //
-        // function renderUpdatedRequest(response){
-        //     $scope.data[$scope.selectedIndex] = response;
-        //     $scope.request = null;
-        //     $scope.selectedIndex = -1;
-        // }
     }
 })();

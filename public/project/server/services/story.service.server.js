@@ -1,24 +1,24 @@
 module.exports = function(app, model) {
 
-    //app.post("/api/project/adoptionRequest", createRequest);
+    app.post("/api/project/story", createStory);
     app.get("/api/project/story/user/:userId", findAllStoriesByUserId);
     app.delete("/api/project/story/:storyId", deleteStoryById);
     app.put("/api/project/story/:storyId", updateStoryById);
 
-    // function createRequest(req, res) {
-    //     var request = req.body;
-    //     model
-    //         .createRequest(request)
-    //         .then(
-    //             function(doc){
-    //                 res.json(doc);
-    //             },
-    //             // send error if promise rejected
-    //             function(err ){
-    //                 res.status(400).send(err);
-    //             }
-    //         );
-    // }
+    function createStory(req, res) {
+        var story = req.body;
+        model
+            .createStory(story)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
 
 
     function findAllStoriesByUserId(req, res) {

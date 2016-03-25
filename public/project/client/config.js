@@ -42,10 +42,16 @@
             })
             .when("/register",{
                 templateUrl: "views/users/register.view.html",
-                controller: "RegisterController"
+                controller: "RegisterController",
+                controllerAs: "model"
             })
             .when("/shareStory",{
-                templateUrl: "views/users/shareStory.view.html"
+                templateUrl: "views/users/shareStoryForm.view.html"
+            })
+            .when("/viewStories",{
+                templateUrl: "views/users/stories.view.html",
+                controller: "StoriesController",
+                controllerAs: "model"
             })
             .when("/users",{
                 templateUrl: "views/users/users.view.html",
@@ -58,7 +64,8 @@
             })
             .when("/adoptionStories",{
                 templateUrl: "views/users/adoptionStories.view.html",
-                controller: "AdoptionStoriesController"
+                controller: "AdoptionStoriesController",
+                controllerAs: "model"
             })
             // .when("/adoptionRequests",{
             //     templateUrl: "views/users/adoptionRequests.view.html",

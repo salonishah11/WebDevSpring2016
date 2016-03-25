@@ -66,6 +66,7 @@ module.exports = function() {
         console.log("inside model " + userId);
         var deferred = q.defer();
         for(var u in userMock){
+            console.log(u + "- " + userMock[u]._id);
             if(userMock[u]._id == userId){
                 console.log("inside if");
                 userMock.splice(u, 1);

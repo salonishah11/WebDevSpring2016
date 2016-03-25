@@ -1,92 +1,95 @@
-<div class="container">
-    <div class="pull-left">
-        <div class="brand">Adopt a Pet</div>
-        <div class="address-bar">Rescue a Pet, Save a Life</div>
-    </div>
-
-    <div class="hidden-xs collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-2">
-        <ul class="nav navbar-nav">
-            <li><a href="#/login" style="color: white; font-size:medium">Login</a></li>
-            <li><a href="#/profile" style="color: white; font-size:medium">Profile</a></li>
-            <li><a href="#/register" style="color: white; font-size:medium">Register</a></li>
-            <li><a href="#/home" style="color: white; font-size:medium">Logout</a></li>
-        </ul>
-    </div>
-</div>
-
-<!-- Navigation -->
-<nav class="navbar navbar-default" role="navigation">
+<div ng-controller="HeaderController as model">
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1, #bs-example-navbar-collapse-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-            <a class="navbar-brand" href="#/home">Adopt a Pet</a>
+        <div class="pull-left">
+            <div class="brand">Adopt a Pet</div>
+            <div class="address-bar">Rescue a Pet, Save a Life</div>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <!--
-            <ul class="nav navbar-nav">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
-            </ul>
-            -->
-            <ul class="nav navbar-nav">
-                <li><a href="#/home">Home</a></li>
-                <li><a href="#/adoptPetSearch">Find a Pet to Adopt</a></li>
-                <li><a href="#/animalOrgSearch">Find Animal Shelters</a></li>
-                <!--<li><a href="#/contact">Contact</a></li>-->
-                <li><a href="#/viewAdoptionRequests">View My Requests</a></li>
-            </ul>
-            <ul class="nav navbar-nav visible-xs">
-                <li><a href="#/login">Login</a></li>
-                <li><a href="#/profile">Profile</a></li>
-                <li><a href="#/register">Register</a></li>
-                <li><a href="#/home">Logout</a></li>
-            </ul>
-            <!--
-            <ul class="nav navbar-nav">
-                <li><a href="#/users">Users CRUD</a></li>
-                <li><a href="#/animals">Animals CRUD</a></li>
-                <li><a href="#/adoptionStories">Adoption Stories CRUD</a></li>
-                <li><a href="#/adoptionRequests">Adoption Requests CRUD</a></li>
-            </ul>
-            -->
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
 
-    <!--
-    <div class="row">
-        <form class="form-inline">
-            <div class="form-group col-sm-offset-3 ">
-                <div class="col-sm-5">
-                    <a href="#/users" class="btn btn-primary form-control">Users CRUD</a>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-5">
-                    <a href="#/animals" class="btn btn-primary form-control">Animals CRUD</a>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-5">
-                    <a href="#/adoptionStories" class="btn btn-primary form-control">Adoption Stories CRUD</a>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-5">
-                    <a href="#/adoptionRequests" class="btn btn-primary form-control">Adoption Requests CRUD</a>
-                </div>
-            </div>
-        </form>
+        <div class="hidden-xs collapse navbar-collapse pull-right" id="bs-example-navbar-collapse-2">
+            <ul class="nav navbar-nav">
+                <li ng-hide="currentUser"><a href="#/login" style="color: white; font-size:small">Login</a></li>
+                <li ng-show="currentUser"><a href="#/profile" style="color: white; font-size:small">{{currentUser.username}}</a></li>
+                <li ng-hide="currentUser"><a href="#/register" style="color: white; font-size:small">Register</a></li>
+                <li ng-show="currentUser" ng-click="model.logout()"><a href="#/home" style="color: white; font-size:small">Logout</a></li>
+            </ul>
+        </div>
     </div>
-    -->
-</nav>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1, #bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="#/home">Adopt a Pet</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!--
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+                -->
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home" style="font-size:medium">Home</a></li>
+                    <li><a href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>
+                    <li><a href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>
+                    <!--<li><a href="#/contact">Contact</a></li>-->
+                    <li ng-show="currentUser"><a href="#/viewAdoptionRequests" style="font-size:medium">View My Requests</a></li>
+                </ul>
+                <ul class="nav navbar-nav visible-xs">
+                    <li ng-hide="currentUser"><a href="#/login">Login</a></li>
+                    <li ng-show="currentUser"><a href="#/profile">{{currentUser.username}}</a></li>
+                    <li ng-hide="currentUser"><a href="#/register">Register</a></li>
+                    <li ng-show="currentUser" ng-click="model.logout()"><a href="#/home">Logout</a></li>
+
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li><a href="#/users">Users CRUD</a></li>
+                    <!--<li><a href="#/animals">Animals CRUD</a></li>-->
+                    <!--<li><a href="#/adoptionStories">Adoption Stories CRUD</a></li>-->
+                    <!--<li><a href="#/adoptionRequests">Adoption Requests CRUD</a></li>-->
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+
+        <!--
+        <div class="row">
+            <form class="form-inline">
+                <div class="form-group col-sm-offset-3 ">
+                    <div class="col-sm-5">
+                        <a href="#/users" class="btn btn-primary form-control">Users CRUD</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <a href="#/animals" class="btn btn-primary form-control">Animals CRUD</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <a href="#/adoptionStories" class="btn btn-primary form-control">Adoption Stories CRUD</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <a href="#/adoptionRequests" class="btn btn-primary form-control">Adoption Requests CRUD</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        -->
+    </nav>
+</div>

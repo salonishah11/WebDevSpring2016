@@ -5,7 +5,9 @@ module.exports = function() {
     var api = {
         createRequest: createRequest,
         findAllRequestsByUserId: findAllRequestsByUserId,
-        deleteRequestById: deleteRequestById
+        findRequestById: findRequestById,
+        deleteRequestById: deleteRequestById,
+        updateRequestById: updateRequestById
     };
     return api;
 
@@ -37,6 +39,24 @@ module.exports = function() {
         deferred.resolve(requests);
         return deferred.promise;
     }
+
+
+    function findRequestById(requestId){
+        //console.log("inside model");
+        var deferred = q.defer();
+        var request = null;
+
+        for(var u in requestMock){
+            //console.log(requestMock[u].user);
+            if(requestMock[u]._id == requestId){
+                request = requestMock[u];
+            }
+        }
+        // console.log("all requests");
+        // console.log(requests);
+        deferred.resolve(request);
+        return deferred.promise;
+    }
     
 
     function deleteRequestById(requestId){
@@ -46,6 +66,21 @@ module.exports = function() {
             if(requestMock[u]._id == requestId){
                 //console.log("inside if");
                 requestMock.splice(u, 1);
+                break;
+            }
+        }
+        deferred.resolve(requestMock);
+        return deferred.promise;
+    }
+
+
+    function updateRequestById(requestId, user){
+        //console.log("inside model " + userId);
+        var deferred = q.defer();
+        for(var u in requestMock){
+            if(requestMock[u]._id == requestId){
+                //console.log("inside if");
+                requestMock[u].user = user;
                 break;
             }
         }

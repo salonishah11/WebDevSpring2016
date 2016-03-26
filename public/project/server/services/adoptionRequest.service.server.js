@@ -2,7 +2,9 @@ module.exports = function(app, model) {
 
     app.post("/api/project/adoptionRequest", createRequest);
     app.get("/api/project/adoptionRequest/user/:userId", findAllRequestsByUserId);
+    app.get("/api/project/adoptionRequest/request/:requestId", findRequestById);
     app.delete("/api/project/adoptionRequest/request/:requestId", deleteRequestById);
+    app.put("/api/project/adoptionRequest/request/:requestId", updateRequestById);
 
     function createRequest(req, res) {
         var request = req.body;
@@ -35,12 +37,47 @@ module.exports = function(app, model) {
             );
         //res.json(user);
     }
+    
+    
+    function findRequestById(req, res){
+        var requestId = req.params.requestId;
+        model
+            .findRequestById(requestId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
 
 
     function deleteRequestById(req, res){
         var requestId = req.params.requestId;
         model
             .deleteRequestById(requestId)
+            .then(
+                function(doc){
+                    //console.log("after model" + doc);
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+        //res.json(users);
+    }
+
+
+    function updateRequestById(req, res){
+        var requestId = req.params.requestId;
+        var user = req.body;
+        model
+            .updateRequestById(requestId, user)
             .then(
                 function(doc){
                     //console.log("after model" + doc);

@@ -6,10 +6,8 @@
     function AdoptionRequestsController($location, AdoptionRequestService, UserService){
         var vm = this;
         
-        // $scope.addRequest = addRequest;
         vm.deleteRequest = deleteRequest;
-        // $scope.updateRequest = updateRequest;
-        // $scope.selectRequest = selectRequest;
+        vm.viewDetails = viewDetails;
 
         //$scope.selectedIndex = -1;
         
@@ -40,6 +38,12 @@
                         init();
                     }
                 });
+        }
+
+
+        function viewDetails(index){
+            var selectedRequest = vm.data[index];
+            $location.path('/viewAdoptionRequests/request/' + selectedRequest._id);
         }
 
 

@@ -83,6 +83,11 @@
                 controller: "AdoptionRequestsController",
                 controllerAs: "model"
             })
+            .when("/viewAdoptionRequests/request/:requestId",{
+                templateUrl: "views/users/adoptionRequestDetails.view.html",
+                controller: "AdoptionRequestDetailsController",
+                controllerAs: "model"
+            })
             .otherwise({
                 redirectTo: "/home"
             });

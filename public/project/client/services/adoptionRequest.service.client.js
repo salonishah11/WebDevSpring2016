@@ -5,30 +5,25 @@
         .factory("AdoptionRequestService", AdoptionRequestService);
 
     function AdoptionRequestService($http){
-        var requests = {};
-        requests = [
-            {"_id":123, "name":"Alice",   "username":"alice",  "animal":"Dog",
-             "animalName":"Noah" ,     "status": "Pending"},
-            {"_id":234, "name":"Bob",   "username":"bob",  "animal":"Cat",
-             "animalName":"Carlos" ,     "status": "Pending"},
-            {"_id":345, "name":"Charlie",   "username":"charlie",  "animal":"Bird",
-             "animalName":"Max" ,     "status": "Pending"},
-            {"_id":456, "name":"Dan",   "username":"dan",  "animal":"Dog",
-             "animalName":"Roger" ,     "status": "Approved"}
-        ];
 
         var requestAPI = {
             // Function Declarations
             findAllRequestsByUserId: findAllRequestsByUserId,
+            findRequestById:findRequestById, 
             createRequest: createRequest,
             deleteRequestById: deleteRequestById,
-            // updateRequest: updateRequest
+            updateRequestById: updateRequestById
         };
         return requestAPI;
 
         function findAllRequestsByUserId(userId){
             //callback(requests);
             return $http.get("/api/project/adoptionRequest/user/" + userId);
+        }
+        
+        
+        function findRequestById(requestId){
+            return $http.get("/api/project/adoptionRequest/request/" + requestId);
         }
 
 
@@ -40,25 +35,12 @@
 
 
         function deleteRequestById(requestId){
-            // for(var i = 0; i < requests.length; i++){
-            //     if(requestId == requests[i]._id){
-            //         requests.splice(i, 1);
-            //         callback(requests);
-            //     }
-            // }
-            //console.log(userId + " " + petId);
             return $http.delete("/api/project/adoptionRequest/request/" + requestId);
         }
 
 
-        function updateRequest(requestId, updatedRequest, callback){
-            for(var i = 0; i < requests.length; i++){
-                if(requestId == requests[i]._id){
-                    requests[i] = updatedRequest;
-                    callback(updatedRequest);
-                }
-            }
-            //console.log(users);
+        function updateRequestById(requestId, user){
+            return $http.put("/api/project/adoptionRequest/request/" + requestId, user);
         }
     }
 })();

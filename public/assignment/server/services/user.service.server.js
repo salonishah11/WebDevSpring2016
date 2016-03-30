@@ -10,12 +10,20 @@ module.exports = function(app, model) {
 
     function createUser(req, res) {
         var user = req.body;
-        user = model.createUser(user);
-        res.json(user);
+        model
+            .createUser(user)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function findAllUsers(req, res){
-        //console.log("inside server service")
         if(req.query.username && req.query.password){
             findUserByCredentials(req, res);
         }
@@ -23,22 +31,48 @@ module.exports = function(app, model) {
             findUserByUsername(req, res);
         }
         else{
-            //console.log("inside else");
-            var users = model.findAllUsers();
-            res.json(users);
+            model
+                .findAllUsers()
+                .then(
+                    function(doc){
+                        res.json(doc);
+                    },
+                    // send error if promise rejected
+                    function(err ){
+                        res.status(400).send(err);
+                    }
+                );
         }
     }
 
     function findUserByID(req, res) {
         var userId = req.params.id;
-        user = model.findUserByID(userId);
-        res.json(user);
+        model
+            .findUserByID(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function findUserByUsername(req, res) {
         var username = req.query.username;
-        user = model.findUserByUsername(username);
-        res.json(user);
+        model
+            .findUserByUsername(username)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function findUserByCredentials(req, res) {
@@ -46,21 +80,47 @@ module.exports = function(app, model) {
             username: req.query.username,
             password: req.query.password
         };
-        //console.log(credentials);
-        var user = model.findUserByCredentials(credentials);
-        res.json(user);
+        model
+            .findUserByCredentials(credentials)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function updateUserByID(req, res) {
         var userId = req.params.id;
         var updatedUser = req.body;
-        users = model.updateUser(userId, updatedUser);
-        res.json(users);
+        model
+            .updateUser(userId, updatedUser)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteUserById(req, res){
         var userId = req.params.id;
-        var users = model.deleteUserById(userId);
-        res.json(users);
+        model
+            .deleteUserById(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 };

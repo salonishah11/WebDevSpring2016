@@ -10,31 +10,68 @@ module.exports = function(app, model) {
     function getFieldsForForm(req, res) {
         var formId = req.params.formId;
         //console.log("inside server service " + userId);
-        fields = model.getFieldsForForm(formId);
-        res.json(fields);
+        model
+            .getFieldsForForm(formId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function getFieldForForm(req, res) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        field = model.getFieldForForm(formId, fieldId);
-        res.json(field);
+        model
+            .getFieldForForm(formId, fieldId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteFieldFromForm(req, res){
         //console.log("inside server service");
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        fields = model.deleteFieldFromForm(formId, fieldId);
-        res.json(fields);
+        model
+            .deleteFieldFromForm(formId, fieldId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function createFieldForForm(req, res) {
         var formId = req.params.formId;
         var newField = req.body;
+                
         newField._id = (new Date()).getTime();
-        field = model.createFieldForForm(formId, newField);
-        res.json(field);
+        model
+            .createFieldForForm(formId, newField)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function updateField(req, res) {
@@ -42,7 +79,16 @@ module.exports = function(app, model) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
         var updatedField = req.body;
-        field = model.updateField(formId, fieldId, updatedField);
-        res.json(field);
+        model
+            .updateField(formId, fieldId, updatedField)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 };

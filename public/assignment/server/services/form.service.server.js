@@ -10,35 +10,80 @@ module.exports = function(app, model) {
     function findFormByUserId(req, res) {
         var userId = req.params.userId;
         //console.log("inside server service " + userId);
-        forms = model.findFormByUserId(userId);
-        res.json(forms);
+        model
+            .findFormByUserId(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function findFormByID(req, res) {
         var formId = req.params.formId;
-        form = model.findFormByID(formId);
-        res.json(form);
+        model
+            .findFormByID(formId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteFormById(req, res){
         //console.log("inside server service");
         var formId = req.params.formId;
-        var forms = model.deleteForm(formId);
-        res.json(forms);
+        model
+            .deleteForm(formId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function createForm(req, res) {
         var userId = req.params.userId;
         var form = req.body;
-        forms = model.createForm(userId, form);
-        res.json(forms);
+        model
+            .createForm(userId, form)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function updateFormByID(req, res) {
         //console.log("inside server service");
         var formId = req.params.formId;
         var updatedForm = req.body;
-        form = model.updateForm(formId, updatedForm);
-        res.json(form);
+        model
+            .updateForm(formId, updatedForm)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
     }
 };

@@ -22,7 +22,8 @@
             var newForm = {
                 "_id": (new Date).getTime(),
                 "title": form.title,
-                "userId": userId
+                "userId": userId,
+                "fields": []
             };
             return $http.post("/api/assignment/user/" + userId + "/form", newForm);
         }

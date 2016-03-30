@@ -20,7 +20,7 @@
             FieldService
                 .getFieldsForForm(formId)
                 .then(function(response){
-                    if(response.data){
+                    if(response){
                         vm.fields = response.data;
                     }
                 });
@@ -28,7 +28,6 @@
         init();
 
         function addField(fieldType){
-            //console.log(fieldType);
             var newField;
             switch(fieldType) {
                 case "TEXT":
@@ -70,7 +69,7 @@
             }
 
             FieldService
-                .createFieldForForm(FormService.getFormId(), newField)
+                .createFieldForForm(formId, newField)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -83,7 +82,7 @@
         function cloneField(newField) {
             //console.log(newField);
             FieldService
-                .createFieldForForm(FormService.getFormId(), newField)
+                .createFieldForForm(formId, newField)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -94,7 +93,7 @@
         
         function deleteField(fieldId) {
             FieldService
-                .deleteFieldFromForm(FormService.getFormId(), fieldId)
+                .deleteFieldFromForm(formId, fieldId)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -144,7 +143,7 @@
             vm.updatedField.label = vm.label;
 
             FieldService
-                .updateField(FormService.getFormId(), vm.updatedField._id, vm.updatedField)
+                .updateField(formId, vm.updatedField._id, vm.updatedField)
                 .then(function(response){
                         init();
                     }
@@ -152,11 +151,3 @@
         }
     }
 })();
-
-
-
-
-
-
-
-

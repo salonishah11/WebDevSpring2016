@@ -4,7 +4,7 @@
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController(FormService, $scope, UserService, $location) {
+    function FormController(FormService, UserService, $location) {
         var vm = this;
         // Function Declarations
         vm.addForm = addForm;
@@ -15,15 +15,25 @@
 
         // variable to store the index value of selected row
         vm.selectedIndex = -1;
+        
+        var currentUser;
 
         function init(){
-            // gets all the forms of current user
-            FormService
-                .findAllFormsForUser(UserService.getCurrentUser()._id)
+            UserService
+                .getCurrentUser()
                 .then(function(response){
                     if(response.data){
-                        //console.log(response.data);
-                        vm.data = response.data;
+                        currentUser = response.data;
+
+                        // gets all the forms of current user
+                        FormService
+                            .findAllFormsForUser(currentUser._id)
+                            .then(function(response){
+                                if(response.data){
+                                    //console.log(response.data);
+                                    vm.data = response.data;
+                                }
+                            });
                     }
                 });
         }
@@ -37,7 +47,7 @@
             if(form.formName != null){
                 var newForm = {"title": form.formName};
                 FormService
-                    .createFormForUser(UserService.getCurrentUser()._id, newForm)
+                    .createFormForUser(currentUser._id, newForm)
                     .then(function(response){
                         if(response.data){
                             //console.log(response.data);
@@ -55,7 +65,7 @@
                 var updatedForm = {
                     "_id": selectedForm._id,
                     "title": form.formName,
-                    "userId": UserService.getCurrentUser()._id};
+                    "userId": currentUser._id};
 
                 FormService
                     .updateFormById(selectedForm._id, updatedForm)

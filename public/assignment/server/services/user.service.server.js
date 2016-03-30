@@ -8,12 +8,16 @@ module.exports = function(app, model) {
     app.put("/api/assignment/user/:id", updateUserByID);
     app.delete("/api/assignment/user/:id", deleteUserById);
 
+    app.get("/api/assignment/loggedin", loggedIn);
+    app.post("/api/assignment/logout", logout);
+
     function createUser(req, res) {
         var user = req.body;
         model
             .createUser(user)
             .then(
                 function(doc){
+                    req.session.currentUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -84,6 +88,7 @@ module.exports = function(app, model) {
             .findUserByCredentials(credentials)
             .then(
                 function(doc){
+                    req.session.currentUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -122,5 +127,14 @@ module.exports = function(app, model) {
                     res.status(400).send(err);
                 }
             );
+    }
+
+    function loggedIn(req, res) {
+        res.json(req.session.currentUser);
+    }
+
+    function logout(req, res) {
+        req.session.destroy();
+        res.sendStatus(200);
     }
 };

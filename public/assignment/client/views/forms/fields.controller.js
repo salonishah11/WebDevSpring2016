@@ -4,8 +4,10 @@
         .module("FormBuilderApp")
         .controller("FieldController", FieldController);
     
-    function FieldController(FieldService, UserService, FormService) {
+    function FieldController($routeParams, FieldService, UserService, FormService) {
         var vm = this;
+
+        var formId = $routeParams.formId;
 
         vm.addField = addField;
         vm.cloneField = cloneField;
@@ -16,7 +18,7 @@
         function init(){
             //var currentUser = UserService.getCurrentUser();
             FieldService
-                .getFieldsForForm(FormService.getFormId())
+                .getFieldsForForm(formId)
                 .then(function(response){
                     if(response.data){
                         vm.fields = response.data;

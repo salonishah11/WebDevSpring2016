@@ -7,8 +7,6 @@
     function FormService($http, $rootScope) {
         var formAPI = {
             // Function Declarations
-            getFormId: getFormId,
-            setFormId: setFormId,
             createFormForUser: createFormForUser,
             findAllFormsForUser: findAllFormsForUser,
             deleteFormById: deleteFormById,
@@ -18,15 +16,6 @@
 
 
         // Function Implementations
-        function setFormId (formId) {
-            $rootScope.formId = formId;
-        }
-
-
-        function getFormId() {
-            return $rootScope.formId;
-        }
-
 
         // creates a new form for the given User
         function createFormForUser(userId, form){

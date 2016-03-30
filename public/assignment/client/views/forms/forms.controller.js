@@ -32,13 +32,6 @@
 
         // Function Implementations
 
-        // callback function of FormService.findAllFormsForUser
-        // function to render the forms of current user
-        function renderUserForms(response){
-            vm.data = response;
-        }
-
-
         // adds a new form to the database of current user
         function addForm(form){
             if(form.formName != null){
@@ -97,10 +90,11 @@
             vm.form = selectedForm;
             vm.form.formName = selectedForm.title;
         }
-        
-        function displayFields(formId) {
-            FormService.setFormId(formId);
-            $location.path('/fields');
+
+
+        function displayFields(index) {
+            var selectedForm = vm.data[index];
+            $location.path('/form/' + selectedForm._id + '/fields');
         }
     }
 })();

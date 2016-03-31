@@ -29,7 +29,11 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 multer();
-app.use(session({ secret: "Tyro is my secret! Are you kidding me! Lol NO!" }));
+app.use(session({
+    secret: "Tyro is my secret! Are you kidding me! Lol NO!",
+    resave : true,
+    saveUninitialized: true
+}));
 
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;

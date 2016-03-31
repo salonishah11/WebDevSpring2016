@@ -89,17 +89,10 @@ module.exports = function(db, mongoose) {
         return deferred.promise;
     }
 
-    function deleteUser(userID){
+    function deleteUser(userId){
         var deferred = q.defer();
 
-        // for(var i = 0; i < mock.length; i++){
-        //     if(userId == mock[i]._id){
-        //         mock.splice(i, 1);
-        //         break;
-        //     }
-        // }
-
-        UserModel.delete(
+        UserModel.remove(
             { _id : userId}, function (err, doc) {
                 if (err) {
                     deferred.reject(err);

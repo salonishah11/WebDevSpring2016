@@ -64,8 +64,11 @@
                 var selectedForm = vm.data[vm.selectedIndex];
                 var updatedForm = {
                     "_id": selectedForm._id,
+                    "userId": currentUser._id,
                     "title": form.formName,
-                    "userId": currentUser._id};
+                    "fields": selectedForm.fields,
+                    "created": selectedForm.fields
+                    };
 
                 FormService
                     .updateFormById(selectedForm._id, updatedForm)
@@ -75,6 +78,8 @@
                             vm.data[vm.selectedIndex] = response.data;
                             vm.form.formName = null;
                             vm.selectedIndex = -1;
+
+                            init();
                         }
                     });
             }

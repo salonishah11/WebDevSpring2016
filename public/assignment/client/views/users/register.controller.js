@@ -17,11 +17,11 @@
             if(user.password == user.verifyPassword){
                 console.log("inside register");
                 var newUser = {
-                    "_id":(new Date).getTime(),
-                    "firstName":null,
-                    "lastName": null,
                     "username": user.username,
                     "password": user.password,
+                    "firstName":null,
+                    "lastName": null,
+                    "email": user.email,
                     "roles": []
                 };
 

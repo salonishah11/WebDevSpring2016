@@ -8,6 +8,7 @@
         var userAPI = {
             // Function Declarations
             findUserByUsername: findUserByUsername,
+            findUserById: findUserById,
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
@@ -38,6 +39,11 @@
         // Function Implementations
         function findUserByUsername(username){
             return $http.get("/api/assignment/user/:" + username);
+        }
+        
+        
+        function findUserById(userId){
+            return $http.get("/api/assignment/user/" + userId);
         }
 
 

@@ -2,7 +2,7 @@ module.exports = function(app, model) {
 
     app.post("/api/assignment/user", createUser);
     app.get("/api/assignment/user", findAllUsers);
-    app.get("/api/assignment/user/:id", findUserByID);
+    app.get("/api/assignment/user/:id", findUserById);
     app.get("/api/assignment/user?username=username", findUserByUsername);
     app.get("/api/assignment/user?username=username&password=password", findUserByCredentials);
     app.put("/api/assignment/user/:id", updateUserByID);
@@ -49,10 +49,10 @@ module.exports = function(app, model) {
         }
     }
 
-    function findUserByID(req, res) {
+    function findUserById(req, res) {
         var userId = req.params.id;
         model
-            .findUserByID(userId)
+            .findUserById(userId)
             .then(
                 function(doc){
                     res.json(doc);

@@ -9,16 +9,18 @@
 
         var currentUser;
 
-        UserService
-            .getCurrentUser()
-            .then(function(response){
-                currentUser = response.data;
-                vm.user = currentUser;
-            });
-
-
         // Function Declarations
         vm.update = update;
+
+        function init(){
+            UserService
+                .getCurrentUser()
+                .then(function(response){
+                    currentUser = response.data;
+                    vm.user = currentUser;
+                });
+        }
+        init();
 
 
         // Function Implementations
@@ -26,27 +28,27 @@
         function update(updatedUser){
             var updatedUserObj = {
                 "_id": currentUser._id,
-                "firstName": updatedUser.firstName,
-                "lastName": updatedUser.lastName,
                 "username": currentUser.username,
                 "password": updatedUser.password,
+                "firstName": updatedUser.firstName,
+                "lastName": updatedUser.lastName,
+                "email": updatedUser.email,
                 "roles": currentUser.roles
             };
 
             UserService
-                .getCurrentUser()
+                .updateUser(currentUser._id, updatedUserObj)
+                .then(function() {
+                    return UserService
+                        .findUserByCredentials({
+                            username: updatedUser.username,
+                            password: updatedUser.password
+                        });
+                })
                 .then(function(response){
-                    if(response){
-                        var user = response.data;
-
-                        UserService
-                            .updateUser(user._id, updatedUserObj)
-                            .then(function(response){
-                                if(response.data){
-                                    //console.log(response.data);
-                                    UserService.setCurrentUser(response.data);
-                                }
-                            });
+                    if (response.data){
+                        UserService.setCurrentUser(response.data);
+                        UserService.getCurrentUser();
                     }
                 });
         }

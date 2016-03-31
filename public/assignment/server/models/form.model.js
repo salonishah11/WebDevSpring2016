@@ -149,15 +149,15 @@ module.exports = function(db, mongoose) {
     //Field Service
     function getFieldsForForm(formId) {
         var deferred = q.defer();
-        var fields = null;
 
-        for(var f in mock){
-            if(mock[f]._id == formId){
-                fields = mock[f].fields;
+        FormModel.findById(formId, function (err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(doc.fields);
             }
-        }
+        });
 
-        deferred.resolve(fields);
         return deferred.promise;
     }
 

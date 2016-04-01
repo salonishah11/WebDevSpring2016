@@ -76,17 +76,21 @@ module.exports = function(app, db, mongoose) {
     function updateForm(formId, updatedForm){
         var deferred = q.defer();
 
-        var form = {
-            "_id" : updatedForm._id,
-            "userId": updatedForm.userId,
-            "title": updatedForm.title,
-            "fields": updatedForm.fields,
-            "updated": new Date()
-        };
+        // var form = {
+        //     "_id" : updatedForm._id,
+        //     "userId": updatedForm.userId,
+        //     "title": updatedForm.title,
+        //     "fields": updatedForm.fields,
+        //     "updated": new Date()
+        // };
 
         FormModel.update(
             { _id : formId},
-            { $set: form
+            { $set: {
+                "title": updatedForm.title,
+                "fields": updatedForm.fields,
+                "updated": new Date()
+            }
             }, function (err, doc) {
                 if (err) {
                     deferred.reject(err);

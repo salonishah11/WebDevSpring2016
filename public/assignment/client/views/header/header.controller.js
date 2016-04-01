@@ -5,7 +5,7 @@
         .controller("HeaderController", HeaderController);
 
     function HeaderController($location, UserService) {
-        UserService.setCurrentUser(null);
+        // UserService.setCurrentUser(null);
 
         var vm = this;
         // Function Declarations

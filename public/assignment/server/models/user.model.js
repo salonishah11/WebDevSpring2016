@@ -132,7 +132,6 @@ module.exports = function(db, mongoose) {
         var deferred = q.defer();
 
         UserModel.findOne(
-
             // first argument is predicate
             { username: credentials.username,
                 password: credentials.password },

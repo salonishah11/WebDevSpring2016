@@ -61,7 +61,9 @@ module.exports = function(db, FormModel) {
                         form.fields.splice(i,1);
                         FormModel.update(
                             { _id : formId},
-                            { $set: form
+                            { $set: {
+                                "fields": form.fields
+                            }
                             }, function (err, doc) {
                                 if (err) {
                                     deferred.reject(err);
@@ -118,7 +120,9 @@ module.exports = function(db, FormModel) {
                         form.fields[i] = updatedField;
                         FormModel.update(
                             { _id : formId},
-                            { $set: form
+                            { $set: {
+                                "fields": form.fields
+                            }
                             }, function (err, doc) {
                                 if (err) {
                                     deferred.reject(err);

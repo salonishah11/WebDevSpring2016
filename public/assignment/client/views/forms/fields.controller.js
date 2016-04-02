@@ -145,8 +145,7 @@
             }
 
             vm.updatedField.label = vm.label;
-
-            console.log(vm.updatedField._id);
+            
             FieldService
                 .updateField($routeParams.formId, vm.updatedField._id, vm.updatedField)
                 .then(function(response){

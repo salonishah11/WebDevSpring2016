@@ -19,7 +19,7 @@
         function init(){
             //var currentUser = UserService.getCurrentUser();
             FieldService
-                .getFieldsForForm(formId)
+                .getFieldsForForm($routeParams.formId)
                 .then(function(response){
                     if(response){
                         vm.fields = response.data;
@@ -70,7 +70,7 @@
             }
 
             FieldService
-                .createFieldForForm(formId, newField)
+                .createFieldForForm($routeParams.formId, newField)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -85,7 +85,7 @@
             delete newField._id;
             
             FieldService
-                .createFieldForForm(formId, newField)
+                .createFieldForForm($routeParams.formId, newField)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -96,7 +96,7 @@
         
         function deleteField(fieldId) {
             FieldService
-                .deleteFieldFromForm(formId, fieldId)
+                .deleteFieldFromForm($routeParams.formId, fieldId)
                 .then(function(response){
                     if(response.data) {
                         init();
@@ -147,7 +147,7 @@
             vm.updatedField.label = vm.label;
 
             FieldService
-                .updateField(formId, vm.updatedField._id, vm.updatedField)
+                .updateField($routeParams.formId, vm.updatedField._id, vm.updatedField)
                 .then(function(response){
                         init();
                     }
@@ -156,7 +156,7 @@
 
         function sortField(start, end) {
             FieldService
-                .sortField(formId, start, end)
+                .sortField($routeParams.formId, start, end)
                 .then(
                     function (response) {
                         vm.fields = response.data;

@@ -109,33 +109,68 @@ module.exports = function(db, FormModel) {
     }
 
     function updateField(formId, fieldId, updatedField) {
-        var deferred = q.defer();
+        // var deferred = q.defer();
+        //
+        // FormModel.findById(formId, function (err, doc) {
+        //     if (err) {
+        //         deferred.reject(err);
+        //     } else {
+        //         var form = doc;
+        //         for(var i in form.fields){
+        //             if(form.fields[i]._id == fieldId){
+        //                 form.fields[i] = updatedField;
+        //                 FormModel.update(
+        //                     { _id : formId},
+        //                     { $set: {
+        //                         "fields": form.fields
+        //                     }
+        //                     }, function (err, doc) {
+        //                         if (err) {
+        //                             deferred.reject(err);
+        //                         } else {
+        //                             deferred.resolve(doc);
+        //                         }
+        //                     });
+        //             }
+        //         }
+        //     }
+        // });
+        //
+        // return deferred.promise;
 
-        FormModel.findById(formId, function (err, doc) {
-            if (err) {
-                deferred.reject(err);
-            } else {
-                var form = doc;
+        var deferred = q.defer();
+        var form = null;
+
+        FormModel.find({_id : formId}, function (err,results){
+            if(!err) {
+                form = results[0];
                 for(var i in form.fields){
                     if(form.fields[i]._id == fieldId){
                         form.fields[i] = updatedField;
-                        FormModel.update(
-                            { _id : formId},
-                            { $set: {
-                                "fields": form.fields
-                            }
-                            }, function (err, doc) {
-                                if (err) {
-                                    deferred.reject(err);
-                                } else {
-                                    deferred.resolve(doc);
-                                }
-                            });
+                        break;
                     }
                 }
+
+                FormModel.update(
+                    {_id : formId},
+
+                    {$set: {
+                        "fields": form.fields
+                    }},
+
+                    function (err,results){
+                        if(!err) {
+                            deferred.resolve(results);
+                        }
+                        else {
+                            deferred.resolve(null);
+                        }
+                    });
+            }
+            else{
+                deferred.resolve(null);
             }
         });
-
         return deferred.promise;
     }
 

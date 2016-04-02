@@ -5,6 +5,7 @@ module.exports = function(app, model) {
     app.delete("/api/assignment/form/:formId/field/:fieldId", deleteFieldFromForm);
     app.post("/api/assignment/form/:formId/field", createFieldForForm);
     app.put("/api/assignment/form/:formId/field/:fieldId", updateField);
+    app.put("/api/assignment/:formId/field", sortField);
 
 
     function getFieldsForForm(req, res) {
@@ -59,8 +60,7 @@ module.exports = function(app, model) {
     function createFieldForForm(req, res) {
         var formId = req.params.formId;
         var newField = req.body;
-                
-        newField._id = (new Date()).getTime();
+        
         model
             .createFieldForForm(formId, newField)
             .then(
@@ -90,5 +90,32 @@ module.exports = function(app, model) {
                     res.status(400).send(err);
                 }
             );
+    }
+    
+    function sortField(req, res) {
+        var formId = req.params.formId;
+        var startIndex = req.query.startIndex;
+        var endIndex = req.query.endIndex;
+
+        if(startIndex && endIndex) {
+            model
+                .sortField(formId, startIndex, endIndex)
+                .then(
+                    function(stat) {
+                        return model.getFieldsForForm(formId);
+                    },
+                    function(err) {
+                        res.status(400).send(err);
+                    }
+                )
+                .then(
+                    function(doc) {
+                        res.json(doc);
+                    },
+                    function(err) {
+                        res.status(400).send(err);
+                    }
+                );
+        }
     }
 };

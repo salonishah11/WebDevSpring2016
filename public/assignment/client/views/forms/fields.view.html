@@ -8,7 +8,7 @@
 <div ng-controller="FieldController as model">
 <form class="form-horizontal">
     <div class="container box">
-        <div ng-show="model.fields" field-sortable field-axis="y">
+        <div ng-show="model.fields" jga-sortable jga-sortable-callback="model.sortField">
             <div class="row form-group" ng-repeat="field in model.fields">
                 <div class="col-sm-5">
                     <label>{{field.label}}</label>

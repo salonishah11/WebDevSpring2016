@@ -14,6 +14,7 @@
         vm.deleteField = deleteField;
         vm.selectField = selectField;
         vm.editField = editField;
+        vm.sortField  = sortField;
 
         function init(){
             //var currentUser = UserService.getCurrentUser();
@@ -81,6 +82,8 @@
 
         function cloneField(newField) {
             //console.log(newField);
+            delete newField._id;
+            
             FieldService
                 .createFieldForForm(formId, newField)
                 .then(function(response){
@@ -147,6 +150,19 @@
                 .updateField(formId, vm.updatedField._id, vm.updatedField)
                 .then(function(response){
                         init();
+                    }
+                );
+        }
+
+        function sortField(start, end) {
+            FieldService
+                .sortField(formId, start, end)
+                .then(
+                    function (response) {
+                        vm.fields = response.data;
+                    },
+                    function (err) {
+                        vm.error = err;
                     }
                 );
         }

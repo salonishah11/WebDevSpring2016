@@ -7,7 +7,8 @@ module.exports = function(db, FormModel) {
         getFieldForForm: getFieldForForm,
         deleteFieldFromForm: deleteFieldFromForm,
         createFieldForForm: createFieldForForm,
-        updateField: updateField
+        updateField: updateField,
+        sortField: sortField
     };
     return api;
 
@@ -136,5 +137,46 @@ module.exports = function(db, FormModel) {
         });
 
         return deferred.promise;
+    }
+
+    function sortField(formId, startIndex, endIndex) {
+        var deferred = q.defer();
+
+        FormModel.findById(formId, function(err,doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                var form=doc;
+                form.fields.splice(endIndex, 0, form.fields.splice(startIndex, 1)[0]);
+
+                FormModel.update(
+                    {_id: formId},
+                    {$set:{
+                        "fields":form.fields
+                    }},function (err,doc){
+                        if(err){
+                            deferred.reject(error);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    }
+                );
+            }
+        });
+        return deferred.promise;
+
+        // return FormModel
+        //     .findById(formId)
+        //     .then(
+        //         function(form) {
+        //             form.fields.splice(endIndex, 0, form.fields.splice(startIndex, 1)[0]);
+        //             // notify mongoose 'fields' changed
+        //             form.save();
+        //         }
+        //     );
+
+
     }
 };

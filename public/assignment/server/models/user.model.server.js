@@ -24,7 +24,7 @@ module.exports = function(db, mongoose) {
 
         // insert new user with mongoose user model's create()
         UserModel.create(newUser, function (err, doc) {
-
+//console.log(newUser);
             if (err) {
                 // reject promise if error
                 deferred.reject(err);
@@ -53,7 +53,6 @@ module.exports = function(db, mongoose) {
 
     function findUserById(userId){
         var deferred = q.defer();
-        var user = null;
 
         UserModel.findById(userId, function (err, doc) {
             if (err) {
@@ -76,7 +75,7 @@ module.exports = function(db, mongoose) {
                     "password": updatedUser.password,
                     "firstName": updatedUser.firstName,
                     "lastName": updatedUser.lastName,
-                    "email": updatedUser.email
+                    "emails": updatedUser.emails
                 }
             }, function (err, doc) {
             if (err) {

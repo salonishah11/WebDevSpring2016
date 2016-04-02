@@ -4,7 +4,7 @@
     "password": "alice",
     "firstName": "Alice",
     "lastName": "Wonderland",
-    "email": "alice@gmail.com",
+    "emails": ["alice@gmail.com"],
     "roles": []
   },
   {
@@ -12,7 +12,7 @@
     "password": "bob",
     "firstName": "Bob",
     "lastName": "Hope",
-    "email": "bob@gmail.com",
+    "emails": ["bob@gmail.com"],
     "roles": []
   }
 ]

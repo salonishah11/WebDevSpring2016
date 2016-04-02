@@ -18,6 +18,7 @@
                 .then(function(response){
                     currentUser = response.data;
                     vm.user = currentUser;
+                    vm.user.emails = currentUser.emails.join(",");
                 });
         }
         init();
@@ -32,7 +33,7 @@
                 "password": updatedUser.password,
                 "firstName": updatedUser.firstName,
                 "lastName": updatedUser.lastName,
-                "email": updatedUser.email,
+                "emails": updatedUser.emails.split(','),
                 "roles": currentUser.roles
             };
 

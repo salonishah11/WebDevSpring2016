@@ -141,6 +141,7 @@ module.exports = function(db, FormModel) {
         var deferred = q.defer();
         var form = null;
 
+        console.log(formId, fieldId, updatedField);
         FormModel.find({_id : formId}, function (err,results){
             if(!err) {
                 form = results[0];

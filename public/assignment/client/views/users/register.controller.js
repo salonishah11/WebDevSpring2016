@@ -21,15 +21,15 @@
                     "password": user.password,
                     "firstName":null,
                     "lastName": null,
-                    "email": user.email,
+                    "emails": user.emails.split(","),
                     "roles": []
                 };
-
+               
                 UserService
                     .createUser(newUser)
                     .then(function(response){
                     if(response.data){
-                        //console.log(response.data);
+                        console.log(response.data);
                         UserService.setCurrentUser(response.data);
                         $location.path('/profile');
                     }

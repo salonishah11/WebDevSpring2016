@@ -166,17 +166,5 @@ module.exports = function(db, FormModel) {
             }
         });
         return deferred.promise;
-
-        // return FormModel
-        //     .findById(formId)
-        //     .then(
-        //         function(form) {
-        //             form.fields.splice(endIndex, 0, form.fields.splice(startIndex, 1)[0]);
-        //             // notify mongoose 'fields' changed
-        //             form.save();
-        //         }
-        //     );
-
-
     }
 };

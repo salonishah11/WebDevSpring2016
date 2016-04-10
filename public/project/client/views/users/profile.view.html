@@ -6,6 +6,15 @@
             <hr>
         </div>
         <form class="form-horizontal">
+            <div ng-if="model.user.accountType == 'Organization'">
+                <div class="form-group">
+                    <label for="inputShelterId" class="col-sm-3 control-label">Shelter ID</label>
+                    <div class="col-sm-7">
+                        <input ng-model="model.user.shelterId" type ="text" class="form-control" id="inputShelterId"
+                               placeholder="Shelter ID" readonly>
+                    </div>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="inputUsername" class="col-sm-3 control-label">Username</label>
                 <div class="col-sm-7">

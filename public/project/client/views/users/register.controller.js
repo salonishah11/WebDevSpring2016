@@ -22,21 +22,44 @@
         // registers a new user
         function register(newUser, shelterId){
 
-            console.log(shelterId);
+            if((newUser) &&
+               (newUser.username != null) &&
+               (newUser.name != null) &&
+               (newUser.email != null) &&
+               (newUser.password != null) &&
+               (newUser.streetAddress != null) &&
+               (newUser.city != null) &&
+               (newUser.state != null) &&
+               (newUser.country != null) &&
+               (newUser.zipcode != null) &&
+               (newUser.accountType != null)){
 
-            // UserService
-            //     .createUser(newUser)
-            //     .then(function(response){
-            //         if(response.data){
-            //             //console.log(response.data);
-            //             UserService.setCurrentUser(response.data);
-            //             $location.path('/profile');
-            //         }
-            //     });
-            // if(newUser){
-            //     UserService.setCurrentUser(newUser);
-            //     $location.path('/profile');
-            // }
+                if(newUser.accountType == 'Organization'){
+                    newUser.shelterId = shelterId;
+                }
+                else{
+                    newUser.shelterId = null;
+                }
+
+                // console.log(newUser);
+
+                UserService
+                    .createUser(newUser)
+                    .then(function(response){
+                        if(response.data){
+                            //console.log(response.data);
+                            UserService.setCurrentUser(response.data);
+                            $location.path('/profile');
+                        }
+                    });
+                // if(newUser){
+                //     UserService.setCurrentUser(newUser);
+                //     $location.path('/profile');
+                // }
+            }
+            else{
+                alert("Please enter values for all fields!");
+            }
         }
     }
 })();

@@ -10,7 +10,8 @@
     "state": "MA",
     "country": "USA",
     "zipcode": "01234",
-    "accountType": "Individual"
+    "accountType": "Individual",
+    "shelterId": null
   },
   {
     "_id":234,
@@ -23,7 +24,8 @@
     "state": "CA",
     "country": "USA",
     "zipcode": "02345",
-    "accountType":"Individual"
+    "accountType":"Individual",
+    "shelterId": null
   },
   {
     "_id":345,
@@ -36,7 +38,8 @@
     "state": "TX",
     "country": "USA",
     "zipcode": "03456",
-    "accountType":"Organization"
+    "accountType":"Organization",
+    "shelterId": "MA38"
   },
   {
     "_id":456,
@@ -49,6 +52,7 @@
     "state": "NY",
     "country": "USA",
     "zipcode": "04567",
-    "accountType":"Organization"
+    "accountType":"Organization",
+    "shelterId": "MA77"
   }
 ]

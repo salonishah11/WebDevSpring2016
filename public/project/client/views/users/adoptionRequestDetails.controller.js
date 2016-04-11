@@ -27,15 +27,26 @@
             // console.log(user);
             // console.log(pet);
             //console.log(request);
-        
+
             AdoptionRequestService
-                .updateRequestById(requestId, user)
+                .findRequestById(requestId)
                 .then(function(response){
-                    if(response){
-                        //console.log(response.data);
-                        alert("Request Updated Successfully");
-                        $location.path('/viewAdoptionRequests');
-                    }
+                    var updatedRequest = {
+                        _id : response.data._id,
+                        status : response.data.status,
+                        user : user,
+                        pet : response.data.pet
+                    };
+
+                    AdoptionRequestService
+                        .updateRequestById(requestId, updatedRequest)
+                        .then(function(response){
+                            if(response){
+                                //console.log(response.data);
+                                alert("Request Updated Successfully");
+                                $location.path('/viewUserAdoptionRequests');
+                            }
+                        });
                 });
         }
     }

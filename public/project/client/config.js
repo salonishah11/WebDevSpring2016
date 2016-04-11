@@ -78,14 +78,24 @@
                 controller: "AdoptionRequestFormController",
                 controllerAs: "model"
             })
-            .when("/viewAdoptionRequests",{
+            .when("/viewUserAdoptionRequests",{
                 templateUrl: "views/users/adoptionRequests.view.html",
                 controller: "AdoptionRequestsController",
                 controllerAs: "model"
             })
-            .when("/viewAdoptionRequests/request/:requestId",{
+            .when("/viewUserAdoptionRequests/request/:requestId",{
                 templateUrl: "views/users/adoptionRequestDetails.view.html",
                 controller: "AdoptionRequestDetailsController",
+                controllerAs: "model"
+            })
+            .when("/viewOrgAdoptionRequests",{
+                templateUrl: "views/adoptionRequest/orgAdoptionRequests.view.html",
+                controller: "OrgAdoptionRequestsController",
+                controllerAs: "model"
+            })
+            .when("/viewOrgAdoptionRequests/request/:requestId",{
+                templateUrl: "views/adoptionRequest/orgAdoptionRequestDetails.view.html",
+                controller: "OrgAdoptionRequestDetailsController",
                 controllerAs: "model"
             })
             .otherwise({

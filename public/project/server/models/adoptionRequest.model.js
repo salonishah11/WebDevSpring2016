@@ -5,6 +5,7 @@ module.exports = function() {
     var api = {
         createRequest: createRequest,
         findAllRequestsByUserId: findAllRequestsByUserId,
+        findAllRequestsByShelterId: findAllRequestsByShelterId,
         findRequestById: findRequestById,
         deleteRequestById: deleteRequestById,
         updateRequestById: updateRequestById
@@ -32,6 +33,23 @@ module.exports = function() {
             //console.log(requestMock[u].user);
             if(requestMock[u].user._id == userId){
                  requests.push(requestMock[u]);
+            }
+        }
+        // console.log("all requests");
+        // console.log(requests);
+        deferred.resolve(requests);
+        return deferred.promise;
+    }
+
+
+    function findAllRequestsByShelterId(shelterId){
+        var deferred = q.defer();
+        var requests = [];
+
+        for(var u in requestMock){
+            //console.log(requestMock[u].user);
+            if(requestMock[u].pet.shelterId.$t == shelterId){
+                requests.push(requestMock[u]);
             }
         }
         // console.log("all requests");
@@ -74,13 +92,13 @@ module.exports = function() {
     }
 
 
-    function updateRequestById(requestId, user){
+    function updateRequestById(requestId, updatedRequest){
         //console.log("inside model " + userId);
         var deferred = q.defer();
         for(var u in requestMock){
             if(requestMock[u]._id == requestId){
                 //console.log("inside if");
-                requestMock[u].user = user;
+                requestMock[u] = updatedRequest;
                 break;
             }
         }

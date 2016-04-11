@@ -1,6 +1,7 @@
 [
   {
     "_id": 123,
+    "status": "Pending",
     "user":
     {
       "_id":523,
@@ -24,11 +25,13 @@
       "id": {"$t": "12345678"},
       "name": {"$t": "Tag"},
       "sex": {"$t": "M"},
-      "size": {"$t": "L"}
+      "size": {"$t": "L"},
+      "shelterId": {"$t": "TX2049"}
     }
   },
   {
     "_id": 234,
+    "status": "Pending",
     "user":
     {
           "_id":234,
@@ -52,7 +55,8 @@
       "id": {"$t": "0987654321"},
       "name": {"$t": "Chloe"},
       "sex": {"$t": "F"},
-      "size": {"$t": "S"}
+      "size": {"$t": "S"},
+      "shelterId": {"$t": "CA1973"}
     }
   }
 ]

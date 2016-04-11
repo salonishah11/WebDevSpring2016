@@ -43,8 +43,9 @@
                     <li><a href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>
                     <li><a href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>
                     <!--<li><a href="#/contact">Contact</a></li>-->
-                    <li ng-show="currentUser"><a href="#/viewAdoptionRequests" style="font-size:medium">My Requests</a></li>
-                    <li ng-show="currentUser"><a href="#/viewStories" style="font-size:medium">My Stories</a></li>
+                    <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewUserAdoptionRequests" style="font-size:medium">My Requests</a></li>
+                    <li ng-show="currentUser.accountType == 'Organization'"><a href="#/viewOrgAdoptionRequests" style="font-size:medium">Adoption Requests</a></li>
+                    <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewStories" style="font-size:medium">My Stories</a></li>
                 </ul>
                 <ul class="nav navbar-nav visible-xs">
                     <li ng-hide="currentUser"><a href="#/login">Login</a></li>

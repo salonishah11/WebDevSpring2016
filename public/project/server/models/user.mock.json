@@ -39,7 +39,7 @@
     "country": "USA",
     "zipcode": "03456",
     "accountType":"Organization",
-    "shelterId": "MA38"
+    "shelterId": "TX2049"
   },
   {
     "_id":456,
@@ -53,6 +53,6 @@
     "country": "USA",
     "zipcode": "04567",
     "accountType":"Organization",
-    "shelterId": "MA77"
+    "shelterId": "CA1973"
   }
 ]

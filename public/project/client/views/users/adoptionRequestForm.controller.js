@@ -41,6 +41,7 @@
             // console.log(user);
             // console.log(pet);
             var request = {
+                status: "Pending",
                 user : user,
                 pet : pet
             };
@@ -52,7 +53,7 @@
                     if(response){
                         //console.log(response.data);
                         alert("Request Submitted Successfully");
-                        $location.path('/viewAdoptionRequests');
+                        $location.path('/viewUserAdoptionRequests');
                     }
                 });
         }

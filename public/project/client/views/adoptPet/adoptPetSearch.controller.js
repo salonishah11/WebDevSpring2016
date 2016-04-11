@@ -21,9 +21,14 @@
                     .findPetsByParam(param)
                     .then(function(response){
                        if(response){
+                           console.log("inside adoptPetSearch Controller");
+                           console.log(response.data);
                            vm.data = response.data;
                        } 
                     });
+            }
+            else{
+                alert("Please enter Location!");
             }
         }
     }

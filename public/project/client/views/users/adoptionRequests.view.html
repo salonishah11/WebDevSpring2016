@@ -16,6 +16,7 @@
                         <th>Gender</th>
                         <th>Age</th>
                         <th>Contact Org</th>
+                        <th>Status</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -58,6 +59,7 @@
                         <td>{{requests.pet.sex.$t}}</td>
                         <td>{{requests.pet.age.$t}}</td>
                         <td>{{requests.pet.contact.phone.$t}}</td>
+                        <td>{{requests.status}}</td>
                         <td>
                             <span class="whitespace-no-wrap">
                                 <a ng-click="model.deleteRequest($index)" class="btn btn-default">

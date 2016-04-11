@@ -9,6 +9,7 @@
         var requestAPI = {
             // Function Declarations
             findAllRequestsByUserId: findAllRequestsByUserId,
+            findAllRequestsByShelterId: findAllRequestsByShelterId,
             findRequestById:findRequestById, 
             createRequest: createRequest,
             deleteRequestById: deleteRequestById,
@@ -19,6 +20,10 @@
         function findAllRequestsByUserId(userId){
             //callback(requests);
             return $http.get("/api/project/adoptionRequest/user/" + userId);
+        }
+        
+        function findAllRequestsByShelterId(shelterId){
+            return $http.get("/api/project/adoptionRequest/org/" + shelterId);
         }
         
         
@@ -39,8 +44,8 @@
         }
 
 
-        function updateRequestById(requestId, user){
-            return $http.put("/api/project/adoptionRequest/request/" + requestId, user);
+        function updateRequestById(requestId, updatedRequest){
+            return $http.put("/api/project/adoptionRequest/request/" + requestId, updatedRequest);
         }
     }
 })();

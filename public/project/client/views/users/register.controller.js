@@ -12,7 +12,7 @@
         function init(){
             //For Testing Purpose, all registered Organizations will get
             // 1 of the following IDs
-            var shelterIDs = ["MA38", "MA77", "MA13", "CA2312", "CA1685"];
+            var shelterIDs = ["TX2049", "TX1920", "TX1967", "CA1973", "CA1584"];
             var index = Math.floor((Math.random() * 5));
             vm.shelterId = shelterIDs[index];
         }

@@ -23,6 +23,9 @@
                         }
                     });
             }
+            else{
+                alert("Please enter Location!");
+            }
         }
     }
 })();

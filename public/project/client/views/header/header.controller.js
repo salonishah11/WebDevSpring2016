@@ -7,14 +7,19 @@
     function HeaderController(UserService) {
         var vm = this;
         
-        UserService.setCurrentUser(null);
+        //UserService.setCurrentUser(null);
 
         vm.logout = logout;
 
 
         // logs out the user by setting $rootScope to null
         function logout(){
-            UserService.setCurrentUser(null);
+            UserService
+                .logout()
+                .then(function(){
+                    UserService.setCurrentUser(null);
+                    $location.url("/home");
+                });
         }
     }
 })();

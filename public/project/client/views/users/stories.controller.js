@@ -5,6 +5,7 @@
 
     function StoriesController($location, StoryService, UserService){
         var vm = this;
+        var currentUser;
 
         vm.deleteStory = deleteStory;
         vm.updateStory = updateStory;
@@ -13,9 +14,10 @@
         //$scope.selectedIndex = -1;
         //
         function init(){
-            if(UserService.getCurrentUser()){
+            currentUser = UserService.getCurrentUser();
+            if(currentUser){
                 StoryService
-                    .findAllStoriesByUserId(UserService.getCurrentUser()._id)
+                    .findAllStoriesByUserId(currentUser._id)
                     .then(function(response){
                         //console.log(response.data[0].pet);
                         vm.data = response.data;

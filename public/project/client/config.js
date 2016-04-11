@@ -7,7 +7,10 @@
     function Configure($routeProvider) {
         $routeProvider
             .when("/home",{
-                templateUrl: "views/home/home.view.html"
+                templateUrl: "views/home/home.view.html",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when("/adoptPetSearch",{
                 templateUrl: "views/adoptPet/adoptPetSearch.view.html",
@@ -38,7 +41,10 @@
             .when("/profile",{
                 templateUrl: "views/users/profile.view.html",
                 controller: "ProfileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/register",{
                 templateUrl: "views/users/register.view.html",
@@ -48,12 +54,18 @@
             .when("/shareStoryForm",{
                 templateUrl: "views/users/shareStoryForm.view.html",
                 controller: "AddStoryController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/viewStories",{
                 templateUrl: "views/users/stories.view.html",
                 controller: "StoriesController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/users",{
                 templateUrl: "views/users/users.view.html",
@@ -67,7 +79,10 @@
             .when("/adoptionStories",{
                 templateUrl: "views/users/adoptionStories.view.html",
                 controller: "AdoptionStoriesController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             // .when("/adoptionRequests",{
             //     templateUrl: "views/users/adoptionRequests.view.html",
@@ -76,30 +91,80 @@
             .when("/adoptionRequest/user/:userId/pet/:petId",{
                 templateUrl: "views/users/adoptionRequestForm.view.html",
                 controller: "AdoptionRequestFormController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/viewUserAdoptionRequests",{
                 templateUrl: "views/users/adoptionRequests.view.html",
                 controller: "AdoptionRequestsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/viewUserAdoptionRequests/request/:requestId",{
                 templateUrl: "views/users/adoptionRequestDetails.view.html",
                 controller: "AdoptionRequestDetailsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/viewOrgAdoptionRequests",{
                 templateUrl: "views/adoptionRequest/orgAdoptionRequests.view.html",
                 controller: "OrgAdoptionRequestsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .when("/viewOrgAdoptionRequests/request/:requestId",{
                 templateUrl: "views/adoptionRequest/orgAdoptionRequestDetails.view.html",
                 controller: "OrgAdoptionRequestDetailsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedIn
+                }
             })
             .otherwise({
                 redirectTo: "/home"
             });
+    }
+
+
+    function getLoggedIn(UserService, $q) {
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response){
+                var currentUser = response.data;
+                UserService.setCurrentUser(currentUser);
+                deferred.resolve();
+            });
+
+        return deferred.promise;
+    }
+
+    function checkLoggedIn(UserService, $q, $location) {
+
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var currentUser = response.data;
+                if(currentUser) {
+                    UserService.setCurrentUser(currentUser);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
     }
 })();

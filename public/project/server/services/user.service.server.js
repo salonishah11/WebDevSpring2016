@@ -7,6 +7,8 @@ module.exports = function(app, model) {
     app.get("/api/project/user?username=username&password=password", findUserByCredentials);
     app.put("/api/project/user/:id", updateUserByID);
     app.delete("/api/project/user/:id", deleteUserById);
+    app.get("/api/project/loggedin", loggedIn);
+    app.post("/api/project/logout", logout);
 
     function createUser(req, res) {
         var user = req.body;
@@ -14,6 +16,7 @@ module.exports = function(app, model) {
             .createUser(user)
             .then(
                 function(doc){
+                    req.session.currentUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -91,6 +94,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
+                    req.session.currentUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -109,6 +113,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
+                    req.session.currentUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -134,5 +139,14 @@ module.exports = function(app, model) {
                 }
             );
         //res.json(users);
+    }
+
+    function loggedIn(req, res) {
+        res.json(req.session.currentUser);
+    }
+
+    function logout(req, res) {
+        req.session.destroy();
+        res.send(200);
     }
 };

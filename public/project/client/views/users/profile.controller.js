@@ -5,13 +5,24 @@
         .controller("ProfileController", ProfileController);
 
     function ProfileController(UserService, $scope, $location) {
-        var currentUser = UserService.getCurrentUser();
+        var currentUser; // = UserService.getCurrentUser();
 
         var vm = this;
-        vm.user = currentUser;
+        //vm.user = currentUser;
 
         // Function Declarations
         vm.update = update;
+
+        function init(){
+            UserService
+                .getCurrentUser()
+                .then(function(response){
+                    currentUser = response.data;
+                    vm.user = currentUser;
+                    //vm.user.emails = currentUser.emails.join(",");
+                });
+        }
+        init();
 
 
         // Function Implementations
@@ -34,7 +45,7 @@
             //console.log(updatedUserObj);
 
             UserService
-                .updateUser(UserService.getCurrentUser()._id, updatedUserObj)
+                .updateUser(currentUser._id, updatedUserObj)
                 .then(function(response){
                     if(response.data){
                         //console.log(response.data);

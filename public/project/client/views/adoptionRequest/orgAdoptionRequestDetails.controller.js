@@ -3,7 +3,7 @@
         .module("AdoptAPet")
         .controller("OrgAdoptionRequestDetailsController", OrgAdoptionRequestDetailsController);
 
-    function OrgAdoptionRequestDetailsController($routeParams, $location, UserService, PetService, AdoptionRequestService) {
+    function OrgAdoptionRequestDetailsController($routeParams, $location, UserService, AdoptionRequestService) {
         var vm = this;
 
         var requestId = $routeParams.requestId;
@@ -15,8 +15,8 @@
                 AdoptionRequestService
                     .findRequestById(requestId)
                     .then(function(response){
-                        console.log("inside request details");
-                        console.log(response.data);
+                        //console.log("inside request details");
+                        //console.log(response.data);
                         vm.status = response.data.status;
                         vm.user = response.data.user;
                         vm.pet = response.data.pet;

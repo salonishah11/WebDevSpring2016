@@ -4,7 +4,7 @@
         .module("AdoptAPet")
         .controller("HeaderController", HeaderController);
 
-    function HeaderController(UserService) {
+    function HeaderController(UserService, $location) {
         var vm = this;
         
         //UserService.setCurrentUser(null);

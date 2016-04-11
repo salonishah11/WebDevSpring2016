@@ -29,7 +29,7 @@
         //updates the data of current user
         function update(updatedUser){
             var updatedUserObj = {
-                "_id": UserService.getCurrentUser()._id,
+                "_id": currentUser._id,
                 "name": updatedUser.name,
                 "username": updatedUser.username,
                 "password": updatedUser.password,

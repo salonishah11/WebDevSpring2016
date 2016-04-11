@@ -14,18 +14,23 @@
         //$scope.selectedIndex = -1;
         //
         function init(){
-            currentUser = UserService.getCurrentUser();
-            if(currentUser){
-                StoryService
-                    .findAllStoriesByUserId(currentUser._id)
-                    .then(function(response){
-                        //console.log(response.data[0].pet);
-                        vm.data = response.data;
-                    });
-            }
-            else{
-                $location.path('/login');
-            }
+            UserService
+                .getCurrentUser()
+                .then(function(response){
+                    currentUser = response.data;
+
+                    if(currentUser){
+                        StoryService
+                            .findAllStoriesByUserId(currentUser._id)
+                            .then(function(response){
+                                //console.log(response.data[0].pet);
+                                vm.data = response.data;
+                            });
+                    }
+                    else {
+                        $location.path('/login');
+                    }
+            });
         }
         init();
         

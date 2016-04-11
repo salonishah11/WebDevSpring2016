@@ -15,8 +15,6 @@
                 AdoptionRequestService
                     .findRequestById(requestId)
                     .then(function(response){
-                        //console.log("inside request details");
-                        //console.log(response.data);
                         vm.status = response.data.status;
                         vm.user = response.data.user;
                         vm.pet = response.data.pet;

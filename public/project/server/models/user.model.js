@@ -6,6 +6,7 @@ module.exports = function() {
         createUser: createUser,
         findAllUsers: findAllUsers,
         findUserByID: findUserByID,
+        findUserByShelterId: findUserByShelterId,
         updateUser: updateUser,
         deleteUserById: deleteUserById,
         findUserByUsername: findUserByUsername,
@@ -39,6 +40,20 @@ module.exports = function() {
 
         for(var u in userMock){
             if(userMock[u]._id == userId){
+                user =  userMock[u];
+            }
+        }
+        deferred.resolve(user);
+        return deferred.promise;
+    }
+
+    function findUserByShelterId(shelterId) {
+        console.log(shelterId);
+        var deferred = q.defer();
+        var user = null;
+
+        for(var u in userMock){
+            if(userMock[u].shelterId == shelterId){
                 user =  userMock[u];
             }
         }

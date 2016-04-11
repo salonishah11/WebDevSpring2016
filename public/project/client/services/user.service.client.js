@@ -11,6 +11,7 @@
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             findUserById: findUserById,
+            findUserByShelterId: findUserByShelterId,
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
@@ -47,6 +48,11 @@
 
         function findUserById(userId){
             return $http.get("/api/project/user/" + userId);
+        }
+
+
+        function findUserByShelterId(shelterId) {
+            return $http.get("/api/project/user/shelterId/" + shelterId);
         }
 
 

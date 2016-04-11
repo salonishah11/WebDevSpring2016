@@ -16,9 +16,6 @@
                 .findUserById(userId)
                 .then(function(response){
                    if(response){
-                       //console.log(response.data);
-                       //vm.request.user = null;
-                       //vm.request = response.data;
                        vm.user = response.data;
                    } 
                 });
@@ -27,9 +24,6 @@
                 .findPetByID(petId)
                 .then(function(response){
                     if(response){
-                        //console.log(response.data);
-                        //vm.request.user = null;
-                        //vm.request = response.data;
                         vm.pet = response.data.petfinder.pet;
                     }
                 });
@@ -38,23 +32,30 @@
 
 
         function submitRequest(user, pet){
-            // console.log(user);
-            // console.log(pet);
             var request = {
                 status: "Pending",
                 user : user,
                 pet : pet
             };
-            //console.log(request);
+            console.log(request.pet.shelterId.$t);
 
-            AdoptionRequestService
-                .createRequest(request)
+            UserService
+                .findUserByShelterId(request.pet.shelterId.$t)
                 .then(function(response){
-                    if(response){
-                        //console.log(response.data);
-                        alert("Request Submitted Successfully");
-                        $location.path('/viewUserAdoptionRequests');
+                    if(response.data == null){
+                        alert("Representative for this Shelter Organization is currently " +
+                            "unavailable. They will contact you as soon as a Representative" +
+                            "is available. We are sorry for the inconvenience caused.")
                     }
+
+                    AdoptionRequestService
+                        .createRequest(request)
+                        .then(function(response){
+                            if(response){
+                                alert("Request Submitted Successfully");
+                                $location.path('/viewUserAdoptionRequests');
+                            }
+                        });
                 });
         }
     }

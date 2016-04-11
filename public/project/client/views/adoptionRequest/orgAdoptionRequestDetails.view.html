@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <p>Pet Details:</p>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="model.pet.shelterPetId.$t">
                         <label for="inputPetName" class="col-sm-3 control-label">ShelterPet ID</label>
                         <div class="col-sm-7">
                             <input ng-model="model.pet.shelterPetId.$t" type="text" class="form-control"

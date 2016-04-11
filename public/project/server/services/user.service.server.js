@@ -9,6 +9,7 @@ module.exports = function(app, model) {
     app.delete("/api/project/user/:id", deleteUserById);
     app.get("/api/project/loggedin", loggedIn);
     app.post("/api/project/logout", logout);
+    app.get("/api/project/user/shelterId/:shelterId", findUserByShelterId);
 
     function createUser(req, res) {
         var user = req.body;
@@ -16,7 +17,7 @@ module.exports = function(app, model) {
             .createUser(user)
             .then(
                 function(doc){
-                    req.session.currentUser = doc;
+                    req.session.currentProjectUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -66,6 +67,21 @@ module.exports = function(app, model) {
             );
         //res.json(user);
     }
+    
+    function findUserByShelterId(req, res) {
+        var shelterId = req.params.shelterId;
+        model
+            .findUserByShelterId(shelterId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
 
     function findUserByUsername(req, res) {
         var username = req.query.username;
@@ -94,7 +110,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
-                    req.session.currentUser = doc;
+                    req.session.currentProjectUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -113,7 +129,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
-                    req.session.currentUser = doc;
+                    req.session.currentProjectUser = doc;
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -142,7 +158,7 @@ module.exports = function(app, model) {
     }
 
     function loggedIn(req, res) {
-        res.json(req.session.currentUser);
+        res.json(req.session.currentProjectUser);
     }
 
     function logout(req, res) {

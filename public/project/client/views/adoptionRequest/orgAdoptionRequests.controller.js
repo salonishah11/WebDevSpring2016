@@ -19,8 +19,6 @@
                         AdoptionRequestService
                             .findAllRequestsByShelterId(currentUser.shelterId)
                             .then(function (response) {
-                                //console.log(response.data[0].pet);
-                                console.log(response.data);
                                 vm.data = response.data;
                             });
                     }

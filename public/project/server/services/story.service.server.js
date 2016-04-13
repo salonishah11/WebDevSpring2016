@@ -64,7 +64,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
-                    res.json(doc);
+                    res.json(updatedStory);
                 },
                 // send error if promise rejected
                 function(err ){

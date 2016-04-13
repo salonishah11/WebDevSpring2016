@@ -5,7 +5,7 @@ module.exports = function(app, db, mongoose) {
     var requestModel   = require("./models/adoptionRequest.model.js")();
     var requestService = require("./services/adoptionRequest.service.server.js")(app, requestModel);
 
-    var storyModel   = require("./models/story.model.js")();
+    var storyModel   = require("./models/story.model.js")(db, mongoose);
     var storyService = require("./services/story.service.server.js")(app, storyModel);
     
     // var formModel   = require("./models/form.model")();

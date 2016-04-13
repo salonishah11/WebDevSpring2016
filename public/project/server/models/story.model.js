@@ -1,7 +1,12 @@
-var storyMock = require("./story.mock.json");
 var q = require("q");
 
-module.exports = function() {
+module.exports = function(db, mongoose) {
+    // load user schema
+    var StorySchema = require("./story.schema.js")(mongoose);
+
+    // create user model from schema
+    var StoryModel = mongoose.model('Story', StorySchema);
+
     var api = {
         createStory: createStory,
         findAllStoriesByUserId: findAllStoriesByUserId,
@@ -12,59 +17,76 @@ module.exports = function() {
 
     function createStory(newStory){
         var deferred = q.defer();
-        //var user = null;
 
-        newStory._id = (new Date()).getTime();
-        storyMock.push(newStory);
+        StoryModel
+            .create(newStory, function (err, doc) {
+            if (err) {
+                // reject promise if error
+                deferred.reject(err);
+            } else {
+                // resolve promise
+                deferred.resolve(doc);
+            }
+        });
 
-        deferred.resolve(newStory);
         return deferred.promise;
-        //return newUser;
     }
 
 
     function findAllStoriesByUserId(userId){
         var deferred = q.defer();
-        var stories = [];
 
-        for(var u in storyMock){
-            if(storyMock[u].userId == userId){
-                stories.push(storyMock[u]);
-            }
-        }
-        //console.log(stories);
-        deferred.resolve(stories);
+        StoryModel.find(
+            { userId: userId },
+            function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 
     function updateStoryById(storyId, updatedStory){
         var deferred = q.defer();
-        var story = null;
 
-        for(var u in storyMock){
-            if(storyMock[u]._id == storyId){
-                storyMock[u] = updatedStory;
-                story = storyMock[u];
-            }
-        }
-        //return null;
+        StoryModel.update(
+            { _id : storyId},
+            {
+                $set: {
+                    "title": updatedStory.title,
+                    "description": updatedStory.description
+                }
+            },
+            function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
 
-        deferred.resolve(story);
         return deferred.promise;
     }
 
     function deleteStoryById(storyId){
         //console.log("inside model " + userId);
         var deferred = q.defer();
-        for(var u in storyMock){
-            //console.log(u + "- " + userMock[u]._id);
-            if(storyMock[u]._id == storyId){
-                //console.log("inside if");
-                storyMock.splice(u, 1);
-                break;
-            }
-        }
-        deferred.resolve(storyMock);
+
+        StoryModel.remove(
+            { _id : storyId},
+            function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 };

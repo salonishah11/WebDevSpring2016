@@ -16,7 +16,6 @@
         return storyAPI;
 
         function findAllStoriesByUserId(userId){
-            //callback(stories);
             return $http.get("/api/project/story/user/" + userId);
         }
 

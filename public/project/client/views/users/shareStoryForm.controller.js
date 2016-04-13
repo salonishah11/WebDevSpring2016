@@ -17,22 +17,29 @@
 
 
         function addStory(story){
-           var currentUser = UserService.getCurrentUser();
-            var storyObj = {
-              "userId": currentUser._id,
-              "username": currentUser.username,
-              "title": story.title,
-              "dateCreated": new Date(),
-              "description": story.description
-            };
-            StoryService
-                .createStory(storyObj)
-                .then(function(response){
-                   if(response){
-                       alert("Story Shared Successfully!");
-                       $location.path('viewStories');
+           UserService
+               .getCurrentUser()
+               .then(function (response) {
+                   if(response.data){
+                       var currentUser = response.data;
+
+                       var storyObj = {
+                           "userId": currentUser._id,
+                           "username": currentUser.username,
+                           "title": story.title,
+                           "dateCreated": new Date(),
+                           "description": story.description
+                       };
+                       StoryService
+                           .createStory(storyObj)
+                           .then(function(response){
+                               if(response){
+                                   alert("Story Shared Successfully!");
+                                   $location.path('viewStories');
+                               }
+                           });
                    }
-                });
+               });
         }
 
 

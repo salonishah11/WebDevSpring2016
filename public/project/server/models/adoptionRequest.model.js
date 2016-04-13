@@ -1,7 +1,13 @@
 var requestMock = require("./adoptionRequest.mock.json");
 var q = require("q");
 
-module.exports = function() {
+module.exports = function(db, mongoose) {
+
+    var AdoptionRequestSchema = require("./adoptionRequest.schema.js")(mongoose);
+    
+    var AdoptionRequestModel = mongoose.model('AdoptionRequest', AdoptionRequestSchema);
+    
+    
     var api = {
         createRequest: createRequest,
         findAllRequestsByUserId: findAllRequestsByUserId,

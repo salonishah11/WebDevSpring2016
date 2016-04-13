@@ -32,15 +32,30 @@
 
 
         function submitRequest(user, pet){
+            console.log(pet);
             var request = {
                 status: "Pending",
-                user : user,
-                pet : pet
+                userId : userId,
+                userName: user.name,
+                pet : {
+                    age: pet.age.$t,
+                    animal: pet.animal.$t,
+                    contact: pet.contact.email.$t,
+                    description: pet.description.$t,
+                    id: pet.id.$t,
+                    mix: pet.mix.$t,
+                    name: pet.name.$t,
+                    sex: pet.sex.$t,
+                    shelterId: pet.shelterId.$t,
+                    shelterPetId: pet.shelterPetId.$t,
+                    size: pet.size.$t,
+                    status: pet.status.$t
+                }
             };
-            console.log(request.pet.shelterId.$t);
+            // console.log(request);
 
             UserService
-                .findUserByShelterId(request.pet.shelterId.$t)
+                .findUserByShelterId(request.pet.shelterId)
                 .then(function(response){
                     if(response.data == null){
                         alert("Representative for this Shelter Organization is currently " +

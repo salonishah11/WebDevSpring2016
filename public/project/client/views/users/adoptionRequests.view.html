@@ -54,11 +54,11 @@
                     <!--</tr>-->
                     <tr ng-show="model.data" ng-repeat="requests in model.data">
                         <td><a ng-click="model.viewDetails($index)">{{requests._id}}</a></td>
-                        <td>{{requests.pet.name.$t}}</td>
-                        <td>{{requests.pet.animal.$t}}</td>
-                        <td>{{requests.pet.sex.$t}}</td>
-                        <td>{{requests.pet.age.$t}}</td>
-                        <td>{{requests.pet.contact.phone.$t}}</td>
+                        <td>{{requests.pet.name}}</td>
+                        <td>{{requests.pet.animal}}</td>
+                        <td>{{requests.pet.sex}}</td>
+                        <td>{{requests.pet.age}}</td>
+                        <td>{{requests.pet.contact}}</td>
                         <td>{{requests.status}}</td>
                         <td>
                             <span class="whitespace-no-wrap">

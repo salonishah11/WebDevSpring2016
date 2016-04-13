@@ -20,12 +20,18 @@ module.exports = function(db, mongoose) {
 
     function createRequest(newRequest){
         var deferred = q.defer();
-        //var user = null;
 
-        newRequest._id = (new Date()).getTime();
-        requestMock.push(newRequest);
+        AdoptionRequestModel
+            .create(newRequest, function (err, doc) {
+            if (err) {
+                // reject promise if error
+                deferred.reject(err);
+            } else {
+                // resolve promise
+                deferred.resolve(doc);
+            }
+        });
 
-        deferred.resolve(newRequest);
         return deferred.promise;
         //return newUser;
     }
@@ -33,34 +39,56 @@ module.exports = function(db, mongoose) {
 
     function findAllRequestsByUserId(userId){
         var deferred = q.defer();
-        var requests = [];
 
-        for(var u in requestMock){
-            //console.log(requestMock[u].user);
-            if(requestMock[u].user._id == userId){
-                 requests.push(requestMock[u]);
-            }
-        }
-        // console.log("all requests");
-        // console.log(requests);
-        deferred.resolve(requests);
+        AdoptionRequestModel.find(
+            { userId: userId },
+            // doc is unique instance matches predicate
+            function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 
 
     function findAllRequestsByShelterId(shelterId){
         var deferred = q.defer();
-        var requests = [];
 
-        for(var u in requestMock){
-            //console.log(requestMock[u].user);
-            if(requestMock[u].pet.shelterId.$t == shelterId){
-                requests.push(requestMock[u]);
-            }
-        }
-        // console.log("all requests");
-        // console.log(requests);
-        deferred.resolve(requests);
+        AdoptionRequestModel
+            .find(function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    // deferred.resolve(doc);
+                    var requests = [];
+                    for(var u in doc){
+                        if(doc[u].pet.shelterId == shelterId){
+                            requests.push(doc[u]);
+                        }
+                    }
+                    deferred.resolve(requests);
+                }
+            });
+
+        // var requests = [];
+        //
+        // for(var u in requestMock){
+        //     //console.log(requestMock[u].user);
+        //     if(requestMock[u].pet.shelterId == shelterId){
+        //         requests.push(requestMock[u]);
+        //     }
+        // }
+        // // console.log("all requests");
+        // // console.log(requests);
+        // deferred.resolve(requests);
         return deferred.promise;
     }
 
@@ -68,17 +96,16 @@ module.exports = function(db, mongoose) {
     function findRequestById(requestId){
         //console.log("inside model");
         var deferred = q.defer();
-        var request = null;
 
-        for(var u in requestMock){
-            //console.log(requestMock[u].user);
-            if(requestMock[u]._id == requestId){
-                request = requestMock[u];
+        AdoptionRequestModel
+            .findById(requestId, function (err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(doc);
             }
-        }
-        // console.log("all requests");
-        // console.log(requests);
-        deferred.resolve(request);
+        });
+
         return deferred.promise;
     }
     
@@ -86,14 +113,17 @@ module.exports = function(db, mongoose) {
     function deleteRequestById(requestId){
         //console.log("inside model " + userId);
         var deferred = q.defer();
-        for(var u in requestMock){
-            if(requestMock[u]._id == requestId){
-                //console.log("inside if");
-                requestMock.splice(u, 1);
-                break;
-            }
-        }
-        deferred.resolve(requestMock);
+
+        AdoptionRequestModel
+            .remove(
+            { _id : requestId}, function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 
@@ -101,14 +131,22 @@ module.exports = function(db, mongoose) {
     function updateRequestById(requestId, updatedRequest){
         //console.log("inside model " + userId);
         var deferred = q.defer();
-        for(var u in requestMock){
-            if(requestMock[u]._id == requestId){
-                //console.log("inside if");
-                requestMock[u] = updatedRequest;
-                break;
-            }
-        }
-        deferred.resolve(requestMock);
+
+        AdoptionRequestModel
+            .update(
+            { _id : requestId},
+            {
+                $set: {
+                    "status": updatedRequest.status
+                }
+            }, function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 };

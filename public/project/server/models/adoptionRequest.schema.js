@@ -6,7 +6,8 @@ module.exports = function(mongoose) {
     var AdoptionRequestSchema = mongoose.Schema({
         status: String,
         userId: String,
-        pet: [PetSchema]
+        userName: String,
+        pet: PetSchema
     }, {collection: 'adoptionRequest'});
     return AdoptionRequestSchema;
 };

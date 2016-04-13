@@ -51,8 +51,8 @@
                     <!--</tr>-->
                     <tr ng-show="model.data" ng-repeat="requests in model.data" >
                         <td><a ng-click="model.viewDetails($index)">{{requests._id}}</a></td>
-                        <td>{{requests.user.name}}</td>
-                        <td>{{requests.pet.name.$t}}</td>
+                        <td>{{requests.userName}}</td>
+                        <td>{{requests.pet.name}}</td>
                         <td>{{requests.status}}</td>
                         <!--<td>-->
                             <!--<span class="whitespace-no-wrap">-->

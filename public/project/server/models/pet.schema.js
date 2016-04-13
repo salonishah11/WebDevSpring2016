@@ -4,6 +4,7 @@ module.exports = function(mongoose) {
     var PetSchema = mongoose.Schema({
         age: String,
         animal: String,
+        contact: String,
         description: String,
         id: String,
         mix: String,

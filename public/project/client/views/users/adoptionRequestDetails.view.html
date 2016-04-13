@@ -22,57 +22,64 @@
                     <div class="form-group">
                         <label for="inputName" class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.name" type="text" class="form-control" id="inputName" placeholder="Name">
+                            <input ng-model="model.user.name" type="text" class="form-control"
+                                   id="inputName" placeholder="Name" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail" class="col-sm-3 control-label">Email</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.email" type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            <input ng-model="model.user.email" type="email" class="form-control"
+                                   id="inputEmail" placeholder="Email" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputAddress" class="col-sm-3 control-label">Street Address</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.streetAddress" type="text" class="form-control" id="inputAddress" placeholder="Street Address">
+                            <input ng-model="model.user.streetAddress" type="text" class="form-control"
+                                   id="inputAddress" placeholder="Street Address" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputCity" class="col-sm-3 control-label">City</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.city" type="text" class="form-control" id="inputCity" placeholder="City">
+                            <input ng-model="model.user.city" type="text" class="form-control"
+                                   id="inputCity" placeholder="City" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputState" class="col-sm-3 control-label">State</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.state" type="text" class="form-control" id="inputState" placeholder="State">
+                            <input ng-model="model.user.state" type="text" class="form-control"
+                                   id="inputState" placeholder="State" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputCountry" class="col-sm-3 control-label">Country</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.country" type="text" class="form-control" id="inputCountry" placeholder="Country">
+                            <input ng-model="model.user.country" type="text" class="form-control"
+                                   id="inputCountry" placeholder="Country" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputZipcode" class="col-sm-3 control-label">Zipcode</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.user.zipcode" type="text" class="form-control" id="inputZipcode" placeholder="Zipcode">
+                            <input ng-model="model.user.zipcode" type="text" class="form-control"
+                                   id="inputZipcode" placeholder="Zipcode" readonly>
                         </div>
                     </div>
                     <p>Pet Details:</p>
                     <div class="form-group">
                         <label for="inputPetName" class="col-sm-3 control-label">Name</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.pet.name.$t" type="text" class="form-control"
+                            <input ng-model="model.pet.name" type="text" class="form-control"
                                    id="inputPetName" placeholder="Name" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPetType" class="col-sm-3 control-label">Type</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.pet.animal.$t" type="text" class="form-control"
+                            <input ng-model="model.pet.animal" type="text" class="form-control"
                                    id="inputPetType" placeholder="Type" readonly>
                         </div>
                     </div>
@@ -86,22 +93,22 @@
                     <div class="form-group">
                         <label for="inputPetGender" class="col-sm-3 control-label">Gender</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.pet.sex.$t" type="text" class="form-control"
+                            <input ng-model="model.pet.sex" type="text" class="form-control"
                                    id="inputPetGender" placeholder="Gender" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPetAge" class="col-sm-3 control-label">Age</label>
                         <div class="col-sm-7">
-                            <input ng-model="model.pet.age.$t" type="text" class="form-control"
+                            <input ng-model="model.pet.age" type="text" class="form-control"
                                    id="inputPetAge" placeholder="Age" readonly>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-5 col-sm-2">
-                            <a ng-click="model.updateRequest(model.user)" class="btn btn-primary form-control">Update</a>
-                        </div>
-                    </div>
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-offset-5 col-sm-2">-->
+                            <!--<a ng-click="model.updateRequest(model.user)" class="btn btn-primary form-control">Update</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </form>
                 <div class="clearfix"></div>
             </div>

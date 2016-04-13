@@ -39,7 +39,8 @@
                 "state": updatedUser.state,
                 "country": updatedUser.country,
                 "zipcode": updatedUser.zipcode,
-                "accountType": currentUser.accountType
+                "accountType": currentUser.accountType,
+                "shelterId": currentUser.shelterId
             };
 
             //console.log(updatedUserObj);

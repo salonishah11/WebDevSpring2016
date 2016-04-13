@@ -129,7 +129,7 @@ module.exports = function(app, model) {
             .then(
                 // login user if promise resolved
                 function(doc){
-                    req.session.currentProjectUser = doc;
+                    req.session.currentProjectUser = updatedUser;
                     res.json(doc);
                 },
                 // send error if promise rejected

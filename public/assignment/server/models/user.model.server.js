@@ -24,7 +24,7 @@ module.exports = function(db, mongoose) {
 
         // insert new user with mongoose user model's create()
         UserModel.create(newUser, function (err, doc) {
-//console.log(newUser);
+        //console.log(newUser);
             if (err) {
                 // reject promise if error
                 deferred.reject(err);

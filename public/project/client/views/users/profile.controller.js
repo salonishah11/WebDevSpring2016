@@ -4,7 +4,7 @@
         .module("AdoptAPet")
         .controller("ProfileController", ProfileController);
 
-    function ProfileController(UserService, $scope, $location) {
+    function ProfileController(UserService) {
         var currentUser; // = UserService.getCurrentUser();
 
         var vm = this;
@@ -31,7 +31,7 @@
             var updatedUserObj = {
                 "_id": currentUser._id,
                 "name": updatedUser.name,
-                "username": updatedUser.username,
+                "username": currentUser.username,
                 "password": updatedUser.password,
                 "email":  updatedUser.email,
                 "streetAddress": updatedUser.streetAddress,
@@ -39,7 +39,7 @@
                 "state": updatedUser.state,
                 "country": updatedUser.country,
                 "zipcode": updatedUser.zipcode,
-                "accountType": updatedUser.accountType
+                "accountType": currentUser.accountType
             };
 
             //console.log(updatedUserObj);
@@ -49,7 +49,7 @@
                 .then(function(response){
                     if(response.data){
                         //console.log(response.data);
-                        UserService.setCurrentUser(response.data);
+                        UserService.setCurrentUser(updatedUserObj);
                     }
                 });
         }

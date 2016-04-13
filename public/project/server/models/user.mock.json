@@ -1,6 +1,5 @@
 [
   {
-    "_id":523,
     "name":"Alice",
     "username":"alice",
     "password":"alice",
@@ -14,7 +13,6 @@
     "shelterId": null
   },
   {
-    "_id":234,
     "name":"Bob",
     "username":"bob",
     "password":"bob",
@@ -28,7 +26,6 @@
     "shelterId": null
   },
   {
-    "_id":345,
     "name":"Charlie Animal Organization",
     "username":"charlieOrg",
     "password":"charlie",
@@ -42,7 +39,6 @@
     "shelterId": "TX2049"
   },
   {
-    "_id":456,
     "name":"Dan Animal Rescue League",
     "username":"danRescueLeague",
     "password":"dan",

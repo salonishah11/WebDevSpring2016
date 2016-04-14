@@ -9,14 +9,15 @@
             // Function Declarations
             findUserByUsername: findUserByUsername,
             findUserById: findUserById,
-            findUserByCredentials: findUserByCredentials,
+            // findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
-            logout: logout
+            logout: logout,
+            login: login
         };
         return userAPI;
 
@@ -36,6 +37,11 @@
         }
 
 
+        function login(user) {
+            return $http.post("/api/assignment/login", user);
+        }
+
+
         // Function Implementations
         function findUserByUsername(username){
             return $http.get("/api/assignment/user/:" + username);
@@ -48,11 +54,11 @@
 
 
         // finds a user given a username and password
-        function findUserByCredentials(credentials){
-            //console.log("inside service" + credentials.username + credentials.password);
-            return $http.get("/api/assignment/user?username=" + credentials.username +
-                "&password=" + credentials.password);
-        }
+        // function findUserByCredentials(credentials){
+        //     //console.log("inside service" + credentials.username + credentials.password);
+        //     return $http.get("/api/assignment/user?username=" + credentials.username +
+        //         "&password=" + credentials.password);
+        // }
 
         // returns an array of all users
         function findAllUsers(){

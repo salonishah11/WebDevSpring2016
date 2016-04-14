@@ -9,7 +9,7 @@
             .when("/home",{
                 templateUrl: "views/home/home.view.html",
                 resolve: {
-                    getLoggedIn: getLoggedIn
+                    checkLoggedIn: checkLoggedIn
                 }
             })
             .when("/register",{
@@ -61,9 +61,11 @@
         UserService
             .getCurrentUser()
             .then(function(response){
-                var currentUser = response.data;
-                UserService.setCurrentUser(currentUser);
-                deferred.resolve();
+                if(response.data){
+                    var currentUser = response.data;
+                    UserService.setCurrentUser(currentUser);
+                    deferred.resolve();
+                }
             });
 
         return deferred.promise;
@@ -78,7 +80,8 @@
             .getCurrentUser()
             .then(function(response) {
                 var currentUser = response.data;
-                if(currentUser) {
+                console.log(currentUser);
+                if((currentUser != null) || ($location.url == '/home')) {
                     UserService.setCurrentUser(currentUser);
                     deferred.resolve();
                 } else {

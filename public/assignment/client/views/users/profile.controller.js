@@ -39,18 +39,9 @@
 
             UserService
                 .updateUser(currentUser._id, updatedUserObj)
-                .then(function() {
-                    return UserService
-                        .findUserByCredentials({
-                            username: updatedUser.username,
-                            password: updatedUser.password
-                        });
-                })
-                .then(function(response){
-                    if (response.data){
-                        UserService.setCurrentUser(response.data);
+                .then(function(response) {
+                        UserService.setCurrentUser(updatedUserObj);
                         UserService.getCurrentUser();
-                    }
                 });
         }
     }

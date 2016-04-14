@@ -20,7 +20,7 @@
         function login(user){
             //console.log("inside login" + user);
             UserService
-                .findUserByCredentials({
+                .login({
                     username: user.username,
                     password: user.password
                 })

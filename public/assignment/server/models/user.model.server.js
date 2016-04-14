@@ -1,4 +1,3 @@
-var mock = require("./user.mock.json");
 var q = require("q");
 
 module.exports = function(db, mongoose) {
@@ -7,6 +6,10 @@ module.exports = function(db, mongoose) {
 
     // create user model from schema
     var UserModel = mongoose.model('User', UserSchema);
+
+    // passport.use(new LocalStrategy(localStrategy));
+    // passport.serializeUser(serializeUser);
+    // passport.deserializeUser(deserializeUser);
 
     var api = {
         createUser: createUser,
@@ -18,6 +21,7 @@ module.exports = function(db, mongoose) {
         findUserByCredentials: findUserByCredentials
     };
     return api;
+
 
     function createUser(newUser){
         var deferred = q.defer();

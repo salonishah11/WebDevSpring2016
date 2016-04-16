@@ -40,8 +40,8 @@
             UserService
                 .updateUser(currentUser._id, updatedUserObj)
                 .then(function(response) {
-                        UserService.setCurrentUser(updatedUserObj);
-                        UserService.getCurrentUser();
+                        // UserService.setCurrentUser(updatedUserObj);
+                        init();
                 });
         }
     }

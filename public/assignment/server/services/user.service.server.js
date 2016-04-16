@@ -63,7 +63,7 @@ module.exports = function(app, model) {
                     if(user && bcrypt.compareSync(password, user.password)){
                         return done(null, user);
                     }
-                    return done(null, user);
+                    return done(null, false);
                 },
                 function(err) {
                     if (err) { return done(err); }

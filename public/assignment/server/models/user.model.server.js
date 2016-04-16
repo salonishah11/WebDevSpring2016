@@ -76,7 +76,6 @@ module.exports = function(db, mongoose) {
             { _id : userId},
             {
                 $set: {
-                    "password": updatedUser.password,
                     "firstName": updatedUser.firstName,
                     "lastName": updatedUser.lastName,
                     "emails": updatedUser.emails,

@@ -33,8 +33,13 @@ var app = express();
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 multer();
+
+if(!process.env.SESSION_SECRET){
+    process.env.SESSION_SECRET = "Tyro is my secret! Are you kidding me! Lol NO!";
+}
+
 app.use(session({
-    secret: "Tyro is my secret! Are you kidding me! Lol NO!",
+    secret: process.env.SESSION_SECRET,
     resave : true,
     saveUninitialized: true
 }));

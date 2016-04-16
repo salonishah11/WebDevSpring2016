@@ -12,8 +12,10 @@
             // findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
+            register: register,
             deleteUserById: deleteUserById,
             updateUser: updateUser,
+            updateUserByAdmin: updateUserByAdmin,
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
             logout: logout,
@@ -49,7 +51,7 @@
         
         
         function findUserById(userId){
-            return $http.get("/api/assignment/user/" + userId);
+            return $http.get("/api/assignment/admin/user/" + userId);
         }
 
 
@@ -62,23 +64,32 @@
 
         // returns an array of all users
         function findAllUsers(){
-            return $http.get("/api/assignment/user");
+            return $http.get("/api/assignment/admin/user");
         }
 
         // creates a new user
         function createUser(user){
             //console.log("inside client service");
-            return $http.post("/api/assignment/user", user);
+            return $http.post("/api/assignment/admin/user", user);
+        }
+
+        function register(user){
+            //console.log("inside client service");
+            return $http.post("/api/assignment/register", user);
         }
 
         // deletes a user given userId
         function deleteUserById(userId){
-            return $http.delete("/api/assignment/user/:" + userId);
+            return $http.delete("/api/assignment/admin/user/" + userId);
         }
 
         // updates the data of a user given a userId
         function updateUser(userId, updatedUser){
             return $http.put("/api/assignment/user/" + userId, updatedUser);
+        }
+
+        function updateUserByAdmin(userId, updatedUser) {
+            return $http.put("/api/assignment/admin/user/" + userId, updatedUser);
         }
     }
 })();

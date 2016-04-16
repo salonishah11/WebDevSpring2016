@@ -15,18 +15,18 @@
         // registers a new user
         function register(user){
             if(user.password == user.verifyPassword){
-                console.log("inside register");
+                // console.log("inside register");
                 var newUser = {
                     "username": user.username,
                     "password": user.password,
                     "firstName":null,
                     "lastName": null,
                     "emails": user.emails.split(","),
-                    "roles": []
+                    "roles": ["student"]
                 };
                
                 UserService
-                    .createUser(newUser)
+                    .register(newUser)
                     .then(function(response){
                     if(response.data){
                         console.log(response.data);

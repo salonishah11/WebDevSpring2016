@@ -79,7 +79,8 @@ module.exports = function(db, mongoose) {
                     "password": updatedUser.password,
                     "firstName": updatedUser.firstName,
                     "lastName": updatedUser.lastName,
-                    "emails": updatedUser.emails
+                    "emails": updatedUser.emails,
+                    "roles": updatedUser.roles
                 }
             }, function (err, doc) {
             if (err) {
@@ -95,7 +96,8 @@ module.exports = function(db, mongoose) {
     function deleteUser(userId){
         var deferred = q.defer();
 
-        UserModel.remove(
+        UserModel
+            .remove(
             { _id : userId}, function (err, doc) {
                 if (err) {
                     deferred.reject(err);

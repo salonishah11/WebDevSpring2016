@@ -31,7 +31,12 @@
                 }
             })
             .when("/admin",{
-                templateUrl: "views/admin/admin.view.html"
+                templateUrl: "views/admin/admin.view.html",
+                controller: "AdminController",
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedInAdmin: checkLoggedInAdmin
+                }
             })
             .when("/forms",{
                 templateUrl: "views/forms/forms.view.html",
@@ -82,6 +87,29 @@
                 var currentUser = response.data;
                 console.log(currentUser);
                 if((currentUser != null) || ($location.url == '/home')) {
+                    UserService.setCurrentUser(currentUser);
+                    deferred.resolve();
+                } else {
+                    deferred.reject();
+                    $location.url("/home");
+                }
+            });
+
+        return deferred.promise;
+    }
+
+
+    function checkLoggedInAdmin(UserService, $q, $location) {
+
+        var deferred = $q.defer();
+
+        UserService
+            .getCurrentUser()
+            .then(function(response) {
+                var currentUser = response.data;
+                console.log(currentUser);
+                if(((currentUser != null) && (currentUser.roles.indexOf("admin") >= 0))
+                    || ($location.url == '/home')) {
                     UserService.setCurrentUser(currentUser);
                     deferred.resolve();
                 } else {

@@ -13,10 +13,14 @@
                     <label for="type" class="col-md-2 control-label">Type</label>
                     <br/>
                     <div class="col-md-2">
-                        <select ng-model="model.pet.type" class="form-control" id="type">
-                            <option value="dog">Dog</option>
-                            <option value="cat">Cat</option>
+                        <select ng-model="model.pet.type" ng-change="model.breedList(model.pet.type)"
+                                class="form-control" id="type">
                             <option value="bird">Bird</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                            <option value="horse">Horse</option>
+                            <option value="pig">Pig</option>
+                            <option value="reptile">Reptile</option>
                         </select>
                     </div>
                 </div>
@@ -26,11 +30,12 @@
                     </label>
                     <br/>
                     <div class="col-md-2">
-                        <input type="text" ng-model="model.pet.location" class="form-control" id="location" placeholder="ex: 02120">
+                        <input type="text" ng-model="model.pet.location" class="form-control"
+                               id="location" placeholder="ex: 02120">
 
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" ng-show="!model.pet.type">
                     <label for="breed" class="col-md-2 control-label">Breed</label>
                     <br/>
                     <div class="col-md-2">
@@ -42,6 +47,15 @@
                             <option value="Chihuahua">Chihuahua</option>
                             <option value="Birman">Birman</option>
                             <option value="Domestic Short Hair">Domestic Short Hair</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="model.pet.type && model.breeds">
+                    <label for="breed" class="col-md-2 control-label">Breed</label>
+                    <br/>
+                    <div class="col-md-2">
+                        <select ng-model="model.pet.breed" class="form-control">
+                            <option value={{breed.$t}} ng-repeat="breed in model.breeds">{{breed.$t}}</option>
                         </select>
                     </div>
                 </div>
@@ -135,24 +149,34 @@
     </div>
 
     <div class="box visible-xs" ng-show="model.data" ng-repeat="pet in model.data.petfinder.pets.pet">
-        <h3 class="bold-font"><a href="#/adoptPetDetails/{{pet.id.$t}}">{{pet.name.$t}}</a></h3>
-        <h4 class="text-transform-inherited" ng-show="pet.animal.$t">
-            Animal  &nbsp;: {{pet.animal.$t}}</h4>
-        <h4 class="text-transform-inherited" ng-show="pet.breeds.breed.$t">
-            Breed &nbsp;&nbsp;&nbsp;&nbsp;: {{pet.breeds.breed.$t}}</h4>
-        <h4 class="text-transform-inherited" ng-show="pet.age.$t">
-            Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.age.$t}}</h4>
-        <h4 class="text-transform-inherited" ng-show="pet.sex.$t">
-            Sex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.sex.$t}}</h4>
-        <h4 class="text-transform-inherited" ng-show="pet.status.$t">
-            Status &nbsp;&nbsp;&nbsp;:
+        <div class="col-xs-offset-1">
+            <div class="row">
+                <img class="img-responsive"
+                     ng-src="{{pet.media.photos.photo[0].$t}}"
+                     style="float: left"/>
+            </div>
+            <div class="row">
+                <h3 class="bold-font"><a href="#/adoptPetDetails/{{pet.id.$t}}">{{pet.name.$t}}</a></h3>
+                <h4 class="text-transform-inherited" ng-show="pet.animal.$t">
+                    Animal  &nbsp;: {{pet.animal.$t}}</h4>
+                <h4 class="text-transform-inherited" ng-show="pet.breeds.breed.$t">
+                    Breed &nbsp;&nbsp;&nbsp;&nbsp;: {{pet.breeds.breed.$t}}</h4>
+                <h4 class="text-transform-inherited" ng-show="pet.age.$t">
+                    Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.age.$t}}</h4>
+                <h4 class="text-transform-inherited" ng-show="pet.sex.$t">
+                    Sex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.sex.$t}}</h4>
+                <h4 class="text-transform-inherited" ng-show="pet.status.$t">
+                    Status &nbsp;&nbsp;&nbsp;:
             <span ng-switch="pet.status.$t">
                 <ANY ng-switch-when="A">Adoptable</ANY>
                 <ANY ng-switch-when="H">Hold</ANY>
                 <ANY ng-switch-when="P">Pending</ANY>
                 <ANY ng-switch-when="X">Already Adopted</ANY>
             </span>
-        </h4>
+                </h4>
+            </div>
+        </div>
+
     </div>
 </div>
 

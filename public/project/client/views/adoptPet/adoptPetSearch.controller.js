@@ -7,8 +7,24 @@
     function AdoptPetSearchController(PetService){
         var vm = this;
         vm.searchPets = searchPets;
+        vm.breedList = breedList;
+        
+        function breedList(animal){
+            if(animal){
+                PetService
+                    .findBreedForAnimal(vm.pet.type)
+                    .then(function (response) {
+                        if(response.data){
+                            // console.log(response.data.petfinder.breeds);
+                            vm.breeds = response.data.petfinder.breeds.breed;
+                        }
+                    });
+            }
+        }
+        
 
         function searchPets(pet){
+            console.log(pet);
             if(pet.location){
                 var param ="&location=" + pet.location;
                 if(pet.type != null)param +="&animal=" + pet.type;

@@ -1,23 +1,23 @@
-var passport         = require('passport');
-var bcrypt           = require('bcrypt-nodejs');
-var LocalStrategy    = require('passport-local').Strategy;
+// var passport         = require('passport');
+// var bcrypt           = require('bcrypt-nodejs');
+// var LocalStrategy    = require('passport-local').Strategy;
 
 module.exports = function(app, model) {
 
-    var auth = authorized;
+    // var auth = authorized;
+    //
+    // passport.use(new LocalStrategy(localStrategy));
+    // passport.serializeUser(serializeUser);
+    // passport.deserializeUser(deserializeUser);
 
-    passport.use(new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    // app.post('/api/assignment/login', passport.authenticate('local'), login);
 
-    app.post('/api/assignment/login', passport.authenticate('local'), login);
-
-    app.post("/api/assignment/admin/user",                    auth, createUser);
-    app.get("/api/assignment/admin/user",                     auth, findAllUsers);
-    app.put("/api/assignment/user/:id",                       auth, updateUserByID);
-    app.put("/api/assignment/admin/user/:id",                 auth, updateUserAdmin);
-    app.delete("/api/assignment/admin/user/:id",              auth, deleteUserById);
-    app.get("/api/assignment/user?username=username",         auth, findUserByUsername);
+    // app.post("/api/assignment/admin/user",                    auth, createUser);
+    // app.get("/api/assignment/admin/user",                     auth, findAllUsers);
+    // app.put("/api/assignment/user/:id",                       auth, updateUserByID);
+    // app.put("/api/assignment/admin/user/:id",                 auth, updateUserAdmin);
+    // app.delete("/api/assignment/admin/user/:id",              auth, deleteUserById);
+    // app.get("/api/assignment/user?username=username",         auth, findUserByUsername);
 
     app.post("/api/assignment/register",                register);
     app.get("/api/assignment/admin/user/:id",           findUserById);
@@ -27,49 +27,49 @@ module.exports = function(app, model) {
     //app.get("/api/assignment/user?username=username&password=password", auth, findUserByCredentials);
 
 
-    function authorized (req, res, next) {
-        if (!req.isAuthenticated()) {
-            res.send(401);
-        } else {
-            next();
-        }
-    }
-
-    function serializeUser(user, done) {
-        done(null, user);
-    }
-
-    function deserializeUser(user, done) {
-        model
-            .findUserById(user._id)
-            .then(
-                function (user) {
-                    done(null, user);
-                },
-                function (err) {
-                    done(err, null);
-                }
-            );
-    }
-
-    function localStrategy(username, password, done) {
-        model
-            // .findUserByCredentials({username: username, password: password})
-            .findUserByUsername(username)
-            .then(
-                function(user) {
-                    // if (!user) { return done(null, false); }
-                    // return done(null, user);
-                    if(user && bcrypt.compareSync(password, user.password)){
-                        return done(null, user);
-                    }
-                    return done(null, false);
-                },
-                function(err) {
-                    if (err) { return done(err); }
-                }
-            );
-    }
+    // function authorized (req, res, next) {
+    //     if (!req.isAuthenticated()) {
+    //         res.send(401);
+    //     } else {
+    //         next();
+    //     }
+    // }
+    //
+    // function serializeUser(user, done) {
+    //     done(null, user);
+    // }
+    //
+    // function deserializeUser(user, done) {
+    //     model
+    //         .findUserById(user._id)
+    //         .then(
+    //             function (user) {
+    //                 done(null, user);
+    //             },
+    //             function (err) {
+    //                 done(err, null);
+    //             }
+    //         );
+    // }
+    //
+    // function localStrategy(username, password, done) {
+    //     model
+    //         // .findUserByCredentials({username: username, password: password})
+    //         .findUserByUsername(username)
+    //         .then(
+    //             function(user) {
+    //                 // if (!user) { return done(null, false); }
+    //                 // return done(null, user);
+    //                 if(user && bcrypt.compareSync(password, user.password)){
+    //                     return done(null, user);
+    //                 }
+    //                 return done(null, false);
+    //             },
+    //             function(err) {
+    //                 if (err) { return done(err); }
+    //             }
+    //         );
+    // }
 
     function createUser(req, res) {
         var newUser = req.body;

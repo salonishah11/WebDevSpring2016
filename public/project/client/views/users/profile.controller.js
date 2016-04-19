@@ -50,7 +50,8 @@
                 .then(function(response){
                     if(response.data){
                         //console.log(response.data);
-                        UserService.setCurrentUser(updatedUserObj);
+                        // UserService.setCurrentUser(updatedUserObj);
+                        init();
                     }
                 });
         }

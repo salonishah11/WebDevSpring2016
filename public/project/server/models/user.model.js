@@ -95,7 +95,6 @@ module.exports = function(db, mongoose) {
                 $set: {
                     "name": updatedUser.name,
                     "email": updatedUser.email,
-                    "password": updatedUser.password,
                     "streetAddress": updatedUser.streetAddress,
                     "city": updatedUser.city,
                     "state": updatedUser.state,

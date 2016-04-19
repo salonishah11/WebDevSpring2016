@@ -4,7 +4,7 @@
         .module("FormBuilderApp")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController(UserService, $location, $scope) {
+    function RegisterController(UserService, $location) {
         
         var vm = this;
         // Function Declarations

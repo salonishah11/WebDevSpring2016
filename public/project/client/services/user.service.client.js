@@ -17,7 +17,8 @@
             updateUser: updateUser,
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
-            logout: logout
+            logout: logout,
+            login: login
         };
         return userAPI;
 
@@ -34,6 +35,10 @@
 
         function logout() {
             return $http.post("/api/project/logout");
+        }
+
+        function login(user) {
+            return $http.post("/api/project/login", user);
         }
 
 

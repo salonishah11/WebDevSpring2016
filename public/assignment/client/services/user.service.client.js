@@ -39,9 +39,9 @@
         }
 
 
-        function login(user) {
-            return $http.post("/api/assignment/login", user);
-        }
+        // function login(user) {
+        //     return $http.post("/api/assignment/login", user);
+        // }
 
 
         // Function Implementations

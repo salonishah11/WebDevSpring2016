@@ -3,7 +3,9 @@
         .module("AdoptAPet")
         .controller("HomeController", HomeController);
 
-    function HomeController($scope) {
+    function HomeController($scope, StoryService) {
+        
+        var vm = this;
 
         $scope.myInterval = 3000;
         $scope.noWrapSlides = false;
@@ -41,6 +43,17 @@
             }
         ];
         var currIndex = 0;
+
+        function init(){
+
+            StoryService
+                .findAllStories()
+                .then(function (response) {
+                   // console.log(response.data);
+                    vm.data = response.data;
+                });
+        }
+        init();
 
         // $('.carousel11').carousel({
         //     interval: 3000 //changes the speed

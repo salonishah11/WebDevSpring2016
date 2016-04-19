@@ -2,6 +2,7 @@ module.exports = function(app, model) {
 
     app.post("/api/project/story", createStory);
     app.get("/api/project/story/user/:userId", findAllStoriesByUserId);
+    app.get("/api/project/story", findAllStories);
     app.delete("/api/project/story/:storyId", deleteStoryById);
     app.put("/api/project/story/:storyId", updateStoryById);
 
@@ -25,6 +26,22 @@ module.exports = function(app, model) {
         var userId = req.params.userId;
         model
             .findAllStoriesByUserId(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+        //res.json(user);
+    }
+
+
+    function findAllStories(req, res) {
+        model
+            .findAllStories()
             .then(
                 function(doc){
                     res.json(doc);

@@ -9,6 +9,7 @@
         var storyAPI = {
             // Function Declarations
             findAllStoriesByUserId: findAllStoriesByUserId,
+            findAllStories: findAllStories,
             createStory: createStory,
             deleteStoryById: deleteStoryById,
             updateStoryById: updateStoryById
@@ -17,6 +18,11 @@
 
         function findAllStoriesByUserId(userId){
             return $http.get("/api/project/story/user/" + userId);
+        }
+        
+        
+        function findAllStories(){
+            return $http.get("/api/project/story");
         }
 
 

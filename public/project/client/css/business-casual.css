@@ -38,6 +38,11 @@ hr {
     border-color: #999999;
 }
 
+.long-hr {
+    max-width: 100%;
+    border-color: #999999;
+}
+
 .brand,
 .address-bar {
     display: none;
@@ -88,7 +93,7 @@ hr {
 
 .intro-text {
     text-transform: uppercase;
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: 400;
     letter-spacing: 1px;
 }
@@ -195,4 +200,13 @@ footer p {
 
 .whitespace-no-wrap {
     white-space: nowrap;
+}
+
+.bold-font {
+    font-weight: bold;
+    text-transform: inherit;
+}
+
+.text-transform-inherited {
+    text-transform: inherit;
 }

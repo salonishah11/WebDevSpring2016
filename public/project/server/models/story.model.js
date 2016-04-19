@@ -11,7 +11,8 @@ module.exports = function(db, mongoose) {
         createStory: createStory,
         findAllStoriesByUserId: findAllStoriesByUserId,
         updateStoryById: updateStoryById,
-        deleteStoryById: deleteStoryById
+        deleteStoryById: deleteStoryById,
+        findAllStories: findAllStories 
     };
     return api;
 
@@ -38,6 +39,24 @@ module.exports = function(db, mongoose) {
 
         StoryModel.find(
             { userId: userId },
+            function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    deferred.resolve(doc);
+                }
+            });
+
+        return deferred.promise;
+    }
+    
+    
+    function findAllStories(){
+        var deferred = q.defer();
+
+        StoryModel.find(
             function(err, doc) {
                 if (err) {
                     // reject promise if error

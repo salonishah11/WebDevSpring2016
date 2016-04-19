@@ -14,7 +14,7 @@
             .findPetByID(id)
             .then(function(response){
                 if(response){
-                    console.log(response);
+                    // console.log(response);
                     vm.petDet = response.data;
                 }
             });

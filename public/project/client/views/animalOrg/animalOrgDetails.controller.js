@@ -13,7 +13,7 @@
             .then(function(response){
                 if(response){
                     vm.shelter = response.data;
-                    // console.log(response.data);
+                    console.log(response.data);
                 }
             });
     }

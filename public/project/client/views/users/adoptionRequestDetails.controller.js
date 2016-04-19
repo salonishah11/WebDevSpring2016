@@ -16,13 +16,13 @@
                 .then(function(response){
                     vm.pet = response.data.pet;
 
-                    UserService
-                        .findUserById(response.data.userId)
-                        .then(function (response) {
-                            if(response.data){
-                                vm.user = response.data;
-                            }
-                        })
+                    // UserService
+                    //     .findUserById(response.data.userId)
+                    //     .then(function (response) {
+                    //         if(response.data){
+                    //             vm.user = response.data;
+                    //         }
+                    //     })
                 });
         }
         init();

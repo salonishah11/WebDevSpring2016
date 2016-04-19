@@ -30,6 +30,8 @@
                            "dateCreated": new Date(),
                            "description": story.description
                        };
+
+                       // console.log(storyObj.dateCreated.toDateString());
                        StoryService
                            .createStory(storyObj)
                            .then(function(response){

@@ -9,7 +9,7 @@
         vm.searchPets = searchPets;
 
         function searchPets(pet){
-            if(pet.location != null){
+            if(pet.location){
                 var param ="&location=" + pet.location;
                 if(pet.type != null)param +="&animal=" + pet.type;
                 if(pet.breed != null)param +="&breed=" + pet.breed;
@@ -21,8 +21,8 @@
                     .findPetsByParam(param)
                     .then(function(response){
                        if(response){
-                           console.log("inside adoptPetSearch Controller");
-                           console.log(response.data);
+                           // console.log("inside adoptPetSearch Controller");
+                           // console.log(response.data);
                            vm.data = response.data;
                        } 
                     });

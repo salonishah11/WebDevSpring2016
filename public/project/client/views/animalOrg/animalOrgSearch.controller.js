@@ -18,7 +18,7 @@
                 ShelterService
                     .findSheltersByParam(param)
                     .then(function(response){
-                        if(response){
+                        if(response.data){
                             vm.data = response.data;
                         }
                     });

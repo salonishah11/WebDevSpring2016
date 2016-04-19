@@ -210,3 +210,7 @@ footer p {
 .text-transform-inherited {
     text-transform: inherit;
 }
+
+.asterisk_input{
+    color: #e32;
+}

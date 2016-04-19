@@ -7,12 +7,31 @@
                     <strong>{{model.shelter.petfinder.shelter.name.$t}}</strong>
                 </h2>
                 <hr>
-                <p><strong>Address: </strong>{{model.shelter.petfinder.shelter.address1.$t}}
+                <p ng-show="model.shelter.petfinder.shelter.address1.$t">
+                    <strong>Address1 &nbsp;&nbsp;&nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.address1.$t}}
+                </p>
+                <p ng-show="model.shelter.petfinder.shelter.address2.$t">
+                    <strong>Address2 &nbsp;&nbsp;&nbsp;: </strong>
                     {{model.shelter.petfinder.shelter.address2.$t}}</p>
-                <p><strong>City: </strong>{{model.shelter.petfinder.shelter.city.$t}}</p>
-                <p><strong>Country: </strong>{{model.shelter.petfinder.shelter.country.$t}}</p>
-                <p><strong>Email: </strong>{{model.shelter.petfinder.shelter.email.$t}}</p>
-                <p><strong>Phone: </strong>{{model.shelter.petfinder.shelter.phone.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.city.$t">
+                    <strong>City &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</strong>
+                    {{model.shelter.petfinder.shelter.city.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.country.$t">
+                    <strong>Country &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.country.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.latitude.$t">
+                    <strong>Latitude &nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.latitude.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.longitude.$t">
+                    <strong>Longitude &nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.longitude.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.phone.$t">
+                    <strong>Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.phone.$t}}</p>
+                <p ng-show="model.shelter.petfinder.shelter.zip.$t">
+                    <strong>Zip &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </strong>
+                    {{model.shelter.petfinder.shelter.zip.$t}}</p>
             </div>
         </div>
     </div>

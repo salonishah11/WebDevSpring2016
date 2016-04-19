@@ -21,10 +21,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="location" class="col-md-2 control-label">Location</label>
+                    <label for="location" class="col-md-2 control-label">
+                        Location<span class="asterisk_input">*</span>
+                    </label>
                     <br/>
                     <div class="col-md-2">
                         <input type="text" ng-model="model.pet.location" class="form-control" id="location" placeholder="ex: 02120">
+
                     </div>
                 </div>
                 <div class="form-group">
@@ -86,7 +89,7 @@
         </div>
     </div>
 
-    <div class="row" ng-show="model.data">
+    <div class="row hidden-xs" ng-show="model.data">
         <div class="box">
             <div class="col-lg-12">
                 <hr>
@@ -104,7 +107,7 @@
                         <th>Breed</th>
                         <th>Age</th>
                         <th>Gender</th>
-                        <th>ID</th>
+                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -115,13 +118,41 @@
                         <td>{{pet.breeds.breed.$t}}</td>
                         <td>{{pet.age.$t}}</td>
                         <td>{{pet.sex.$t}}</td>
-                        <td>{{pet.id.$t}}</td>
+                        <td>
+                            <span ng-switch="pet.status.$t">
+                                <ANY ng-switch-when="A">Adoptable</ANY>
+                                <ANY ng-switch-when="H">Hold</ANY>
+                                <ANY ng-switch-when="P">Pending</ANY>
+                                <ANY ng-switch-when="X">Already Adopted</ANY>
+                            </span>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="box visible-xs" ng-show="model.data" ng-repeat="pet in model.data.petfinder.pets.pet">
+        <h3 class="bold-font"><a href="#/adoptPetDetails/{{pet.id.$t}}">{{pet.name.$t}}</a></h3>
+        <h4 class="text-transform-inherited" ng-show="pet.animal.$t">
+            Animal  &nbsp;: {{pet.animal.$t}}</h4>
+        <h4 class="text-transform-inherited" ng-show="pet.breeds.breed.$t">
+            Breed &nbsp;&nbsp;&nbsp;&nbsp;: {{pet.breeds.breed.$t}}</h4>
+        <h4 class="text-transform-inherited" ng-show="pet.age.$t">
+            Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.age.$t}}</h4>
+        <h4 class="text-transform-inherited" ng-show="pet.sex.$t">
+            Sex &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{pet.sex.$t}}</h4>
+        <h4 class="text-transform-inherited" ng-show="pet.status.$t">
+            Status &nbsp;&nbsp;&nbsp;:
+            <span ng-switch="pet.status.$t">
+                <ANY ng-switch-when="A">Adoptable</ANY>
+                <ANY ng-switch-when="H">Hold</ANY>
+                <ANY ng-switch-when="P">Pending</ANY>
+                <ANY ng-switch-when="X">Already Adopted</ANY>
+            </span>
+        </h4>
     </div>
 </div>
 

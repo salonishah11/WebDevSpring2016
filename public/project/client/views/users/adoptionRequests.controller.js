@@ -58,6 +58,7 @@
         function viewDetails(index){
             var selectedRequest = vm.data[index];
             $location.path('/viewUserAdoptionRequests/request/' + selectedRequest._id);
+            // $location.path('/adoptPetDetails/' + selectedRequest.pet.id);
         }
         
     }

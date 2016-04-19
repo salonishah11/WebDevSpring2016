@@ -8,11 +8,7 @@
         var currentUser;
 
         vm.deleteStory = deleteStory;
-        vm.updateStory = updateStory;
-        vm.selectStory = selectStory;
-
-        //$scope.selectedIndex = -1;
-        //
+        
         function init(){
             UserService
                 .getCurrentUser()
@@ -24,7 +20,12 @@
                             .findAllStoriesByUserId(currentUser._id)
                             .then(function(response){
                                 //console.log(response.data[0].pet);
-                                vm.data = response.data;
+                                var stories = response.data;
+                                for(var u in stories){
+                                    stories[u].dateCreated = new Date(stories[u].dateCreated).toDateString();
+                                }
+
+                                vm.data = stories;
                             });
                     }
                     else {
@@ -49,6 +50,7 @@
         }
 
 
+        /*
         function selectStory(index){
             vm.selectedIndex = index;
             var selectedStory = vm.data[index];
@@ -89,5 +91,6 @@
                 }
             }
         }
+        */
     }
 })();

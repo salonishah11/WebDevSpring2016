@@ -15,20 +15,32 @@
             .when("/adoptPetSearch",{
                 templateUrl: "views/adoptPet/adoptPetSearch.view.html",
                 controller: "AdoptPetSearchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when("/adoptPetDetails/:id",{
                 templateUrl: "views/adoptPet/adoptPetDetails.view.html",
-                controller: "AdoptPetDetailsController"
+                controller: "AdoptPetDetailsController",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when("/animalOrgSearch",{
                 templateUrl: "views/animalOrg/animalOrgSearch.view.html",
                 controller: "AnimalOrgSearchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when("/animalOrgDetails/:id",{
                 templateUrl: "views/animalOrg/animalOrgDetails.view.html",
-                controller: "AnimalOrgDetailsController"
+                controller: "AnimalOrgDetailsController",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when("/contact",{
                 templateUrl: "views/contact/contact.view.html"

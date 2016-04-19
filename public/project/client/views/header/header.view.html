@@ -17,7 +17,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <!--<div class="container">-->
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -32,20 +32,36 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <!--
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Login</a></li>
-                    <li><a href="#">Register</a></li>
-                </ul>
-                -->
                 <ul class="nav navbar-nav">
                     <li><a href="#/home" style="font-size:medium">Home</a></li>
-                    <li><a href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>
-                    <li><a href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>
+                    <li class="dropdown" ng-show=" currentUser">
+                        <a type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Find Pets & Shelters
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>
+                            <li><a href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>
+                        </ul>
+                    </li>
+                    <li><a ng-show="!currentUser" href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>
+                    <li><a ng-show="!currentUser" href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>
+                    <li class="dropdown" ng-show="currentUser.accountType == 'Individual'">
+                        <a type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Requests & Stories
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewUserAdoptionRequests" style="font-size:medium">My Requests</a></li>
+                            <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewStories" style="font-size:medium">My Stories</a></li>
+                        </ul>
+                    </li>
+                    <!--<li><a href="#/adoptPetSearch" style="font-size:medium">Find a Pet to Adopt</a></li>-->
+                    <!--<li><a href="#/animalOrgSearch" style="font-size:medium">Find Animal Shelters</a></li>-->
                     <!--<li><a href="#/contact">Contact</a></li>-->
-                    <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewUserAdoptionRequests" style="font-size:medium">My Requests</a></li>
+                    <!--<li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewUserAdoptionRequests" style="font-size:medium">My Requests</a></li>-->
                     <li ng-show="currentUser.accountType == 'Organization'"><a href="#/viewOrgAdoptionRequests" style="font-size:medium">Adoption Requests</a></li>
-                    <li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewStories" style="font-size:medium">My Stories</a></li>
+                    <!--<li ng-show="currentUser.accountType == 'Individual'"><a href="#/viewStories" style="font-size:medium">My Stories</a></li>-->
                 </ul>
                 <ul class="nav navbar-nav visible-xs">
                     <li ng-hide="currentUser"><a href="#/login">Login</a></li>
@@ -54,17 +70,9 @@
                     <li ng-show="currentUser" ng-click="model.logout()"><a href="#/home">Logout</a></li>
 
                 </ul>
-
-                <!--<ul class="nav navbar-nav">-->
-                    <!--<li><a href="#/users">Users CRUD</a></li>-->
-                    <!--<li><a href="#/animals">Animals CRUD</a></li>-->
-                    <!--<li><a href="#/adoptionStories">Adoption Stories CRUD</a></li>-->
-                    <!--<li><a href="#/adoptionRequests">Adoption Requests CRUD</a></li>-->
-                <!--</ul>-->
-
             </div>
             <!-- /.navbar-collapse -->
-        </div>
+        <!--</div>-->
         <!-- /.container -->
 
         <!--

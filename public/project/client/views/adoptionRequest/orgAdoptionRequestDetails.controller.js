@@ -53,6 +53,15 @@
                                     $location.path('/viewOrgAdoptionRequests');
                                 }
                             });
+                        
+                        if(newStatus == 'Accepted'){
+                            var pet = updatedRequest.pet;
+
+                            AdoptionRequestService
+                                .updateStatusOfRequests(pet.id)
+                                .then(function (response) {
+                                })
+                        }
                     });
             }
         }

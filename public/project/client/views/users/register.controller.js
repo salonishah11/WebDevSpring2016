@@ -22,6 +22,7 @@
         // Function Implementations
         // registers a new user
         function register(newUser, shelterId){
+            // console.log(newUser);
 
             if((newUser) &&
                (newUser.username != null) &&
@@ -46,7 +47,7 @@
                     .createUser(newUser)
                     .then(function(response){
                         if(response.data){
-                            //console.log(response.data);
+                            // console.log(response.data);
                             UserService.setCurrentUser(response.data);
                             $location.path('/profile');
                         }

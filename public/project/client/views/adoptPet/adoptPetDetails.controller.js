@@ -3,7 +3,7 @@
         .module("AdoptAPet")
         .controller("AdoptPetDetailsController", AdoptPetDetailsController);
 
-    function AdoptPetDetailsController($routeParams, $location, UserService, PetService){
+    function AdoptPetDetailsController($routeParams, $location, UserService, PetService, AdoptionRequestService){
         var vm = this;
         
         var id = $routeParams.id;
@@ -21,17 +21,52 @@
 
         function adopt(pet){
             //console.log(pet);
-            UserService
-                .getCurrentUser()
-                .then(function(response) {
-                    var currentUser = response.data;
+            AdoptionRequestService
+                .isPetAdopted(id)
+                .then(function (response) {
+                    if(response.data){
+                        var request = response.data;
+                        var adopted = false;
+                        for(var u in request){
+                            if(request[u].status == 'Accepted') {
+                                adopted = true;
+                                break;
+                            }
+                        }
 
-                    if (currentUser) {
-                        $location.path('/adoptionRequest/user/' + currentUser._id + '/pet/' + pet.petfinder.pet.id.$t);
+                        if(adopted){
+                            alert("Sorry, the Animal is no longer available for Adoption!");
+                        }
+                        else{
+                            UserService
+                                .getCurrentUser()
+                                .then(function(response) {
+                                    var currentUser = response.data;
+
+                                    if (currentUser) {
+                                        $location.path('/adoptionRequest/user/' + currentUser._id + '/pet/' + pet.petfinder.pet.id.$t);
+                                    }
+                                    else {
+                                        alert("Please Login/Register!");
+                                        $location.path('/login');
+                                    }
+                                });
+                        }
                     }
-                    else {
-                        alert("Please Login/Register!");
-                        $location.path('/login');
+                    else{
+                        UserService
+                            .getCurrentUser()
+                            .then(function(response) {
+                                var currentUser = response.data;
+
+                                if (currentUser) {
+                                    $location.path('/adoptionRequest/user/' + currentUser._id + '/pet/' + pet.petfinder.pet.id.$t);
+                                }
+                                else {
+                                    alert("Please Login/Register!");
+                                    $location.path('/login');
+                                }
+                            });
                     }
                 });
         }

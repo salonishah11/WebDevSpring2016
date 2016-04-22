@@ -4,8 +4,10 @@ module.exports = function(app, model) {
     app.get("/api/project/adoptionRequest/user/:userId", findAllRequestsByUserId);
     app.get("/api/project/adoptionRequest/org/:shelterId", findAllRequestsByShelterId);
     app.get("/api/project/adoptionRequest/request/:requestId", findRequestById);
+    app.get("/api/project/adoptionRequest/pet/:petId", isPetAdopted);
     app.delete("/api/project/adoptionRequest/request/:requestId", deleteRequestById);
     app.put("/api/project/adoptionRequest/request/:requestId", updateRequestById);
+    app.get("/api/project/adoptionRequest/pet/updateStatus/:petId", updateStatusOfRequests);
 
     function createRequest(req, res) {
         var request = req.body;
@@ -107,5 +109,42 @@ module.exports = function(app, model) {
                 }
             );
         //res.json(users);
+    }
+    
+    function isPetAdopted(req, res) {
+        var petId = req.params.petId;
+
+        console.log(petId);
+        
+        model
+            .isPetAdopted(petId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
+
+    function updateStatusOfRequests(req, res) {
+        var petId = req.params.petId;
+
+        console.log(petId);
+
+        model
+            .updateStatusOfRequests(petId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+
     }
 };

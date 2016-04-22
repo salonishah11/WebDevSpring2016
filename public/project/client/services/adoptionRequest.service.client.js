@@ -13,12 +13,14 @@
             findRequestById:findRequestById, 
             createRequest: createRequest,
             deleteRequestById: deleteRequestById,
-            updateRequestById: updateRequestById
+            updateRequestById: updateRequestById,
+            isPetAdopted: isPetAdopted,
+            updateStatusOfRequests: updateStatusOfRequests
         };
         return requestAPI;
 
         function findAllRequestsByUserId(userId){
-            console.log(userId);
+            // console.log(userId);
             //callback(requests);
             return $http.get("/api/project/adoptionRequest/user/" + userId);
         }
@@ -47,6 +49,14 @@
 
         function updateRequestById(requestId, updatedRequest){
             return $http.put("/api/project/adoptionRequest/request/" + requestId, updatedRequest);
+        }
+        
+        function isPetAdopted(petId) {
+            return $http.get("/api/project/adoptionRequest/pet/" + petId);
+        }
+        
+        function updateStatusOfRequests(petId) {
+            return $http.get("/api/project/adoptionRequest/pet/updateStatus/" + petId);
         }
     }
 })();

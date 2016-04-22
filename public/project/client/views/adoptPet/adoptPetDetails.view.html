@@ -14,7 +14,8 @@
                 </p>
                 <form>
                     <div class="intro-text text-center form-group"
-                         ng-show="model.petDet.petfinder.pet.status.$t != 'X' && currentUser.shelterId == null">
+                         ng-show="model.petDet.petfinder.pet.status.$t != 'X'
+                         && currentUser.shelterId == null">
                         <!--<div class="col-sm-4">-->
                         <a ng-click="model.adopt(model.petDet)" class="btn btn-primary btn-lg">Adopt ME!</a>
                         <!--</div>-->

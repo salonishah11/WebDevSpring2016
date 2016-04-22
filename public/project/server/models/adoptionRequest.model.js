@@ -14,7 +14,9 @@ module.exports = function(db, mongoose) {
         findAllRequestsByShelterId: findAllRequestsByShelterId,
         findRequestById: findRequestById,
         deleteRequestById: deleteRequestById,
-        updateRequestById: updateRequestById
+        updateRequestById: updateRequestById,
+        isPetAdopted: isPetAdopted,
+        updateStatusOfRequests: updateStatusOfRequests
     };
     return api;
 
@@ -77,18 +79,7 @@ module.exports = function(db, mongoose) {
                     deferred.resolve(requests);
                 }
             });
-
-        // var requests = [];
-        //
-        // for(var u in requestMock){
-        //     //console.log(requestMock[u].user);
-        //     if(requestMock[u].pet.shelterId == shelterId){
-        //         requests.push(requestMock[u]);
-        //     }
-        // }
-        // // console.log("all requests");
-        // // console.log(requests);
-        // deferred.resolve(requests);
+        
         return deferred.promise;
     }
 
@@ -146,6 +137,71 @@ module.exports = function(db, mongoose) {
                     deferred.resolve(doc);
                 }
             });
+
+        return deferred.promise;
+    }
+    
+    
+    function isPetAdopted(petId) {
+        var deferred = q.defer();
+
+        AdoptionRequestModel
+            .find(
+                function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    // deferred.resolve(doc);
+                    var pet = [];
+                    for(var u in doc){
+                        if(doc[u].pet.id == petId){
+                            pet.push(doc[u]);
+                        }
+                    }
+                    deferred.resolve(pet);
+                }
+            });
+
+        return deferred.promise;
+    }
+    
+    
+    function updateStatusOfRequests(petId) {
+        var deferred = q.defer();
+
+        AdoptionRequestModel
+            .find(
+                function(err, doc) {
+                    if (err) {
+                        // reject promise if error
+                        deferred.reject(err);
+                    } else {
+                        // resolve promise
+                        // deferred.resolve(doc);
+                        for(var u in doc){
+                            if((doc[u].pet.id == petId)
+                                && (doc[u].status != 'Accepted')){
+                                AdoptionRequestModel
+                                    .update(
+                                        { _id : doc[u]._id},
+                                        {
+                                            $set: {
+                                                "status": "Rejected"
+                                            }
+                                        }, function (err, doc) {
+                                            if (err) {
+                                                deferred.reject(err);
+                                            } else {
+                                                deferred.resolve(doc);
+                                            }
+                                        });
+                            }
+                        }
+                        deferred.resolve(doc);
+                    }
+                });
 
         return deferred.promise;
     }

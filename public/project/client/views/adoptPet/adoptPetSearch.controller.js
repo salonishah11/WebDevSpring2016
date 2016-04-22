@@ -24,7 +24,7 @@
         
 
         function searchPets(pet){
-            console.log(pet);
+            // console.log(pet);
             if(pet.location){
                 var param ="&location=" + pet.location;
                 if(pet.type != null)param +="&animal=" + pet.type;

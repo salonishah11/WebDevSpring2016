@@ -18,7 +18,11 @@
             setCurrentUser: setCurrentUser,
             getCurrentUser: getCurrentUser,
             logout: logout,
-            login: login
+            login: login,
+
+            findAvailableShelterId: findAvailableShelterId,
+            addShelterId: addShelterId,
+            updateShelterId: updateShelterId
         };
         return userAPI;
 
@@ -73,6 +77,20 @@
 
         function updateUser(userId, updatedUser){
             return $http.put("/api/project/user/" + userId, updatedUser);
+        }
+
+
+        function findAvailableShelterId() {
+            return $http.get("/api/project/shelterId");
+        }
+
+
+        function addShelterId(newShelterIdObj) {
+            return $http.post("/api/project/shelterId/new", newShelterIdObj);
+        }
+
+        function updateShelterId(updatedShelterIdObj) {
+            return $http.post("/api/project/shelterId/update", updatedShelterIdObj);
         }
     }
 })();

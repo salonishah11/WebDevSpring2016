@@ -20,6 +20,10 @@ module.exports = function(app, model) {
     app.delete("/api/project/user/:id",               auth, deleteUserById);
     app.get("/api/project/user/shelterId/:shelterId", auth, findUserByShelterId);
 
+    app.get("/api/project/shelterId",                       findAvailableShelterId);
+    app.post("/api/project/shelterId/new",                  addShelterId);
+    app.post("/api/project/shelterId/update",               updateShelterId);
+
     app.get("/api/project/loggedin", loggedIn);
     app.post("/api/project/logout", logout);
 
@@ -198,7 +202,7 @@ module.exports = function(app, model) {
             .deleteUserById(userId)
             .then(
                 function(doc){
-                    console.log("after model" + doc);
+                    // console.log("after model" + doc);
                     res.json(doc);
                 },
                 // send error if promise rejected
@@ -208,6 +212,56 @@ module.exports = function(app, model) {
             );
         //res.json(users);
     }
+
+
+    function findAvailableShelterId(req, res) {
+        model
+            .findAvailableShelterId()
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
+
+
+    function addShelterId(req, res) {
+        var newShelterObj = req.body;
+
+        model
+            .addShelterId(newShelterObj)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
+
+
+    function updateShelterId(req, res) {
+        var updatedShelterObj = req.body;
+        
+        model
+            .updateShelterId(updatedShelterObj)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                // send error if promise rejected
+                function(err ){
+                    res.status(400).send(err);
+                }
+            );
+    }
+
 
     function loggedIn(req, res) {
         // res.json(req.session.currentUser);

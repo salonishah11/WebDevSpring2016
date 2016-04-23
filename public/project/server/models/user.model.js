@@ -3,9 +3,11 @@ var q = require("q");
 module.exports = function(db, mongoose) {
     // load user schema
     var UserSchema = require("./user.schema.js")(mongoose);
+    var ShelterIdSchema = require("./shelterId.schema.js")(mongoose);
 
     // create user model from schema
     var UserModel = mongoose.model('projectUser', UserSchema);
+    var ShelterIdModel = mongoose.model('shelterId', ShelterIdSchema);
     
     var api = {
         createUser: createUser,
@@ -15,7 +17,11 @@ module.exports = function(db, mongoose) {
         updateUser: updateUser,
         deleteUserById: deleteUserById,
         findUserByUsername: findUserByUsername,
-        findUserByCredentials: findUserByCredentials
+        findUserByCredentials: findUserByCredentials,
+        
+        findAvailableShelterId: findAvailableShelterId,
+        addShelterId: addShelterId,
+        updateShelterId: updateShelterId
     };
     return api;
 
@@ -168,6 +174,67 @@ module.exports = function(db, mongoose) {
 
             });
         
+        return deferred.promise;
+    }
+
+
+    function findAvailableShelterId() {
+        var deferred = q.defer();
+
+        ShelterIdModel.findOne(
+            {username: null},
+            function(err, doc) {
+                if (err) {
+                    // reject promise if error
+                    deferred.reject(err);
+                } else {
+                    // resolve promise
+                    deferred.resolve(doc);
+                }
+            });
+
+        return deferred.promise;
+    }
+
+
+    function addShelterId(newShelterObj) {
+        var deferred = q.defer();
+
+        ShelterIdModel
+            .create(
+                newShelterObj,
+                function(err, doc) {
+                    if (err) {
+                        // reject promise if error
+                        deferred.reject(err);
+                    } else {
+                        // resolve promise
+                        deferred.resolve(doc);
+                    }
+            });
+
+        return deferred.promise;
+    }
+
+
+    function updateShelterId(updatedObj) {
+        var deferred = q.defer();
+
+        ShelterIdModel
+            .update(
+            { shelterId : updatedObj.shelterId},
+            {
+                $set: {
+                    "username": updatedObj.username
+                }
+            }, function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+
         return deferred.promise;
     }
 };

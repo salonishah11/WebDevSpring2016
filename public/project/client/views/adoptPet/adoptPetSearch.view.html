@@ -1,4 +1,128 @@
 <div ng-controller="AdoptPetSearchController as model">
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">Search for
+                    <strong>Your Next Best Friend</strong>
+                </h2>
+                <hr>
+            </div>
+            <form>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="type" class="control-label">Type</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.type" ng-change="model.breedList(model.pet.type)"
+                                        class="form-control" id="type">
+                                    <option value="bird">Bird</option>
+                                    <option value="cat">Cat</option>
+                                    <option value="dog">Dog</option>
+                                    <option value="horse">Horse</option>
+                                    <option value="pig">Pig</option>
+                                    <option value="reptile">Reptile</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="location" class="control-label">
+                                Location (Zipcode)<span class="asterisk_input">*</span>
+                            </label>
+                            <br/>
+                            <div>
+                                <input type="text" ng-model="model.pet.location" class="form-control"
+                                       id="location" placeholder="ex: 02120">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group" ng-show="!model.pet.type">
+                            <label for="breed" class="control-label">Breed</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.breed" class="form-control" id="breed">
+                                    <option value="Labrador Retriever">Labrador Retriever</option>
+                                    <option value="Golden Retriever">Golden Retriever</option>
+                                    <option value="Terrier">Terrier</option>
+                                    <option value="Beagle">Beagle</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="Birman">Birman</option>
+                                    <option value="Domestic Short Hair">Domestic Short Hair</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="model.pet.type && model.breeds">
+                            <label for="breed" class="control-label">Breed</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.breed" class="form-control">
+                                    <option value={{breed.$t}} ng-repeat="breed in model.breeds">{{breed.$t}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="gender" class="control-label">Gender</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.gender" class="form-control" id="gender">
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="size" class="control-label">Size</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.size" class="form-control" id="size">
+                                    <option value="S">Small</option>
+                                    <option value="M">Medium</option>
+                                    <option value="L">Large</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label for="age" class="control-label">Age</label>
+                            <br/>
+                            <div>
+                                <select ng-model="model.pet.age" class="form-control" id="age">
+                                    <option value="Baby">Baby</option>
+                                    <option value="Young">Young</option>
+                                    <option value="Adult">Adult</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <br/>
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <a ng-click="model.searchPets(model.pet)" class="btn btn-primary form-control">Find Pets</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <!--
     <div class="row">
         <div class="box">
             <div class="col-lg-12">
@@ -102,6 +226,7 @@
             <div class="clearfix"></div>
         </div>
     </div>
+    -->
 
     <div class="row hidden-xs" ng-show="model.data">
         <div class="box">

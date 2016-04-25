@@ -6,6 +6,7 @@
 
     function AnimalOrgSearchController(ShelterService, $location, $routeParams){
         var vm = this;
+
         var location = $routeParams.location;
         var name = $routeParams.name;
 
@@ -14,7 +15,7 @@
         if(location){
             var param = "";
             if(location != null)param += "&location=" + location;
-            if(name != 'undefined')param += "&name=" + name;
+            if(name != null)param += "&name=" + name;
 
             ShelterService
                 .findSheltersByParam(param)
@@ -29,10 +30,17 @@
             if(org){
                 if((org.location != null) || (org.location != undefined)){
                     var param = "";
-                    if(org.location != null)param += "&location=" + org.location;
-                    if(org.name != null)param += "&name=" + org.name;
-
-                    $location.url("/animalOrgSearch/" + org.location + "/" + org.name);
+                    var url;
+                    if(org.location != null){
+                        param += "&location=" + org.location;
+                        url = 'location=' + org.location;
+                    }
+                    if(org.name != null){
+                        param += "&name=" + org.name;
+                        url += '&name=' + org.name; 
+                    }
+                    
+                    $location.url("/animalOrgSearch?" + url);
 
                     ShelterService
                         .findSheltersByParam(param)

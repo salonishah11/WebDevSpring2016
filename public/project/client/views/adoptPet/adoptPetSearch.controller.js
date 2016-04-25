@@ -18,11 +18,11 @@
 
         if(location){
             var param ="&location=" + location;
-            if(type != 'undefined')param +="&animal=" + type;
-            if(breed != 'undefined')param +="&breed=" + breed;
-            if(age != 'undefined')param +="&age=" + age;
-            if(size != 'undefined')param +="&size=" + size;
-            if(gender != 'undefined')param +="&sex=" + gender;
+            if(type != null)param +="&animal=" + type;
+            if(breed != null)param +="&breed=" + breed;
+            if(age != null)param +="&age=" + age;
+            if(size != null)param +="&size=" + size;
+            if(gender != null)param +="&sex=" + gender;
 
             PetService
                 .findPetsByParam(param)
@@ -54,14 +54,30 @@
             if(pet){
                 if(pet.location){
                     var param ="&location=" + pet.location;
-                    if(pet.type != null)param +="&animal=" + pet.type;
-                    if(pet.breed != null)param +="&breed=" + pet.breed;
-                    if(pet.age != null)param +="&age=" + pet.age;
-                    if(pet.size != null)param +="&size=" + pet.size;
-                    if(pet.gender != null)param +="&sex=" + pet.gender;
+                    var url = "location=" + pet.location;
+                    
+                    if(pet.type != null){
+                        param +="&animal=" + pet.type;
+                        url += "&animal=" + pet.type;
+                    }
+                    if(pet.breed != null){
+                        param +="&breed=" + pet.breed;
+                        url += "&breed=" + pet.breed;
+                    }
+                    if(pet.age != null){
+                        param +="&age=" + pet.age;
+                        url += "&age=" + pet.age;
+                    }
+                    if(pet.size != null){
+                        param +="&size=" + pet.size;
+                        url += "&size=" + pet.size;
+                    }
+                    if(pet.gender != null){
+                        param +="&sex=" + pet.gender;
+                        url += "&gender=" + pet.gender;
+                    }
 
-                    $location.url("/adoptPetSearch/" + pet.location + "/" + pet.type + "/" + pet.breed
-                        + "/" + pet.age + "/" + pet.size + "/" + pet.gender);
+                    $location.url("/adoptPetSearch?" + url);
 
                     PetService
                         .findPetsByParam(param)

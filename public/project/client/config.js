@@ -20,7 +20,8 @@
                     getLoggedIn: getLoggedIn
                 }
             })
-            .when("/adoptPetSearch/:location/:type/:breed/:age/:size/:gender",{
+            .when("/adoptPetSearch?location=location&animal=animal&breed=breed" +
+                "&age=age&size=size&gender=gender",{
                 templateUrl: "views/adoptPet/adoptPetSearch.view.html",
                 controller: "AdoptPetSearchController",
                 controllerAs: "model",
@@ -43,7 +44,7 @@
                     getLoggedIn: getLoggedIn
                 }
             })
-            .when("/animalOrgSearch/:location/:name",{
+            .when("/animalOrgSearch?location=location&name=name",{
                 templateUrl: "views/animalOrg/animalOrgSearch.view.html",
                 controller: "AnimalOrgSearchController",
                 controllerAs: "model",

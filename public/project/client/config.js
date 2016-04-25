@@ -20,6 +20,14 @@
                     getLoggedIn: getLoggedIn
                 }
             })
+            .when("/adoptPetSearch/:location/:type/:breed/:age/:size/:gender",{
+                templateUrl: "views/adoptPet/adoptPetSearch.view.html",
+                controller: "AdoptPetSearchController",
+                controllerAs: "model",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
+            })
             .when("/adoptPetDetails/:id",{
                 templateUrl: "views/adoptPet/adoptPetDetails.view.html",
                 controller: "AdoptPetDetailsController",
@@ -28,6 +36,14 @@
                 }
             })
             .when("/animalOrgSearch",{
+                templateUrl: "views/animalOrg/animalOrgSearch.view.html",
+                controller: "AnimalOrgSearchController",
+                controllerAs: "model",
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
+            })
+            .when("/animalOrgSearch/:location/:name",{
                 templateUrl: "views/animalOrg/animalOrgSearch.view.html",
                 controller: "AnimalOrgSearchController",
                 controllerAs: "model",
